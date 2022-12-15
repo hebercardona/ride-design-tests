@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {                                           /* Specify a set of entries that re-map imports to additional lookup locations. */
+      "@pages/*":["./pageFactory/pageRepository/*"],
+      "@objects/*":["./pageFactory/objectRepository/*"],
+      "@framework/*":["./framework/*"],
+      "@testConfig/*":["./tsconfig.ts"]
+    }                                         
+  }
+}

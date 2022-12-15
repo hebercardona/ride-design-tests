@@ -1,0 +1,1962 @@
+<testsuites id="" name="" tests="8" failures="4" skipped="0" errors="0" time="127.24945299999416">
+<testsuite name="apiTests.spec.ts" timestamp="1670439664131" hostname="" tests="3" failures="1" skipped="0" time="123.412" errors="0">
+<testcase name="Api Test" classname="[chromium] › apiTests.spec.ts › Api Test" time="121.857">
+<failure message="apiTests.spec.ts:250:1 Api Test" type="FAILURE">
+<![CDATA[  [chromium] › apiTests.spec.ts:250:1 › Api Test ===================================================
+
+    route.fulfill: ENOENT: no such file or directory, open 'C:\Users\hcardo\Heber\training\udemy\playwright-ts\body.json'
+
+      265 |     await page.route('https://rzr.polaris.com/en-us/api/configurator/settings?productLineCode=rzr', 
+      266 |     async route => {
+    > 267 |         route.fulfill({ path: 'body.json'});
+          |               ^
+      268 |     });
+      269 |     await page.goto('https://rzr.polaris.com/en-us/build-model/');
+      270 |     await build.clickAnySeatCategory();
+
+        at C:\Users\hcardo\Heber\training\udemy\playwright-ts\tests\apiTests.spec.ts:267:15
+
+    attachment #1: trace (application/zip) ---------------------------------------------------------
+    test-results\apiTests-Api-Test-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\apiTests-Api-Test-chromium\trace.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #2: trace (application/zip) ---------------------------------------------------------
+    test-results\apiTests-Api-Test-chromium\trace-1.zip
+    Usage:
+
+        npx playwright show-trace test-results\apiTests-Api-Test-chromium\trace-1.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #3: screenshot (image/png) ----------------------------------------------------------
+    test-results\apiTests-Api-Test-chromium\test-failed-1.png
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[https://rzr.polaris.com/en-us/build-model/
+https://rzr.polaris.com/ruxitagentjs_ICA2NVfjqru_10253221019152312.js
+https://cdn1.polaris.com/assets/v2/themes/rzr/v2/style/main.min.css?v=10414
+https://cdn1.polaris.com/assets/v2/blocks/components/pricing-disclaimer/pricing-disclaimer.min.css?v=10414
+https://cdn1.polaris.com/assets/v2/vendors/jquery/jquery-3.6.0.min.js?v=10414
+https://cdn1.polaris.com/assets/v2/vendors/vue/min/vue-2.6.14.min.js?v=10414
+https://cdn1.polaris.com/assets/v2/vendors/vue-resource/min/vue-resource-1.5.3.min.js?v=10414
+https://cdn2.polaris.com/cpqui/v3/styles/configurator.min.css
+https://cdn2.polaris.com/cpqui/v3/styles/brands/rzr/v2/configurator.min.css
+https://cdn1.polaris.com/assets/v2/vendors/loggly/loggly-tracker.min.js?v=10414
+https://cdn1.polaris.com/assets/v2/vendors/auth0/auth0-9.18.1.min.js?v=10414
+https://cdn1.polaris.com/assets/plugins/jquery-format-currency/jquery.formatcurrency-1.4.0.min.js?v=10414
+https://cdn1.polaris.com/assets/plugins/jquery-format-currency/i18n/jquery.formatcurrency.en-us.min.js?v=10414
+https://cdn1.polaris.com/assets/v2/pages/configurator/configurator.min.js?v=10414
+https://cdn1.polaris.com/assets/v2/blocks/components/pricing-disclaimer/pricing-disclaimer.min.js?v=10414
+https://cdn1.polaris.com/assets/core/script/api/v1/bundle/polaris.min.js?v=10414
+https://dl.episerver.net/13.5.1/epi-util/find.js
+https://www.googletagmanager.com/gtm.js?id=GTM-W6BC
+https://fonts.googleapis.com/css?family=Oswald
+https://fonts.googleapis.com/css?family=Anton
+https://consent.trustarc.com/notice?domain=polaris-offroad.com&c=teconsent&js=nj&noticeType=bb&text=true&gtm=1
+https://www.google-analytics.com/analytics.js
+https://static.hotjar.com/c/hotjar-475500.js?sv=7
+https://googleads.g.doubleclick.net/pagead/viewthroughconversion/991180924/?random=1670439788060&cv=11&fst=1670439788060&bg=ffffff&guid=ON&async=1&gtm=2wgbu0&u_w=1280&u_h=720&hn=www.googleadservices.com&frm=0&url=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&tiba=Build%20Your%20SxS%20%7C%20Polaris%20RZR&uaw=0&rfmt=3&fmt=4
+https://8279968.fls.doubleclick.net/activityi;src=8279968;type=orv_rzr;cat=universa;ord=5570167522770;gtm=2wgbu0;auiddc=131731753.1670439788;~oref=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F?
+https://8279968.fls.doubleclick.net/activityi;src=8279968;type=orv_rzr;cat=rzrmod;ord=1;num=1559281785675;gtm=2wgbu0;auiddc=131731753.1670439788;u4=null;u5=build%20model;u6=model;u7=2023;u8=2023;u9=null;u10=0;u11=null;~oref=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F?
+https://googleads.g.doubleclick.net/pagead/viewthroughconversion/714655261/?random=1670439788092&cv=11&fst=1670439788092&bg=ffffff&guid=ON&async=1&gtm=2wgbu0&u_w=1280&u_h=720&hn=www.googleadservices.com&frm=0&url=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&tiba=Build%20Your%20SxS%20%7C%20Polaris%20RZR&auid=131731753.1670439788&uaw=0&rfmt=3&fmt=4
+https://nebula-cdn.kampyle.com/wu/300037/onsite/embed.js
+https://connect.facebook.net/en_US/fbevents.js
+https://edge.curalate.com/sites/polaris-bbfwq6/site/latest/site.min.js
+https://cdn2.polaris.com/rzr/2023/playcanvas-stable.min.js?v=140
+https://browser-update.org/update.min.js
+https://aa.trkn.us/1/e/cs.js?cid=c013&evid=6412d57b-6e0e-47f7-a1c2-4d065143912d&suu=1&dmn=rzr.polaris.com
+https://www.google-analytics.com/j/collect?v=1&_v=j98&aip=1&a=448787556&t=pageview&_s=1&dl=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&ul=en-us&de=UTF-8&dt=Build%20Your%20SxS%20%7C%20Polaris%20RZR&sd=24-bit&sr=1280x720&vp=1280x720&je=0&_u=YEBAAEABAAAAACgEK~&jid=59031495&gjid=1871130093&cid=1575378704.1670439788&tid=UA-1068668-4&_gid=1991312953.1670439788&_r=1&gtm=2wgbu0W6BC&cg1=model&cg2=model%20build%20model&cd1=off-road&cd2=rzr&cd3=model&cd4=build%20model&cd5=not%20authenticated&cd7=b47593ef-e36c-4bf3-adc0-945cec468883&cd14=2023&cd23=en-us&cd60=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&cd76=off-road%7Crzr%7Cmodel%7Cbuild%20model%7Crzr%7C2023%7C2023&cd127=0&cd128=0&cd129=0&cd130=0&cd131=0&cd132=0&cd133=0&cd134=0&cd135=0&cm87=%2B&z=1319892283
+https://www.google.com/pagead/1p-user-list/991180924/?random=1670439788060&cv=11&fst=1670439600000&bg=ffffff&guid=ON&async=1&gtm=2wgbu0&u_w=1280&u_h=720&frm=0&url=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&tiba=Build%20Your%20SxS%20%7C%20Polaris%20RZR&fmt=3&is_vtc=1&random=2178198359&rmt_tld=0&ipr=y
+https://www.google.com.mx/pagead/1p-user-list/991180924/?random=1670439788060&cv=11&fst=1670439600000&bg=ffffff&guid=ON&async=1&gtm=2wgbu0&u_w=1280&u_h=720&frm=0&url=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&tiba=Build%20Your%20SxS%20%7C%20Polaris%20RZR&fmt=3&is_vtc=1&random=2178198359&rmt_tld=1&ipr=y
+https://www.google.com/pagead/1p-user-list/714655261/?random=1670439788092&cv=11&fst=1670439600000&bg=ffffff&guid=ON&async=1&gtm=2wgbu0&u_w=1280&u_h=720&frm=0&url=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&tiba=Build%20Your%20SxS%20%7C%20Polaris%20RZR&fmt=3&is_vtc=1&random=1089161106&rmt_tld=0&ipr=y
+https://www.google.com.mx/pagead/1p-user-list/714655261/?random=1670439788092&cv=11&fst=1670439600000&bg=ffffff&guid=ON&async=1&gtm=2wgbu0&u_w=1280&u_h=720&frm=0&url=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&tiba=Build%20Your%20SxS%20%7C%20Polaris%20RZR&fmt=3&is_vtc=1&random=1089161106&rmt_tld=1&ipr=y
+https://consent.trustarc.com/asset/notice.js/v/v1.7-1971
+https://consent.trustarc.com/log?domain=polaris-offroad.com&country=mx&state=&behavior=implied&c=0699
+https://consent.trustarc.com/get?name=crossdomain.html&domain=polaris-offroad.com
+https://stats.g.doubleclick.net/j/collect?t=dc&aip=1&_r=3&v=1&_v=j98&tid=UA-1068668-4&cid=1575378704.1670439788&jid=59031495&gjid=1871130093&_gid=1991312953.1670439788&_u=YEBAAEAAAAAAACgEK~&z=331132159
+https://js.adsrvr.org/up_loader.1.1.0.js
+https://browser-update.org/update.show.min.js
+https://www.googletagmanager.com/gtag/js?id=AW-714655261
+https://adservice.google.com/ddm/fls/z/dc_pre=CMe4yJGZ6PsCFUTB9gId-jgK2w;src=8279968;type=orv_rzr;cat=rzrmod;ord=1;num=1559281785675;gtm=2wgbu0;auiddc=*;u4=null;u5=build%20model;u6=model;u7=2023;u8=2023;u9=null;u10=0;u11=null;~oref=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F
+https://adservice.google.com/ddm/fls/z/dc_pre=CNWxyJGZ6PsCFYaqwAod6Q4Bgg;src=8279968;type=orv_rzr;cat=universa;ord=5570167522770;gtm=2wgbu0;auiddc=*;~oref=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F
+https://connect.facebook.net/signals/config/189807244725974?v=2.9.89&r=stable
+https://cdn2.polaris.com/rzr/2023/2023_Rzr_ConfigurationValidation.min.js?v=140
+https://script.hotjar.com/modules.bc0a4c72d88d266f15af.js
+https://aa.trkn.us/1.1091.45/a/s.htm?cid=c013&cc=MX&cont=NA&version=1.1091.45
+https://vars.hotjar.com/box-5e66f98b4ee957db209dc6f63e3d59dd.html
+https://browser-update.org/static/img/small/c.png
+https://cdn2.polaris.com/rzr/2023/cpq-initialize-bundle.min.js?v=140
+https://cdn.optimizely.com/js/20744730306.js
+https://www.google.com/ads/ga-audiences?t=sr&aip=1&_r=4&slf_rd=1&v=1&_v=j98&tid=UA-1068668-4&cid=1575378704.1670439788&jid=59031495&_u=YEBAAEAAAAAAACgEK~&z=1567959618
+https://www.google.com.mx/ads/ga-audiences?t=sr&aip=1&_r=4&slf_rd=1&v=1&_v=j98&tid=UA-1068668-4&cid=1575378704.1670439788&jid=59031495&_u=YEBAAEAAAAAAACgEK~&z=1567959618
+https://bat.bing.com/bat.js
+https://cdn2.polaris.com/cpqui/v3/js/app-bundle.min.js?v=140
+https://googleads.g.doubleclick.net/pagead/viewthroughconversion/714655261/?random=1670439788799&cv=11&fst=1670439788799&bg=ffffff&guid=ON&async=1&gtm=2oabu0&u_w=1536&u_h=864&hn=www.googleadservices.com&frm=2&url=https%3A%2F%2F8279968.fls.doubleclick.net%2Factivityi%3Bdc_pre%3DCNWxyJGZ6PsCFYaqwAod6Q4Bgg%3Bsrc%3D8279968%3Btype%3Dorv_rzr%3Bcat%3Duniversa%3Bord%3D5570167522770%3Bgtm%3D2wgbu0%3Bauiddc%3D131731753.1670439788%3B~oref%3Dhttps%253A%252F%252Frzr.polaris.com%252Fen-us%252Fbuild-model%252F%3F&ref=https%3A%2F%2Frzr.polaris.com%2F&uaw=0&data=event%3Dgtag.config&rfmt=3&fmt=4
+https://aa.trkn.us/e/a.gif?dmn=rzr.polaris.com&pn=%2Fen-us%2Fbuild-model%2F&qs=na&rdn=rzr.polaris.com&rpn=%2Fen-us%2Fbuild-model%2F&rqs=na&evid=6412d57b-6e0e-47f7-a1c2-4d065143912d&suu=d4d4de51615cfa7dfeca2b9c810c7326&tt=cs.js&z_evid=0C39E2BC69093D5151D246D7093F431A722FC36C49F45D7C47AAE5169E225230&urls=&rnd=1670439788841&cid=c013&version=1.1091.45&cc=MX&repeat=0&htmLcy=200
+https://connect.facebook.net/signals/config/300962701355515?v=2.9.89&r=stable
+https://www.facebook.com/tr/?id=189807244725974&ev=PageView&dl=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&rl=&if=false&ts=1670439788884&sw=1280&sh=720&v=2.9.89&r=stable&ec=0&o=30&fbp=fb.1.1670439788882.309613228&it=1670439788454&coo=false&rqm=GET
+https://www.google.com/pagead/1p-user-list/714655261/?random=1670439788799&cv=11&fst=1670439600000&bg=ffffff&guid=ON&async=1&gtm=2oabu0&u_w=1536&u_h=864&frm=2&url=https%3A%2F%2F8279968.fls.doubleclick.net%2Factivityi%3Bdc_pre%3DCNWxyJGZ6PsCFYaqwAod6Q4Bgg%3Bsrc%3D8279968%3Btype%3Dorv_rzr%3Bcat%3Duniversa%3Bord%3D5570167522770%3Bgtm%3D2wgbu0%3Bauiddc%3D131731753.1670439788%3B~oref%3Dhttps%253A%252F%252Frzr.polaris.com%252Fen-us%252Fbuild-model%252F%3F&ref=https%3A%2F%2Frzr.polaris.com%2F&data=event%3Dgtag.config&fmt=3&is_vtc=1&random=1369228454&rmt_tld=0&ipr=y
+https://www.google.com.mx/pagead/1p-user-list/714655261/?random=1670439788799&cv=11&fst=1670439600000&bg=ffffff&guid=ON&async=1&gtm=2oabu0&u_w=1536&u_h=864&frm=2&url=https%3A%2F%2F8279968.fls.doubleclick.net%2Factivityi%3Bdc_pre%3DCNWxyJGZ6PsCFYaqwAod6Q4Bgg%3Bsrc%3D8279968%3Btype%3Dorv_rzr%3Bcat%3Duniversa%3Bord%3D5570167522770%3Bgtm%3D2wgbu0%3Bauiddc%3D131731753.1670439788%3B~oref%3Dhttps%253A%252F%252Frzr.polaris.com%252Fen-us%252Fbuild-model%252F%3F&ref=https%3A%2F%2Frzr.polaris.com%2F&data=event%3Dgtag.config&fmt=3&is_vtc=1&random=1369228454&rmt_tld=1&ipr=y
+https://bat.bing.com/p/action/5947364.js
+https://bat.bing.com/action/0?ti=5947364&Ver=2&mid=36a4e40e-1bdb-43b5-a65d-9824b13b99fa&sid=ca055e50766111eda44ca3426a1f04e8&vid=ca058870766111edbe712373925d1a1d&vids=1&msclkid=N&pi=918639831&lg=en-US&sw=1536&sh=864&sc=24&nwd=1&p=https%3A%2F%2Frzr.polaris.com%2F&r=&lt=706&evt=pageLoad&ifm=1&sv=1&rn=341692
+https://insight.adsrvr.org/track/up?adv=c6gaj6f&ref=https%3A%2F%2Frzr.polaris.com%2F&upid=vdcdijj&upv=1.1.0
+https://www.facebook.com/tr/?id=300962701355515&ev=PageView&dl=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&rl=&if=false&ts=1670439789644&sw=1280&sh=720&v=2.9.89&r=stable&ec=0&o=30&fbp=fb.1.1670439788882.309613228&it=1670439788454&coo=false&rqm=GET
+https://www.facebook.com/tr/?id=189807244725974&ev=Microdata&dl=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&rl=&if=false&ts=1670439789696&cd[DataLayer]=%5B%5D&cd[Meta]=%7B%22title%22%3A%22Build%20Your%20SxS%20%7C%20Polaris%20RZR%22%2C%22meta%3Adescription%22%3A%22Select%20a%20Polaris%20RZR%20SxS%20to%20customize%3A%20Add%20roofs%2C%20tires%2C%20wheels%2C%20panels%2C%20door%2C%20storage%20and%20more%20to%20build%20an%20off-road%20vehicle%20that%20is%20right%20for%20you.%22%7D&cd[OpenGraph]=%7B%22og%3Atitle%22%3A%22Build%20Your%20SxS%20%7C%20Polaris%20RZR%22%2C%22og%3Atype%22%3A%22website%22%7D&cd[Schema.org]=%5B%7B%22dimensions%22%3A%7B%22h%22%3A720%2C%22w%22%3A1263%7D%2C%22properties%22%3A%7B%7D%2C%22subscopes%22%3A%5B%5D%2C%22type%22%3A%22https%3A%2F%2Fschema.org%2FWebPage%22%7D%5D&cd[JSON-LD]=%5B%5D&sw=1280&sh=720&v=2.9.89&r=stable&ec=1&o=30&fbp=fb.1.1670439788882.309613228&it=1670439788454&coo=false&es=automatic&tm=3&rqm=GET
+https://www.google-analytics.com/collect?v=1&_v=j98&aip=1&a=448787556&t=event&ni=1&_s=1&dl=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&ul=en-us&de=UTF-8&dt=Build%20Your%20SxS%20%7C%20Polaris%20RZR&sd=24-bit&sr=1280x720&vp=1263x720&je=0&ec=Optimizely&ea=ORV%20-%20Find%20a%20Dealer%20Footer%20CTA%20(21701420003)&el=Variation%20A%20(Control)(21663651829)&_u=aEDAAEABAAAAACgEK~&jid=&gjid=&cid=1575378704.1670439788&tid=UA-1068668-4&_gid=1991312953.1670439788&gtm=2wgbu0W6BC&cg1=model&cg2=model%20build%20model&cd1=off-road&cd2=rzr&cd3=model&cd4=build%20model&cd5=not%20authenticated&cd7=b47593ef-e36c-4bf3-adc0-945cec468883&cd14=2023&cd23=en-us&cd60=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&cd76=off-road%7Crzr%7Cmodel%7Cbuild%20model%7Crzr%7C2023%7C2023&cd127=0&cd128=0&cd129=0&cd130=0&cd131=0&cd132=0&cd133=0&cd134=0&cd135=0&cm87=%2B&z=2058794846
+https://a20558250249.cdn.optimizely.com/client_storage/a20558250249.html
+https://www.facebook.com/tr/?id=300962701355515&ev=Microdata&dl=https%3A%2F%2Frzr.polaris.com%2Fen-us%2Fbuild-model%2F&rl=&if=false&ts=1670439790150&cd[DataLayer]=%5B%5D&cd[Meta]=%7B%22title%22%3A%22Build%20Your%20SxS%20%7C%20Polaris%20RZR%22%2C%22meta%3Adescription%22%3A%22Select%20a%20Polaris%20RZR%20SxS%20to%20customize%3A%20Add%20roofs%2C%20tires%2C%20wheels%2C%20panels%2C%20door%2C%20storage%20and%20more%20to%20build%20an%20off-road%20vehicle%20that%20is%20right%20for%20you.%22%7D&cd[OpenGraph]=%7B%22og%3Atitle%22%3A%22Build%20Your%20SxS%20%7C%20Polaris%20RZR%22%2C%22og%3Atype%22%3A%22website%22%7D&cd[Schema.org]=%5B%7B%22dimensions%22%3A%7B%22h%22%3A720%2C%22w%22%3A1263%7D%2C%22properties%22%3A%7B%7D%2C%22subscopes%22%3A%5B%5D%2C%22type%22%3A%22https%3A%2F%2Fschema.org%2FWebPage%22%7D%5D&cd[JSON-LD]=%5B%5D&sw=1280&sh=720&v=2.9.89&r=stable&ec=1&o=30&fbp=fb.1.1670439788882.309613228&it=1670439788454&coo=false&es=automatic&tm=3&rqm=GET
+https://js.adsrvr.org/universal_pixel.1.1.0.js
+https://usermatch.krxd.net/um/v2?partner=ttd&partner_uid=ttd&gdpr=0&gdpr_consent=&ttd_tdid=eebffe66-d398-495c-91e5-9970573fdc54
+https://dpm.demdex.net/ibs:dpid=903&dpuuid=eebffe66-d398-495c-91e5-9970573fdc54&gdpr=0&gdpr_consent=&redir=https%3A%2F%2Fmatch.adsrvr.org%2Ftrack%2Fcmf%2Fgeneric%3Fttd_pid%3Daam
+https://pixel.rubiconproject.com/tap.php?v=8981&nid=2307&put=eebffe66-d398-495c-91e5-9970573fdc54&gdpr=0&gdpr_consent=&expires=30&next=https%3A%2F%2Fmatch.adsrvr.org%2Ftrack%2Fcmf%2Frubicon
+
+[[ATTACHMENT|..\test-results\apiTests-Api-Test-chromium\trace.zip]]
+
+[[ATTACHMENT|..\test-results\apiTests-Api-Test-chromium\trace-1.zip]]
+
+[[ATTACHMENT|..\test-results\apiTests-Api-Test-chromium\test-failed-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Test Rail" classname="[chromium] › apiTests.spec.ts › Test Rail" time="1.522">
+<system-out>
+<![CDATA[[33m200[39m
+[36m[AsyncFunction: body][39m
+[33m200[39m
+{
+  offset: [33m0[39m,
+  limit: [33m250[39m,
+  size: [33m34[39m,
+  _links: { next: [1mnull[22m, prev: [1mnull[22m },
+  projects: [
+    {
+      id: [33m1[39m,
+      name: [32m'Ride Command (Deprecated)'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mtrue[39m,
+      completed_on: [33m1644346407[39m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/1'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m2[39m,
+      name: [32m'ORV 7"'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/2'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m3[39m,
+      name: [32m'IND 4.3" (Apollo)'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/3'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m4[39m,
+      name: [32m'IND 7"'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/4'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m6[39m,
+      name: [32m'SLG App and Web'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mtrue[39m,
+      completed_on: [33m1644346391[39m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/6'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m8[39m,
+      name: [32m'IND App and Web'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mtrue[39m,
+      completed_on: [33m1644346400[39m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/8'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m10[39m,
+      name: [32m'Ride Command App and Web'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/10'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m11[39m,
+      name: [32m'C4'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/11'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m12[39m,
+      name: [32m'B1'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/12'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m13[39m,
+      name: [32m'CPI'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/13'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m15[39m,
+      name: [32m'Manufacturing Tool Support'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/15'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m16[39m,
+      name: [32m'SNO 7"'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/16'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m17[39m,
+      name: [32m'SLG 7"'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/17'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m18[39m,
+      name: [32m'Connected Vehicle'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/18'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m19[39m,
+      name: [32m'IND 3" (Digital Round)'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/19'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m20[39m,
+      name: [32m'ORV Systems'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/20'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m21[39m,
+      name: [32m'Cell Modems'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/21'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m22[39m,
+      name: [32m'Chunnel'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m1[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/22'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m23[39m,
+      name: [32m'CVC and IVI Integration'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/23'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m24[39m,
+      name: [32m'PIDD'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/24'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m25[39m,
+      name: [32m'ATV 7"'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/25'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m27[39m,
+      name: [32m'On-Road Systems'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/27'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m28[39m,
+      name: [32m'GEECS Ride Command'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/28'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m29[39m,
+      name: [32m'Powertrain'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/29'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m30[39m,
+      name: [32m'Platform'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/30'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m31[39m,
+      name: [32m'Ride Design'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/31'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m32[39m,
+      name: [32m'Ride Ready'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/32'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m33[39m,
+      name: [32m'Comtech Maps'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/33'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m34[39m,
+      name: [32m'EComm'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m1[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/34'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m35[39m,
+      name: [32m'MAPBOX MAP Testing'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/35'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m36[39m,
+      name: [32m'Dealer App'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m3[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/36'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m37[39m,
+      name: [32m'PG&A'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m1[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/37'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m38[39m,
+      name: [32m'NextGen'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m1[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/38'[39m,
+      users: [36m[Array][39m,
+      groups: [36m[Array][39m
+    },
+    {
+      id: [33m39[39m,
+      name: [32m'VIA'[39m,
+      announcement: [1mnull[22m,
+      show_announcement: [33mfalse[39m,
+      is_completed: [33mfalse[39m,
+      completed_on: [1mnull[22m,
+      suite_mode: [33m1[39m,
+      default_role_id: [1mnull[22m,
+      url: [32m'https://ridecommand.testrail.io/index.php?/projects/overview/39'[39m,
+      users: [36m[Array][39m,
+      groups: []
+    }
+  ]
+}
+
+[[ATTACHMENT|..\test-results\apiTests-Test-Rail-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Data set" classname="[chromium] › apiTests.spec.ts › Data set" time="0.033">
+<system-out>
+<![CDATA[[33m1[39m
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="example.spec.ts" timestamp="1670439664131" hostname="" tests="3" failures="3" skipped="0" time="4.94" errors="0">
+<testcase name="TEST" classname="[chromium] › example.spec.ts › TEST" time="1.506">
+<failure message="example.spec.ts:24:1 TEST" type="FAILURE">
+<![CDATA[  [chromium] › example.spec.ts:24:1 › TEST =========================================================
+
+    page.click: Timeout 30000ms exceeded.
+    =========================== logs ===========================
+    waiting for selector "i.icon__account"
+      selector resolved to visible <i class="icon icon__account"></i>
+    attempting click action
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #1
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #2
+      waiting 20ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #3
+      waiting 100ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #4
+      waiting 100ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #5
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #6
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #7
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #8
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #9
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #10
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #11
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #12
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #13
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #14
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #15
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #16
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #17
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #18
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #19
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #20
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #21
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #22
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #23
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #24
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #25
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #26
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #27
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #28
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #29
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #30
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #31
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #32
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #33
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #34
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #35
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #36
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #37
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #38
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #39
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #40
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #41
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #42
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #43
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #44
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #45
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #46
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #47
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #48
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #49
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #50
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #51
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #52
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #53
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #54
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #55
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #56
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #57
+      waiting 500ms
+    ============================================================
+
+       at ..\framework\webActions.ts:16
+
+      14 |
+      15 |     async clickElement(locator: string): Promise<void> {
+    > 16 |         await this.page.click(locator);
+         |                         ^
+      17 |         await this.page.waitForLoadState('networkidle');
+      18 |
+      19 |     }
+
+        at WebActions.clickElement (C:\Users\hcardo\Heber\training\udemy\playwright-ts\framework\webActions.ts:16:25)
+        at LoginPage.clickSignIn (C:\Users\hcardo\Heber\training\udemy\playwright-ts\pageFactory\pageRepository\loginPage.ts:26:26)
+        at C:\Users\hcardo\Heber\training\udemy\playwright-ts\tests\example.spec.ts:14:3
+
+    attachment #1: trace (application/zip) ---------------------------------------------------------
+    test-results\example-TEST-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\example-TEST-chromium\trace.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #2: screenshot (image/png) ----------------------------------------------------------
+    test-results\example-TEST-chromium\test-failed-1.png
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\example-TEST-chromium\trace.zip]]
+
+[[ATTACHMENT|..\test-results\example-TEST-chromium\test-failed-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Api Test" classname="[chromium] › example.spec.ts › Api Test" time="1.434">
+<failure message="example.spec.ts:39:1 Api Test" type="FAILURE">
+<![CDATA[  [chromium] › example.spec.ts:39:1 › Api Test =====================================================
+
+    page.click: Timeout 30000ms exceeded.
+    =========================== logs ===========================
+    waiting for selector "i.icon__account"
+      selector resolved to visible <i class="icon icon__account"></i>
+    attempting click action
+      waiting for element to be visible, enabled and stable
+        element is not stable - waiting...
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #1
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #2
+      waiting 20ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #3
+      waiting 100ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #4
+      waiting 100ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #5
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #6
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #7
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #8
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #9
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #10
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #11
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #12
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #13
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #14
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #15
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #16
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #17
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #18
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #19
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #20
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #21
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #22
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #23
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #24
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #25
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #26
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #27
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #28
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #29
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #30
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #31
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #32
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #33
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #34
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #35
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #36
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #37
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #38
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #39
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #40
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #41
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #42
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #43
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #44
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #45
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #46
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #47
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #48
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #49
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #50
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #51
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #52
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #53
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #54
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #55
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #56
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #57
+      waiting 500ms
+    ============================================================
+
+       at ..\framework\webActions.ts:16
+
+      14 |
+      15 |     async clickElement(locator: string): Promise<void> {
+    > 16 |         await this.page.click(locator);
+         |                         ^
+      17 |         await this.page.waitForLoadState('networkidle');
+      18 |
+      19 |     }
+
+        at WebActions.clickElement (C:\Users\hcardo\Heber\training\udemy\playwright-ts\framework\webActions.ts:16:25)
+        at LoginPage.clickSignIn (C:\Users\hcardo\Heber\training\udemy\playwright-ts\pageFactory\pageRepository\loginPage.ts:26:26)
+        at C:\Users\hcardo\Heber\training\udemy\playwright-ts\tests\example.spec.ts:14:3
+
+    attachment #1: trace (application/zip) ---------------------------------------------------------
+    test-results\example-Api-Test-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\example-Api-Test-chromium\trace.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #2: screenshot (image/png) ----------------------------------------------------------
+    test-results\example-Api-Test-chromium\test-failed-1.png
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\example-Api-Test-chromium\trace.zip]]
+
+[[ATTACHMENT|..\test-results\example-Api-Test-chromium\test-failed-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TEST with pom manager" classname="[chromium] › example.spec.ts › TEST with pom manager" time="2">
+<failure message="example.spec.ts:48:1 TEST with pom manager" type="FAILURE">
+<![CDATA[  [chromium] › example.spec.ts:48:1 › TEST with pom manager ========================================
+
+    page.click: Timeout 30000ms exceeded.
+    =========================== logs ===========================
+    waiting for selector "i.icon__account"
+      selector resolved to visible <i class="icon icon__account"></i>
+    attempting click action
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #1
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #2
+      waiting 20ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #3
+      waiting 100ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #4
+      waiting 100ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #5
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #6
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #7
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #8
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #9
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #10
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #11
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #12
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #13
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #14
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #15
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #16
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #17
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #18
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #19
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #20
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #21
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #22
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #23
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #24
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #25
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #26
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #27
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #28
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #29
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #30
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #31
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #32
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #33
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #34
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #35
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #36
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #37
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #38
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #39
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #40
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #41
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #42
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #43
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #44
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #45
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #46
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #47
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #48
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #49
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #50
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #51
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #52
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #53
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #54
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #55
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #56
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #57
+      waiting 500ms
+      waiting for element to be visible, enabled and stable
+      element is visible, enabled and stable
+      scrolling into view if needed
+      done scrolling
+      <div role="status" class="buorg-pad" aria-live="polit…>…</div> from <div id="buorg" class="buorg">…</div> subtree intercepts pointer events
+    retrying click action, attempt #58
+      waiting 500ms
+    ============================================================
+
+       at ..\framework\webActions.ts:16
+
+      14 |
+      15 |     async clickElement(locator: string): Promise<void> {
+    > 16 |         await this.page.click(locator);
+         |                         ^
+      17 |         await this.page.waitForLoadState('networkidle');
+      18 |
+      19 |     }
+
+        at WebActions.clickElement (C:\Users\hcardo\Heber\training\udemy\playwright-ts\framework\webActions.ts:16:25)
+        at LoginPage.clickSignIn (C:\Users\hcardo\Heber\training\udemy\playwright-ts\pageFactory\pageRepository\loginPage.ts:26:26)
+        at C:\Users\hcardo\Heber\training\udemy\playwright-ts\tests\example.spec.ts:14:3
+
+    attachment #1: trace (application/zip) ---------------------------------------------------------
+    test-results\example-TEST-with-pom-manager-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\example-TEST-with-pom-manager-chromium\trace.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #2: trace (application/zip) ---------------------------------------------------------
+    test-results\example-TEST-with-pom-manager-chromium\trace-1.zip
+    Usage:
+
+        npx playwright show-trace test-results\example-TEST-with-pom-manager-chromium\trace-1.zip
+
+    ------------------------------------------------------------------------------------------------
+
+    attachment #3: screenshot (image/png) ----------------------------------------------------------
+    test-results\example-TEST-with-pom-manager-chromium\test-failed-1.png
+    ------------------------------------------------------------------------------------------------
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\example-TEST-with-pom-manager-chromium\trace.zip]]
+
+[[ATTACHMENT|..\test-results\example-TEST-with-pom-manager-chromium\trace-1.zip]]
+
+[[ATTACHMENT|..\test-results\example-TEST-with-pom-manager-chromium\test-failed-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="withbase.spec.ts" timestamp="1670439664131" hostname="" tests="2" failures="0" skipped="0" time="82.791" errors="0">
+<testcase name="Test with fixture" classname="[chromium] › withbase.spec.ts › Test with fixture" time="43.1">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\withbase-Test-with-fixture-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Test with fixture new" classname="[chromium] › withbase.spec.ts › Test with fixture new" time="39.691">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\withbase-Test-with-fixture-new-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
