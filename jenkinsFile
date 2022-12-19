@@ -1,6 +1,14 @@
 pipeline {
     agent any 
     stages {
+        stage('Playwright Install') {
+            steps {
+                bat '''
+                npm i -D @playwright/test
+                npx playwright install
+                '''
+            }
+        }
         stage('Running Tests') {
             steps {
                 bat 'npx playwright test ./jenkinsTest.spec.ts'
