@@ -15,7 +15,7 @@ pipeline {
                 echo 'Hello world!' 
             }
         }
-        stage('Publish Report') {
+        post('Publish Report') {
             steps {
                 publishHTML([
                             allowMissing: false,
