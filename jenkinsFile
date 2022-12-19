@@ -17,6 +17,7 @@ pipeline {
         }
     }
     post('Publish Report') {
+        always {
             steps {
                 publishHTML([
                             allowMissing: false,
@@ -29,4 +30,5 @@ pipeline {
                 echo 'Publishing Report' 
             }
         }
+    }
 }
