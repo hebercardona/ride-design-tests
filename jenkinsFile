@@ -15,7 +15,8 @@ pipeline {
                 echo 'Hello world!' 
             }
         }
-        post('Publish Report') {
+    }
+    post('Publish Report') {
             steps {
                 publishHTML([
                             allowMissing: false,
@@ -28,5 +29,4 @@ pipeline {
                 echo 'Publishing Report' 
             }
         }
-    }
 }
