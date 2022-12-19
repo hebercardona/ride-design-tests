@@ -19,13 +19,14 @@ pipeline {
     post('Publish Report') {
         always {
                 publishHTML([
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: false,
-                            keepAll: false,
-                            reportDir: '',
-                            reportFiles: './playwright-report/index.html',
-                            reportName: 'results',
-                        ])
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'playwright-report',
+                    reportFiles: 'index.html',
+                    reportName: 'Playwright Report',
+                    reportTitles: ''
+])
                 echo 'Publishing Report' 
         }
     }
