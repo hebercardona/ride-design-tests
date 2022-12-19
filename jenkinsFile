@@ -19,12 +19,11 @@ pipeline {
             steps {
                 publishHTML([
                             allowMissing: false,
-                            alwaysLinkToLastBuild: true,
-                            keepAll: true,
+                            alwaysLinkToLastBuild: false,
+                            keepAll: false,
                             reportDir: 'playwright-report',
-                            reportFiles: 'index.html',
+                            reportFiles: 'playwright-report/index.html',
                             reportName: 'results',
-                            reportTitles: 'title'
                         ])
                 echo 'Publishing Report' 
             }
