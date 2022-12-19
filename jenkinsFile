@@ -22,8 +22,8 @@ pipeline {
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,
                             keepAll: false,
-                            reportDir: './playwright-report',
-                            reportFiles: 'index.html',
+                            reportDir: '',
+                            reportFiles: './playwright-report/index.html',
                             reportName: 'results',
                         ])
                 echo 'Publishing Report' 
