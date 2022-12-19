@@ -36,7 +36,7 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     //['./reporters/CustomReport.ts'],
-    ['html'],
+    ['html', {outputFile: 'resultsReport'}],
     //['junit', {outputFile: 'test-results.xml', open: 'never'}],
     //['json', {  outputFile: 'test-results.json' }]
   ],

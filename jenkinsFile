@@ -15,5 +15,19 @@ pipeline {
                 echo 'Hello world!' 
             }
         }
+        stage('Publish Report') {
+            steps {
+                publishHTML([
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: true,
+                            keepAll: true,
+                            reportDir: 'playwright-report',
+                            reportFiles: 'index.html',
+                            reportName: 'results',
+                            reportTitles: 'title'
+                        ])
+                echo 'Publishing Report' 
+            }
+        }
     }
 }
