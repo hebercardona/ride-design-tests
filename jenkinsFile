@@ -18,7 +18,6 @@ pipeline {
     }
     post('Publish Report') {
         always {
-            steps {
                 publishHTML([
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,
@@ -28,7 +27,6 @@ pipeline {
                             reportName: 'results',
                         ])
                 echo 'Publishing Report' 
-            }
         }
     }
 }
