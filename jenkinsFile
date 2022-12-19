@@ -23,7 +23,7 @@ pipeline {
                             alwaysLinkToLastBuild: false,
                             keepAll: false,
                             reportDir: './playwright-report',
-                            reportFiles: './playwright-report/index.html',
+                            reportFiles: 'index.html',
                             reportName: 'results',
                         ])
                 echo 'Publishing Report' 
