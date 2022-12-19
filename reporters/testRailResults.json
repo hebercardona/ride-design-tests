@@ -1,11 +1,6 @@
 {
   "results": [
     {
-      "title": "C15432126 Test with fixture new",
-      "status": "failed",
-      "message": "Error: Page title not as expected\n\nExpected substring: \"TEST\"\nReceived string:    \"Customized Quote Request: Polaris RANGER\""
-    },
-    {
       "title": "C15432125 Test with fixture",
       "status": "passed",
       "message": "Automated Test Passed"

@@ -1,4 +1,3 @@
-{"level":"info","message":"Test Case Started : C15432126 Test with fixture new"}
 {"level":"info","message":"Test Case Started : C15432125 Test with fixture"}
-{"level":"info","message":"Test Case Completed : C15432126 Test with fixture new Status : failed"}
+{"level":"error","message":"onStdOut Error"}
 {"level":"info","message":"Test Case Completed : C15432125 Test with fixture Status : passed"}

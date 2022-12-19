@@ -1,4 +1,4 @@
-import { FullResult, Reporter, TestCase, TestError, TestResult, TestStep } from "@playwright/test/reporter";
+import { FullConfig, FullResult, Reporter, Suite, TestCase, TestError, TestResult, TestStep } from "@playwright/test/reporter";
 import rimraf from 'rimraf';
 const winston = require(`winston`);
 import * as fs from 'fs';
@@ -63,6 +63,18 @@ export default class CustomReport implements Reporter {
 
     onError(error: TestError): void {
         logger.error(error.message);
+    }
+
+    onStdErr(chunk: string | Buffer, test: void | TestCase, result: void | TestResult): void {
+        logger.error('onStd Error');
+    }
+
+    onStdOut(chunk: string | Buffer, test: void | TestCase, result: void | TestResult): void {
+        logger.error('onStdOut Error');
+    }
+
+    onBegin(config: FullConfig<{}, {}>, suite: Suite): void {
+        console.log('onBegin error');
     }
 
     onEnd(result: FullResult): void | Promise<void> {

@@ -35,6 +35,12 @@ export class BuildPage extends BuildPageObjects{
         //await this.page.waitForFunction(`document.querySelector('div.cpq-header span').innerText !== '${title}'`);
     }
 
+    async waitForPcLoaded() {
+        await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
+        await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
+        await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
+    }
+
     async openSummary() {
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
     }

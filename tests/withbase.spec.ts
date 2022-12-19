@@ -22,3 +22,21 @@ test('C15432126 Test with fixture new', async ( { pages, page } ) => {
   await pages.quote.enterFormDetailsAndSubmit();
   expect(await page.title(), 'Page title not as expected').toContain('TEST');
 });
+
+test.only('C15432126 gdy', async ({ pages, page }) => {
+  await page.goto('https://www.godfreypontoonboats.com/en-us/build-category/');
+  await page.locator(`a.wholegood-models-card:has-text('Sanpan')`).first().click();
+  if((await page.locator(`div[class*='MinimizedWidgetMessage']`)).isVisible()){
+    await page.locator(`div[class*='MinimizedWidgetMessage']`).hover();
+    await page.locator(`button[class*='MinimizedWidgetMessage']`).click();
+  };
+  await page.locator(`a.cpq-footer__cta-button`).click();
+  await page.locator(`a.cpq-footer__cta-button`).click();
+  await page.locator(`a.cpq-footer__cta-button`).click();
+  await pages.build.waitForPcLoaded();
+  await page.locator(`a.cpq-footer__cta-button`).click();
+  await page.locator(`a.cpq-footer__cta-button`).click();
+  await page.locator(`button.cpq-footer__cta-button`).click();
+});
+
+
