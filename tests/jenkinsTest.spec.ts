@@ -1,6 +1,13 @@
 import { expect, test }  from '../framework/baseTest';
 
-test('C15432125 Test with fixture', async ( { pages } ) => {
+let testIdPerLocale = [
+  {id: 'C15432125', locale: 'en-us'},
+  {id: 'C15432126', locale: 'en-ca'}
+];
+
+for (const testInstance of testIdPerLocale) {
+
+  test(`${testInstance.id}_${testInstance.locale} Test Title with parameters`, async ( { pages } ) => {
     await pages.navigation.navigatoToUrl("https://ranger.polaris.com/en-us/build-model/");
     await pages.build.clickAnySeatCategory();
     /* await pages.build.clickAnyModelCategory();
@@ -13,3 +20,6 @@ test('C15432125 Test with fixture', async ( { pages } ) => {
     const envOne = process.env.SUITE_NAME;
     console.log(envOne);
   });
+
+  
+}
