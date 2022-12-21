@@ -15,5 +15,5 @@ export const testConfig = {
     testRailUserName: `heber.cardona@polaris.com`,
     testRailPassword: `Flowers2012`,
     testRailProjectId: `31`,
-    testRailSuiteName: 'Playwright'
+    testRailSuiteName: process.env.SUITE_NAME
 }
