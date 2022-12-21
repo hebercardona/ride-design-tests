@@ -10,5 +10,6 @@ test('C15432125 Test with fixture', async ( { pages } ) => {
     await pages.build.clickGetQuote();
     await pages.quote.enterFormDetailsAndSubmit(); */
     console.log('process.env.CI ' + process.env.CI);
-    console.log('process.env.suite: ' + process.env.suite);
+    const envOne = process.env.SUITE_NAME;
+    console.log(envOne);
   });

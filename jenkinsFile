@@ -1,5 +1,10 @@
 pipeline {
-    agent any 
+    agent any
+
+    environment {
+        SUITE_NAME='PROCESS ENV VARIABLE JENKINS'
+    }
+
     stages {
         stage('Playwright Install') {
             steps {
