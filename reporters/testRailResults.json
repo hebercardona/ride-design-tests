@@ -1,7 +1,12 @@
 {
   "results": [
     {
-      "title": "C15432125 Test with fixture",
+      "title": "C15432125_en-us Test Title with parameters",
+      "status": "passed",
+      "message": "Automated Test Passed"
+    },
+    {
+      "title": "C15432126_en-ca Test Title with parameters",
       "status": "passed",
       "message": "Automated Test Passed"
     }
