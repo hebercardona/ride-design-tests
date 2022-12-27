@@ -1,5 +1,14 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
+process.env.ENV = `prod`
+const ENV = process.env.ENV;
+
+
+if (!ENV || ![`qa`, `dev`, `qaApi`, `devApi`, `prod`].includes(ENV)) {
+  console.log(`Please provide a correct environment value like "npx cross-env ENV=qa|dev|qaApi|devApi"`);
+  process.exit();
+}
+
 
 /**
  * Read environment variables from file.
@@ -35,7 +44,7 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['./reporters/CustomReport.ts'],
+    //['./reporters/CustomReport.ts'],
     ['html'],
     //['junit', {outputFile: 'test-results.xml', open: 'never'}],
     //['json', {  outputFile: 'test-results.json' }]
@@ -52,6 +61,7 @@ const config: PlaywrightTestConfig = {
     trace: 'on',
     screenshot: 'only-on-failure',
     video: 'off',
+    baseURL: ENV === `qa` ? 'https://www-qa.polarisindcms.com/' : 'https://www.polaris.com/'
   },
 
   /* Configure projects for major browsers */

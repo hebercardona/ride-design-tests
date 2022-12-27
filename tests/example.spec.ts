@@ -1,8 +1,8 @@
 import { test }  from '../framework/baseTest';
 import { BuildPage } from '../pageFactory/pageRepository/buildPage'
-import { LoginPage } from '../pageFactory/pageRepository/loginPage';
+import { LoginPage } from '../pageFactory/pageRepository/LoginPage';
 import { QuotePage } from '../pageFactory/pageRepository/quotePage';
-import { Pages } from '../pageFactory/pageRepository/pages';
+import { Pages } from '../pageFactory/pageRepository/Pages';
 
 let webContext;
 

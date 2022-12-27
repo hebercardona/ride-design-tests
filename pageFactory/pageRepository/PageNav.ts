@@ -1,6 +1,12 @@
 import type { Page } from "@playwright/test";
 
-export class Navigation {
+const currentYearUrls = {
+    orv: `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build-model`
+};
+
+
+
+export class PageNav {
     readonly page: Page;
     constructor(page: Page) {
         this.page = page;
