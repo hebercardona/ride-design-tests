@@ -1,10 +1,6 @@
 import { testConfig } from "@testConfig/*";
-
 const sql = require("mssql/msnodesqlv8");
-
 const config = testConfig.db;
-
-const query = `select LoadUrl from ConfiguredWholegoods where BuildID = '06606C13-8C92-47FB-8D50-EB7A5B67B28E'`;
 
 
 class SqlHandler {
