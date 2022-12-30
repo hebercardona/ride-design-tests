@@ -1,6 +1,6 @@
-import { QuotePageObjects } from '../objectRepository/quotePageObjects'
+import { QuotePageObjects } from '../objectRepository/QuotePageObjects'
 import type { Page } from '@playwright/test'
-import { WebActions } from '../../framework/webActions'
+import { WebActions } from '../../framework/WebActions'
 
 let webActions: WebActions;
 

@@ -25,6 +25,16 @@ export class WebActions {
         await this.page.waitForLoadState('networkidle');
     }
 
+    async clickElementThatHasText(locator: string, text: string): Promise<void> {
+        let element = await this.page.locator(locator, {hasText: text});
+        await element.click();
+    }
+
+    async clickElementThatHasTextInChildElement(locator: string, text: string): Promise<void> {
+        let element = await this.page.locator(locator, {has: this.page.locator(`text='${text}'`)});
+        await element.click();
+    }
+
     async enterElementText(locator: string, text: string): Promise<void> {
         await this.page.fill(locator, text);
     }

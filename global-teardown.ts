@@ -1,4 +1,4 @@
-import TestRailReporter from "./reporters/testRail/testRailReporter";
+import TestRailReporter from "./reporters/testRail/TestRailReporter";
 
 async function globalTeardown() {
     if(process.env.CI) {

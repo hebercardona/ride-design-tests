@@ -1,6 +1,6 @@
 import type { Page } from '@playwright/test'
-import { WebActions } from '../../framework/webActions'
-import { LoginPageObjects } from '../objectRepository/loginPageObjects'
+import { WebActions } from '../../framework/WebActions'
+import { LoginPageObjects } from '../objectRepository/LoginPageObjects'
 
 let webActions: WebActions;
 

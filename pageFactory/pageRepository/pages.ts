@@ -1,17 +1,15 @@
-import { BuildPage } from "./buildPage";
+import { BuildPage } from "./BuildPage";
 import { LoginPage } from "./LoginPage";
-import { QuotePage } from "./quotePage";
+import { QuotePage } from "./QuotePage";
 import { Page  } from '@playwright/test';
-import { PageNav } from './PageNav'
-import { BuildPages } from "./buildPages";
+import { PageNav } from './PageNav';
 
 
 type pages = {
     login: LoginPage,
     build: BuildPage,
     quote: QuotePage,
-    navigation: PageNav,
-    buildPages: BuildPages
+    navigation: PageNav
 };
 
 export class Pages {
@@ -26,6 +24,5 @@ export class Pages {
         this.pages.build = new BuildPage(this.page);
         this.pages.quote = new QuotePage(this.page);
         this.pages.navigation = new PageNav(this.page);
-        this.pages.buildPages = new BuildPages(this.page);
     }
 }

@@ -1,4 +1,4 @@
-
+import config from "playwright.config";
 const prodConfig = {
     qa: `http://automationpractice.com`,
     dev: ``,
@@ -17,6 +17,17 @@ const prodConfig = {
     testRailPassword: `Flowers2012`,
     testRailProjectId: `31`,
     testRailSuiteName: process.env.SUITE_NAME,
+    connectionString: `Data Source=cms-prod-dbserver.polarisindcms.com;Initial Catalog=PolarisCMS;Integrated Security=False;User ID=EPiServer;Password=VJCt_H^6Xg-S;MultipleActiveResultSets=True`,
+    db: {
+        server: `cms-prod-dbserver.polarisindcms.com`,
+        user: `EPiServer`,
+        password: `VJCt_H^6Xg-S`,
+        database: `PolarisCMS`,
+        driver: `msnodesqlv8`,
+        options: {
+            enableArithAbort: true
+        }
+    },
     currentYearUrls: {
         rzr: `https://www.polaris.com/en-us/off-road/rzr/build-model`,
         rgr: `https://www.polaris.com/en-us/off-road/rgr/build-model`,
@@ -51,6 +62,17 @@ const qaConfig = {
     testRailPassword: `Flowers2012`,
     testRailProjectId: `31`,
     testRailSuiteName: process.env.SUITE_NAME,
+    connectionString: `Data Source=awsusesqlqa01.cwnon3ixzzta.us-east-1.rds.amazonaws.com;Initial Catalog=PolarisCMS;Integrated Security=False;User ID=QATester;Password=Polaris$16;MultipleActiveResultSets=True`,
+    db: {
+        server: `awsusesqlqa01.cwnon3ixzzta.us-east-1.rds.amazonaws.com`,
+        user: `QATester`,
+        password: `Polaris$16`,
+        database: `PolarisCMS`,
+        driver: `msnodesqlv8`,
+        options: {
+            enableArithAbort: true
+        }
+    },
     currentYearUrls: {
         rzr: `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build-model`,
         rgr: `https://www-qa.polarisindcms.com/en-us/off-road/rgr/build-model`,
@@ -68,8 +90,9 @@ const qaConfig = {
 }
 
 export const testConfig = 
-process.env.ENV === `qa` ? qaConfig : 
+process.env.ENV === `qa` ? qaConfig :
 process.env.ENV === `prod` ? prodConfig : qaConfig;
+console.log('testConfig after export');
 
 /* export const testConfig = {
     qa: `http://automationpractice.com`,

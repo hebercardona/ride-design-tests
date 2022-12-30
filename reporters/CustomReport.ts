@@ -2,7 +2,7 @@ import { FullConfig, FullResult, Reporter, Suite, TestCase, TestError, TestResul
 import rimraf from 'rimraf';
 const winston = require(`winston`);
 import * as fs from 'fs';
-import TestRailReporter from '../reporters/testRail/testRailReporter';
+import TestRailReporter from './testRail/TestRailReporter';
 
 let logger;
 let obj = {

@@ -1,6 +1,6 @@
 
 import { testConfig } from '@testConfig/';
-import TestRailApi from './testRailApi';
+import TestRailApi from './TestRailApi';
 
 interface Result {
     title: string,

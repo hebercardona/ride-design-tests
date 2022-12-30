@@ -1,15 +1,19 @@
 import { Page } from '@playwright/test';
-import { BuildPageObjects } from '@objects/buildPageObjects';
-import { WebActions } from '@framework/webActions';
+import { BuildPageObjects } from '@objects/BuildPageObjects';
+import { WebActions } from '@framework/WebActions';
+import { HeaderObjects } from '@objects/HeaderObjects';
+import { Header } from './Header';
 
 let webActions: WebActions;
 
 export class BuildPage extends BuildPageObjects{
     readonly page: Page;
+    readonly header: Header;
 
     constructor(page: Page) {
         super();
         this.page = page;
+        this.header = new Header(this.page);
         webActions = new WebActions(this.page);
     }
 
@@ -59,5 +63,4 @@ export class BuildPage extends BuildPageObjects{
         });
       }
 
-    
 }

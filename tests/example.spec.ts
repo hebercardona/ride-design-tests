@@ -1,7 +1,7 @@
-import { test }  from '../framework/baseTest';
-import { BuildPage } from '../pageFactory/pageRepository/buildPage'
+import { test }  from '../framework/BaseTest';
+import { BuildPage } from '../pageFactory/pageRepository/BuildPage'
 import { LoginPage } from '../pageFactory/pageRepository/LoginPage';
-import { QuotePage } from '../pageFactory/pageRepository/quotePage';
+import { QuotePage } from '../pageFactory/pageRepository/QuotePage';
 import { Pages } from '../pageFactory/pageRepository/Pages';
 
 let webContext;
