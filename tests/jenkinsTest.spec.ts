@@ -1,6 +1,6 @@
 import { testConfig } from '@testConfig/*';
 import { expect, test }  from '../framework/BaseTest';
-import SqlHandler from '@framework/SqlHandler';
+import SqlClient from '@framework/SqlClient';
 
 let theList;
 
@@ -42,7 +42,8 @@ test(`Test with urls dynamic`, async ( { pages } ) => {
 });
 
 test.only(`Test SQL Server`, async ( { pages } ) => {
+  await pages.navigation.navigateToStartingBuildUrl('rzr');
   const query = `select LoadUrl from ConfiguredWholegoods where BuildID = 'D7489428-D586-4255-9887-4B4FC23BF89B'`;
-  const results = await SqlHandler.executeQuery(query);
+  const results = await SqlClient.executeQuery(query);
   console.log(results.recordset[0].LoadUrl);
 })

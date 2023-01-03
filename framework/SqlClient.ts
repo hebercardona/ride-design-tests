@@ -1,13 +1,12 @@
 import { testConfig } from "@testConfig/*";
 const sql = require("mssql/msnodesqlv8");
-const config = testConfig.db;
 
 
-class SqlHandler {
+class SqlClient {
 
     async executeQuery(query: string): Promise<any> {
         let result;
-        return sql.connect(config).then(pool => {  
+        return sql.connect(testConfig.db).then(pool => {  
             return pool.request()
                 .query(query)
         }).then(recordset => {
@@ -19,4 +18,4 @@ class SqlHandler {
 
 }
 
-export default new SqlHandler();
+export default new SqlClient();
