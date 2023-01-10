@@ -1,4 +1,3 @@
-import config from "playwright.config";
 import * as configFiles from './configFiles'
 
 
