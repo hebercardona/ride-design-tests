@@ -66,11 +66,11 @@ export default class CustomReport implements Reporter {
     }
 
     onStdErr(chunk: string | Buffer, test: void | TestCase, result: void | TestResult): void {
-        logger.error('onStd Error');
+        logger.error(chunk);
     }
 
     onStdOut(chunk: string | Buffer, test: void | TestCase, result: void | TestResult): void {
-        logger.error('onStdOut Error');
+        logger.error(chunk);
     }
 
     onBegin(config: FullConfig<{}, {}>, suite: Suite): void {
