@@ -74,7 +74,7 @@ export default class CustomReport implements Reporter {
     }
 
     onBegin(config: FullConfig<{}, {}>, suite: Suite): void {
-        console.log('onBegin error');
+        
     }
 
     onEnd(result: FullResult): void | Promise<void> {
