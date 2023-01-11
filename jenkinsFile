@@ -4,6 +4,8 @@ pipeline {
     environment {
         SUITE_NAME='Playwright'
         ENV='prod'
+        echo `'Environment from Jenkins parameter: ' + env.environment`
+        echo %environment
     }
 
     stages {
