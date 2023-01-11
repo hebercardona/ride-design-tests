@@ -1,5 +1,6 @@
 import type { Page } from "@playwright/test";
 import { testConfig } from "@testConfig/*";
+import { StringFormat } from "@framework/Common";
 
 export class PageNav {
     readonly page: Page;
@@ -11,7 +12,7 @@ export class PageNav {
         await this.page.goto(url);
     }
 
-    async navigateToStartingBuildUrl(brand: string): Promise<void> {
+    async navigateToStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
         const urls = {
             'rzr': testConfig.currentYearUrls.rzr,
             'rgr': testConfig.currentYearUrls.rgr,
@@ -26,6 +27,21 @@ export class PageNav {
             'hur': testConfig.currentYearUrls.hur,
             'gdy': testConfig.currentYearUrls.gdy
         }
-        await this.page.goto(urls[brand]);
+        const url = StringFormat(urls[brand], locale);
+        await this.page.goto(url);
+    }
+
+    async navigateToPreviousYearStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
+        const urls = {
+            'rzr': testConfig.previousYearUrls.rzr,
+            'rgr': testConfig.previousYearUrls.rgr,
+            'grl': testConfig.previousYearUrls.grl,
+            'atv': testConfig.previousYearUrls.atv,
+            'ind': testConfig.previousYearUrls.ind,
+            'slg': testConfig.previousYearUrls.slg,
+            'sno': testConfig.previousYearUrls.sno,
+        }
+        const url = StringFormat(urls[brand], locale, testConfig.previousYears[brand]);
+        await this.page.goto(url);
     }
 }
