@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        SUITE_NAME='Playwright',
-        process.env.ENV='prod'
+        SUITE_NAME='Playwright'
+        ENV='prod'
     }
 
     stages {
