@@ -12,7 +12,7 @@ pipeline {
                 bat '''
                 npx playwright@1.28.1 install
                 npm install mssql --save
-                nom install msnodesqlv8 --save
+                npm install msnodesqlv8 --save
                 npm install
                 '''
             }
