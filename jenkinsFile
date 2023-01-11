@@ -11,6 +11,8 @@ pipeline {
             steps {
                 bat '''
                 npx playwright@1.28.1 install
+                npm install mssql
+                nom install msnodesqlv8 --save
                 npm install
                 '''
             }
