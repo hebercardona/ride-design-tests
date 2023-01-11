@@ -1,8 +1,8 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
-process.env.ENV = `qa`
+//process.env.ENV = `qa`
 const ENV = process.env.ENV;
-console.log('playwright config env set');
+console.log('ENV is: ' + process.env.ENV);
 
 if (!ENV || ![`qa`, `dev`, `qaApi`, `devApi`, `prod`].includes(ENV)) {
   console.log(`Please provide a correct environment value like "npx cross-env ENV=qa|dev|qaApi|devApi"`);

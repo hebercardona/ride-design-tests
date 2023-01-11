@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         SUITE_NAME='Playwright'
+        process.env.ENV='prod'
     }
 
     stages {
