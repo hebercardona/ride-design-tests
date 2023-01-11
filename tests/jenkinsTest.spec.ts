@@ -41,7 +41,7 @@ test(`Test with urls dynamic`, async ( { pages } ) => {
   await pages.quote.enterFormDetailsAndSubmit(); */
 });
 
-test.only(`Test SQL Server`, async ( { pages } ) => {
+test(`Test SQL Server`, async ( { pages } ) => {
   await pages.navigation.navigateToPreviousYearStartingBuildUrl('rzr');
   await pages.navigation.navigateToStartingBuildUrl('rzr');
   const query = `select LoadUrl from ConfiguredWholegoods where BuildID = 'D7489428-D586-4255-9887-4B4FC23BF89B'`;
