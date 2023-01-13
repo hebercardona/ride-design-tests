@@ -1,7 +1,6 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 import { BuildPageObjects } from '@objects/BuildPageObjects';
 import { WebActions } from '@framework/WebActions';
-import { HeaderObjects } from '@objects/HeaderObjects';
 import { Header } from './Header';
 
 let webActions: WebActions;
@@ -17,39 +16,42 @@ export class BuildPage extends BuildPageObjects{
         webActions = new WebActions(this.page);
     }
 
-    async clickAnySeatCategory() {
+    async clickAnySeatCategory(): Promise<void> {
+        await expect(BuildPageObjects.SEAT_CATEGORIES, `No seat category elements were displayed`).toBeTruthy();
         await webActions.clickAnyElement(BuildPageObjects.SEAT_CATEGORIES);
     }
 
-    async clickAnyModelCategory() {
+    async clickAnyModelCategory(): Promise<void> {
+        await expect(BuildPageObjects.MODEL_CATEGORIES, `No model category elements were displayed`).toBeTruthy();
         await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
     }
 
-    async clickAnyTrim() {
+    async clickAnyTrim(): Promise<void> {
+        await expect(BuildPageObjects.TRIMS, `No trim category elements were displayed`).toBeTruthy();
         await webActions.clickAnyElement(BuildPageObjects.TRIMS);
     }
 
-    async clickFooterNext() {
+    async clickColorPageNextBtn(): Promise<void> {
         let title = await this.page.locator('div.cpq-header span').textContent();
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
         await this.page.waitForFunction(`document.querySelector('div.cpq-header span').innerText !== '${title}'`);
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
-        //await this.page.waitForFunction(`document.querySelector('div.cpq-header span').innerText !== '${title}'`);
     }
 
-    async waitForPcLoaded() {
+    async waitForPcLoaded(): Promise<void> {
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
     }
 
-    async openSummary() {
+    async openSummary(): Promise<void> {
+        await this.waitForPcLoaded();
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
     }
 
-    async clickGetQuote() {
+    async clickIamFinishedBtn(): Promise<void> {
         await webActions.clickElement(BuildPageObjects.GET_QUOTE);
     }
 

@@ -22,7 +22,6 @@ export class WebActions {
         let elements = await this.page.locator(locator);
         let rndElement =  Math.floor(Math.random() * await elements.count());
         await elements.nth(rndElement).click();
-        await this.page.waitForLoadState('networkidle');
     }
 
     async clickElementThatHasText(locator: string, text: string): Promise<void> {
@@ -39,7 +38,7 @@ export class WebActions {
         await this.page.fill(locator, text);
     }
 
-   async waitForElementGone(locator: string) {
+   async waitForElementGone(locator: string): Promise<void> {
     await this.page.locator(locator)
    }
 }

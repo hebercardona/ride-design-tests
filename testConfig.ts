@@ -19,7 +19,7 @@ const qaConfig = {
     },
     currentYearUrls: {
         rzr: `https://www-qa.polarisindcms.com/{0}/off-road/rzr/build-model`,
-        rgr: `https://www-qa.polarisindcms.com/{0}/off-road/rgr/build-model`,
+        rgr: `https://www-qa.polarisindcms.com/{0}/off-road/ranger/build-model`,
         grl: `https://www-qa.polarisindcms.com/{0}/off-road/general/build-model`,
         atv: `https://www-qa.polaris.com/{0}/off-road/sportsman/build-model`,
         ind: `https://www-qa.indianmotorcyclecms.com/{0}/build-category/`,
@@ -33,7 +33,7 @@ const qaConfig = {
     },
     previousYearUrls: {
         rzr: `https://www-qa.polarisindcms.com/{0}/off-road/rzr/{1}/build-model`,
-        rgr: `https://www-qa.polarisindcms.com/{0}/off-road/rgr/{1}/build-model`,
+        rgr: `https://www-qa.polarisindcms.com/{0}/off-road/ranger/{1}/build-model`,
         grl: `https://www-qa.polarisindcms.com/{0}/off-road/general/{1}/build-model`,
         atv: `https://www-qa.polaris.com/{0}/off-road/sportsman/{1}/build-model`,
         ind: `https://www-qa.indianmotorcyclecms.com/{0}/{1}/build-category/`,
@@ -55,7 +55,7 @@ const prodConfig = {
     },
     currentYearUrls: {
         rzr: `https://www.polaris.com/{0}/off-road/rzr/build-model`,
-        rgr: `https://www.polaris.com/{0}/off-road/rgr/build-model`,
+        rgr: `https://www.polaris.com/{0}/off-road/ranger/build-model`,
         grl: `https://www.polaris.com/{0}/off-road/general/build-model`,
         atv: `https://www.polaris.com/{0}/off-road/sportsman/build-model`,
         ind: `https://www.indianmotorcycle.com/{0}/build-category/`,
@@ -69,7 +69,7 @@ const prodConfig = {
     },
     previousYearUrls: {
         rzr: `https://www.polaris.com/{0}/off-road/rzr/{1}/build-model`,
-        rgr: `https://www.polaris.com/{0}/off-road/rgr/{1}/build-model`,
+        rgr: `https://www.polaris.com/{0}/off-road/ranger/{1}/build-model`,
         grl: `https://www.polaris.com/{0}/off-road/general/{1}/build-model`,
         atv: `https://www.polaris.com/{0}/off-road/sportsman/{1}/build-model`,
         ind: `https://www.indianmotorcycle.com/{0}/{1}/build-category/`,

@@ -3,13 +3,15 @@ import { LoginPage } from "./LoginPage";
 import { QuotePage } from "./QuotePage";
 import { Page  } from '@playwright/test';
 import { PageNav } from './PageNav';
+import { UISteps } from "@commonActions/UISteps";
 
 
 type pages = {
     login: LoginPage,
     build: BuildPage,
     quote: QuotePage,
-    navigation: PageNav
+    navigation: PageNav,
+    uiSteps: UISteps,
 };
 
 export class Pages {
@@ -24,5 +26,6 @@ export class Pages {
         this.pages.build = new BuildPage(this.page);
         this.pages.quote = new QuotePage(this.page);
         this.pages.navigation = new PageNav(this.page);
+        this.pages.uiSteps = new UISteps(this.page);
     }
 }

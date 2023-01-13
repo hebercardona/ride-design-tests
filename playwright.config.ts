@@ -1,6 +1,6 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
-//process.env.ENV = `prod`
+process.env.ENV = `prod`
 const ENV = process.env.ENV;
 console.log('ENV is: ' + process.env.ENV);
 
@@ -44,7 +44,7 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['./reporters/CustomReport.ts'],
+    //['./reporters/CustomReport.ts'],
     ['html'],
     //['junit', {outputFile: 'test-results.xml', open: 'never'}],
     //['json', {  outputFile: 'test-results.json' }]
@@ -63,7 +63,7 @@ const config: PlaywrightTestConfig = {
     video: 'off',
     baseURL: ENV === `qa` ? 'https://www-qa.polarisindcms.com/' : 'https://www.polaris.com/'
   },
-
+  
   /* Configure projects for major browsers */
   projects: [
     {

@@ -29,9 +29,9 @@ test('TEST', async( {page} ) => {
   await build.clickAnySeatCategory();
   await build.clickAnyModelCategory();
   await build.clickAnyTrim();
-  await build.clickFooterNext();
+  await build.clickColorPageNextBtn();
   await build.openSummary();
-  await build.clickGetQuote();
+  await build.clickIamFinishedBtn();
   await quote.enterFormDetailsAndSubmit();
 })
 
@@ -50,8 +50,8 @@ test('TEST with pom manager', async( { pages } ) => {
   await pages.build.clickAnySeatCategory();
   await pages.build.clickAnyModelCategory();
   await pages.build.clickAnyTrim();
-  await pages.build.clickFooterNext();
+  await pages.build.clickColorPageNextBtn();
   await pages.build.openSummary();
-  await pages.build.clickGetQuote();
+  await pages.build.clickIamFinishedBtn();
   await pages.quote.enterFormDetailsAndSubmit();
 })

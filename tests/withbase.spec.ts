@@ -5,9 +5,9 @@ test('C15432125 Test with fixture', async ( { pages } ) => {
   await pages.build.clickAnySeatCategory();
   await pages.build.clickAnyModelCategory();
   await pages.build.clickAnyTrim();
-  await pages.build.clickFooterNext();
+  await pages.build.clickColorPageNextBtn();
   await pages.build.openSummary();
-  await pages.build.clickGetQuote();
+  await pages.build.clickIamFinishedBtn();
   await pages.quote.enterFormDetailsAndSubmit();
 });
 

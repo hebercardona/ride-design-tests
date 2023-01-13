@@ -272,7 +272,7 @@ test.skip('Api Test', async ( {page} ) => {
     await build.clickAnySeatCategory();
     await build.clickAnyModelCategory();
     await build.clickAnyTrim();
-    await build.clickFooterNext();
+    await build.clickColorPageNextBtn();
     await page.pause();
 
     expect(apiResponse.status() === 200).toBeTruthy();
