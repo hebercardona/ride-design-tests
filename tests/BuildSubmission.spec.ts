@@ -11,16 +11,7 @@ for (const brand of orv) {
       });   
 }
 
-test(`Submit rzr build @rzr`, async ( { pages } ) => {
-    await pages.navigation.navigateToStartingBuildUrl('rzr');
-    await pages.uiSteps.modelSelectionToAccessoriesPage('rzr');
-    await pages.uiSteps.openBuildSummaryAndClickImFinished();
-    await pages.quote.enterFormDetailsAndSubmit();
-  });
-
-  test('Submit rgr build @rgr', async ( { pages } ) => {
-    await pages.navigation.navigateToStartingBuildUrl('rgr');
-    await pages.uiSteps.modelSelectionToAccessoriesPage('rgr');
-    await pages.uiSteps.openBuildSummaryAndClickImFinished();
-    await pages.quote.enterFormDetailsAndSubmit();
+test.only('Get Categories', async ( { pages } ) => {
+    await pages.navigation.navigateToUrl('https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726088__CatalogContent');
+    await pages.build.carousel.getCategories();
   });

@@ -15,7 +15,6 @@ export class WebActions {
     async clickElement(locator: string): Promise<void> {
         await this.page.click(locator);
         await this.page.waitForLoadState('networkidle');
-
     }
 
     async clickAnyElement(locator: string): Promise<void> {

@@ -8,7 +8,7 @@ export class PageNav {
         this.page = page;
     }
 
-    async navigatoToUrl(url: string): Promise<void> {
+    async navigateToUrl(url: string): Promise<void> {
         await this.page.goto(url);
     }
 

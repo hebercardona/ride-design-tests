@@ -46,7 +46,7 @@ test('Api Test', async ( {browser} ) => {
 
 test('TEST with pom manager', async( { pages } ) => {
 
-  await pages.navigation.navigatoToUrl('https://ranger.polaris.com/en-us/build-model/');
+  await pages.navigation.navigateToUrl('https://ranger.polaris.com/en-us/build-model/');
   await pages.build.clickAnySeatCategory();
   await pages.build.clickAnyModelCategory();
   await pages.build.clickAnyTrim();
