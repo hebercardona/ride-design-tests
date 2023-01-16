@@ -23,4 +23,8 @@ export class UISteps {
         await this.buildPages.openSummary();
         await this.buildPages.clickIamFinishedBtn();
     }
+
+    async AddAnyAccessory(): Promise<void> {
+        const categories = await this.buildPages.carousel.getCategories();
+    }
 }

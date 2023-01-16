@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 
 export class WebActions {
@@ -39,5 +39,9 @@ export class WebActions {
 
    async waitForElementGone(locator: string): Promise<void> {
     await this.page.locator(locator)
+   }
+
+   async getLocatorElement(locator: string): Promise<Locator> {
+    return await this.page.locator(locator);
    }
 }
