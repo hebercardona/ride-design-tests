@@ -44,4 +44,15 @@ export class WebActions {
    async getLocatorElement(locator: string): Promise<Locator> {
     return await this.page.locator(locator);
    }
+
+   async getElementHandleListInnerText(locator: string):Promise<string[]> {
+    let handlesInnerText: string[] = [];
+    const elementHandles = await this.page.locator(locator);
+    if(elementHandles) {
+        for (const element of await elementHandles.elementHandles()) {
+            handlesInnerText.push(await element.innerText());
+        }
+    }
+    return handlesInnerText;
+   }
 }

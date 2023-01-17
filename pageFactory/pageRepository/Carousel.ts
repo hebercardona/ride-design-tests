@@ -21,14 +21,13 @@ export class Carousel extends CarouselObjects {
     }
 
     async getCategories(): Promise<string[]> {
-        let categories: string[] = [];
-        const categoryHandles = await this.page.locator(CarouselObjects.CATEGORIES);
-        if(categoryHandles) {
-            for (const category of await categoryHandles.elementHandles()) {
-                categories.push(await category.innerText());
-            }
-        }
+        const categories = await webActions.getElementHandleListInnerText(CarouselObjects.CATEGORIES);
         return categories;
+    }
+
+    async getSubcategories(): Promise<string[]> {
+        const subcategories = await webActions.getElementHandleListInnerText(CarouselObjects.SUBCATEGORIES);
+        return subcategories;
     }
 
     async clickCategoryByName(categoryName: string): Promise<void> {
@@ -61,5 +60,13 @@ export class Carousel extends CarouselObjects {
             cta: await acc.locator(CarouselObjects.PRODUCT_CTA)
         };
         return product;
+    }
+
+    async addAccessory() {
+        const categories = await this.page.locator(CarouselObjects.CATEGORIES).elementHandles();
+        const subcategories = await this.page.locator(CarouselObjects.SUBCATEGORIES).elementHandles();
+        categories.forEach(x => {
+            
+        })
     }
 }
