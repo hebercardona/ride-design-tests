@@ -1,6 +1,8 @@
 import { WebActions } from "@framework/WebActions";
 import { CarouselObjects } from "@objects/CarouselObjects";
-import { Locator, Page } from "@playwright/test";
+import { ElementHandle, Locator, Page, expect } from "@playwright/test";
+import { ModalDialogs } from "./ModalDialogs";
+import { add } from "winston";
 
 let webActions: WebActions;
 
@@ -13,37 +15,39 @@ type Product = {
 
 export class Carousel extends CarouselObjects {
     readonly page: Page;
+    readonly modals: ModalDialogs;
 
     constructor(page: Page) {
         super();
         this.page = page;
+        this.modals = new ModalDialogs(this.page);
         webActions = new WebActions(this.page);
     }
 
     async getCategories(): Promise<string[]> {
-        const categories = await webActions.getElementHandleListInnerText(CarouselObjects.CATEGORIES);
+        const categories = await webActions.getInnerTextFromElementHandles(CarouselObjects.CATEGORIES_BTN_VISIBLE);
         return categories;
     }
 
     async getSubcategories(): Promise<string[]> {
-        const subcategories = await webActions.getElementHandleListInnerText(CarouselObjects.SUBCATEGORIES);
+        const subcategories = await webActions.getInnerTextFromElementHandles(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE);
         return subcategories;
     }
 
     async clickCategoryByName(categoryName: string): Promise<void> {
-        await webActions.clickElementThatHasText(CarouselObjects.CATEGORIES, categoryName);
+        await webActions.clickElementThatHasText(CarouselObjects.CATEGORIES_BTN_VISIBLE, categoryName);
     }
 
     async clickAnyCategory(): Promise<void> {
-        await webActions.clickAnyElement(CarouselObjects.CATEGORIES);
+        await webActions.clickAnyElement(CarouselObjects.CATEGORIES_BTN_VISIBLE);
     }
 
     async clickSubcategoryByName(subcategoryName: string): Promise<void> {
-        await webActions.clickElementThatHasText(CarouselObjects.SUBCATEGORIES, subcategoryName);
+        await webActions.clickElementThatHasText(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE, subcategoryName);
     }
 
     async clickAnySubcategory(): Promise<void> {
-        await webActions.clickAnyElement(CarouselObjects.SUBCATEGORIES);
+        await webActions.clickAnyElement(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE);
     }
 
     async clickAccessoryCtaByName(accessoryName: string): Promise<void> {
@@ -51,7 +55,7 @@ export class Carousel extends CarouselObjects {
     }
 
     async getAccessoryItem():Promise<Product> {
-        const accessoryItems = await webActions.getLocatorElement(CarouselObjects.PRODUCT_ITEM);
+        const accessoryItems = await webActions.getElement(CarouselObjects.PRODUCT_ITEM_VISIBLE);
         const acc = await accessoryItems.filter({has: this.page.locator(`text='Add'`)}).first();
         const product: Product = await {
             title: await acc.locator(CarouselObjects.PRODUCT_TITLE)?.textContent(),
@@ -62,11 +66,58 @@ export class Carousel extends CarouselObjects {
         return product;
     }
 
+
     async addAccessory() {
-        const categories = await this.page.locator(CarouselObjects.CATEGORIES).elementHandles();
-        const subcategories = await this.page.locator(CarouselObjects.SUBCATEGORIES).elementHandles();
-        categories.forEach(x => {
-            
-        })
+        let added: boolean;
+        const categories = await this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
+        .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)})
+        .filter({ has: this.page.locator(CarouselObjects.SUBCATEGORY_ITEMS) });
+
+        for (let i = 0; i < await categories.count(); i++) {
+            await categories.nth(i).click();
+
+            const subcategories = this.page.locator(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE);
+            for (let j = 0; j < await subcategories.count(); j++) {
+                await subcategories.nth(j).click();
+                if(await this.areProductsAvailable()) {
+                    const products = this.page.locator(CarouselObjects.PRODUCT_ITEM_VISIBLE);
+                    for (let k = 0; k < await products.count(); k++) {
+                        const productObject = await this.getProductObject(products.nth(k));
+                        await productObject.cta.click();
+                        if(await this.modals.isPrpDisplayed()) {
+                            await this.modals.clickPrpPrimaryPartRemove();
+                        } else {
+                            added = true;
+                            break;
+                        }
+                    }
+                }
+                if(added) {
+                    break;
+                }
+            }
+            if(added) {
+                break;
+            }
+        }
+    }
+
+    
+
+    async areProductsAvailable(): Promise<boolean> {
+        const productItems = await webActions.getElement(CarouselObjects.PRODUCT_ITEM_VISIBLE);
+        const productsAvailable = productItems ?
+        await productItems.filter({has: this.page.locator(`text='Add'`)}).count() > 0 ? true : false : false;
+        return productsAvailable;
+    }
+
+    async getProductObject(element: Locator): Promise<Product> {
+        const product: Product = await {
+            title: await element.locator(CarouselObjects.PRODUCT_TITLE).textContent(),
+            price: await element.locator(CarouselObjects.PRODUCT_PRICE).innerText(),
+            seeDetails: await element.locator(CarouselObjects.SEE_DETAILS),
+            cta: await element.locator(CarouselObjects.PRODUCT_CTA)
+        };
+        return product;
     }
 }

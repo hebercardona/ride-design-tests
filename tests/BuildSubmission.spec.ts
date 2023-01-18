@@ -12,10 +12,9 @@ for (const brand of orv) {
 }
 
 test.only('Get Categories', async ( { pages } ) => {
-    await pages.navigation.navigateToUrl('https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726088__CatalogContent');
-    await pages.build.carousel.clickCategoryByName(`Protection`);
-    const categories = await pages.build.carousel.getSubcategories();
-    await pages.build.carousel.clickSubcategoryByName(`Roofs`);
-    await pages.build.carousel.getAccessoryItem();
-    await pages.build.carousel.clickAccessoryCtaByName(`Aluminum`);
+    const qa = `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
+    const prod = `https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
+    await pages.navigation.navigateToUrl(qa);
+    await pages.build.waitForPcLoaded();
+    await pages.build.carousel.addAccessory();
   });

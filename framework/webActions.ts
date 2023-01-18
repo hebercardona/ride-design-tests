@@ -14,7 +14,6 @@ export class WebActions {
 
     async clickElement(locator: string): Promise<void> {
         await this.page.click(locator);
-        await this.page.waitForLoadState('networkidle');
     }
 
     async clickAnyElement(locator: string): Promise<void> {
@@ -41,11 +40,11 @@ export class WebActions {
     await this.page.locator(locator)
    }
 
-   async getLocatorElement(locator: string): Promise<Locator> {
+   async getElement(locator: string): Promise<Locator> {
     return await this.page.locator(locator);
    }
 
-   async getElementHandleListInnerText(locator: string):Promise<string[]> {
+   async getInnerTextFromElementHandles(locator: string):Promise<string[]> {
     let handlesInnerText: string[] = [];
     const elementHandles = await this.page.locator(locator);
     if(elementHandles) {
