@@ -6,7 +6,7 @@
       "@objects/*":["./pageFactory/objectRepository/*"],
       "@framework/*":["./framework/*"],
       "@testConfig/*":["./testConfig.ts"],
-      "@base":["./framework/BaseTest.ts"],
+      "@base":["framework/BaseTest.ts"],
       "@commonActions/*":["./commonActions/*"]
     }                                         
   }

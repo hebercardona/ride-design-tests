@@ -67,8 +67,9 @@ export class Carousel extends CarouselObjects {
     }
 
 
-    async addAccessory() {
+    async addAccessory(): Promise<Product> {
         let added: boolean;
+        let product: Product;
         const categories = await this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
         .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)})
         .filter({ has: this.page.locator(CarouselObjects.SUBCATEGORY_ITEMS) });
@@ -82,8 +83,8 @@ export class Carousel extends CarouselObjects {
                 if(await this.areProductsAvailable()) {
                     const products = this.page.locator(CarouselObjects.PRODUCT_ITEM_VISIBLE);
                     for (let k = 0; k < await products.count(); k++) {
-                        const productObject = await this.getProductObject(products.nth(k));
-                        await productObject.cta.click();
+                        product = await this.getProductObject(products.nth(k));
+                        await product.cta.click();
                         if(await this.modals.isPrpDisplayed()) {
                             await this.modals.clickPrpPrimaryPartRemove();
                         } else {
@@ -100,6 +101,7 @@ export class Carousel extends CarouselObjects {
                 break;
             }
         }
+        return product;
     }
 
     

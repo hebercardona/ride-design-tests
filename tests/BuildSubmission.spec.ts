@@ -1,4 +1,4 @@
-import { test } from "@base"
+import { test } from "@framework/BaseTest"
 
 const orv: string[] = [`rzr`, `rgr`, `atv`, `grl`];
 
