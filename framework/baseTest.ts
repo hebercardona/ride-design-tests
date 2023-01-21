@@ -13,7 +13,10 @@ BasePage
         const pageObjects = new BasePage(page).pages;
         pageObjects.page.on('console', msg => {
             if(msg.type() == 'error') {
-                pageObjects.pageConsoleErrors.push(msg.text());
+                pageObjects.pageConsoleErrors.push({
+                    message: msg.type(),
+                    url: page.url()
+                });
             }
         });
         await use(pageObjects)

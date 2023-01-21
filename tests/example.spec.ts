@@ -1,6 +1,6 @@
 import { test }  from '../framework/BaseTest';
 import { BuildPage } from '../pageFactory/pageRepository/BuildPage'
-import { LoginPage } from '../pageFactory/pageRepository/LoginPage';
+import { Login } from '../pageFactory/pageRepository/Login';
 import { QuotePage } from '../pageFactory/pageRepository/QuotePage';
 import { BasePage } from '../pageFactory/pageRepository/BasePage';
 
@@ -9,7 +9,7 @@ let webContext;
 test.beforeAll(async( {browser} ) => {
   const context = await browser.newContext();
   const page = await context.newPage();
-  let login = new LoginPage(page);
+  let login = new Login(page);
   await page.goto('https://ranger.polaris.com/en-us/build-model/');
   await login.clickSignIn();
   await login.enterEmail('heber.cardona@polaris.com');
@@ -38,7 +38,7 @@ test('TEST', async( {page} ) => {
 
 test('Api Test', async ( {browser} ) => {
   const page = await webContext.newPage();
-  let login = new LoginPage(page);
+  let login = new Login(page);
   await page.waitForLoadState('networkidle');
   await page.goto('https://ranger.polaris.com/en-us/build-model/');
   await login.clickSignIn();

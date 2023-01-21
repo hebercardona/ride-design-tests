@@ -1,10 +1,10 @@
 import type { Page } from '@playwright/test'
 import { WebActions } from '../../framework/WebActions'
-import { LoginPageObjects } from '../objectRepository/LoginPageObjects'
+import { LoginObjects } from '../objectRepository/LoginObjects'
 
 let webActions: WebActions;
 
-export class LoginPage extends LoginPageObjects {
+export class Login extends LoginObjects {
     readonly page: Page;
 
     constructor(page: Page) {
@@ -14,20 +14,20 @@ export class LoginPage extends LoginPageObjects {
     }
 
     async enterEmail(email: string): Promise<void> {
-        await webActions.enterElementText(LoginPageObjects.EMAIL, email);
+        await webActions.enterElementText(LoginObjects.EMAIL, email);
     }
 
     async enterPassword(password: string): Promise<void> {
-        await webActions.enterElementText(LoginPageObjects.PASSWORD, password);
+        await webActions.enterElementText(LoginObjects.PASSWORD, password);
     }
 
     async clickSignIn() {
-        await webActions.clickElement(LoginPageObjects.HAMBURGER_MENU);
-        await webActions.clickElement(LoginPageObjects.ACCOUNT_ICON);
+        await webActions.clickElement(LoginObjects.HAMBURGER_MENU);
+        await webActions.clickElement(LoginObjects.ACCOUNT_ICON);
     }
 
     async clickSubmit() {
-        await webActions.clickElement(LoginPageObjects.SUBMIT);
+        await webActions.clickElement(LoginObjects.SUBMIT);
         await this.page.waitForLoadState('networkidle');
         await this.page.waitForLoadState('domcontentloaded');
     }
