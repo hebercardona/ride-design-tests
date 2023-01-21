@@ -15,6 +15,7 @@ test.only('Get Categories', async ( { pages } ) => {
     const qa = `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
     const prod = `https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
     pages.build.page.evaluate(() => console.error('Adding Test Error'));
+    pages.build.page.evaluate(() => console.error('Adding Test Error 2'));
 
     await pages.navigation.navigateToUrl(prod);
     /* await pages.build.waitForPcLoaded();
@@ -23,5 +24,5 @@ test.only('Get Categories', async ( { pages } ) => {
 
   test.afterEach(async({ pages }) => {
     const errors = pages.pageConsoleErrors;
-    expect.soft(pages.pageConsoleErrors, 'Console errors thrown').toStrictEqual([{}]);
+    expect.soft(pages.pageConsoleErrors, 'Console errors thrown').toStrictEqual([]);
   })
