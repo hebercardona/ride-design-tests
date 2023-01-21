@@ -11,7 +11,7 @@ let testIdPerLocale = [
 
 for (const testInstance of testIdPerLocale) {
 
-  test(`${testInstance.id}_${testInstance.locale} Test Title with parameters`, async ( { pages } ) => {
+  test(`${testInstance.id}_${testInstance.locale} Test Title with parameters`, async ( { pages: pages } ) => {
     await pages.navigation.navigateToUrl("https://ranger.polaris.com/en-us/build-model/");
     await pages.build.clickAnySeatCategory();
     /* await pages.build.clickAnyModelCategory();

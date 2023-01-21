@@ -1,6 +1,6 @@
 import { expect, test }  from '../framework/BaseTest';
 
-test('C15432125 Test with fixture', async ( { pages } ) => {
+test('C15432125 Test with fixture', async ( { pages: pages } ) => {
   await pages.navigation.navigateToUrl("https://ranger.polaris.com/en-us/build-model/");
   await pages.build.clickAnySeatCategory();
   await pages.build.clickAnyModelCategory();

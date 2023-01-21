@@ -1,12 +1,23 @@
 import { test as baseTest } from '@playwright/test';
-import { Pages } from '../pageFactory/pageRepository/Pages';
+import { BasePage } from '../pageFactory/pageRepository/BasePage';
+
+type consoleError = {
+    url: string,
+    error: string
+}
 
 export const test = baseTest.extend<
-Pages
+BasePage
 >({
     pages: async ({ page }, use) => {
-        await use(new Pages(page).pages)
-    }
+        const pageObjects = new BasePage(page).pages;
+        pageObjects.page.on('console', msg => {
+            if(msg.type() == 'error') {
+                pageObjects.pageConsoleErrors.push(msg.text());
+            }
+        });
+        await use(pageObjects)
+    },
 });
 
 

@@ -1,9 +1,9 @@
-import { test } from "@framework/BaseTest"
+import { expect, test } from "@framework/BaseTest"
 
 const orv: string[] = [`rzr`, `rgr`, `atv`, `grl`];
 
 for (const brand of orv) {
-    test(`Submit ${brand} build @${brand}`, async ( { pages } ) => {
+    test.only(`Submit ${brand} build @${brand}`, async ( { pages } ) => {
         await pages.navigation.navigateToStartingBuildUrl(brand);
         await pages.uiSteps.modelSelectionToAccessoriesPage(brand);
         await pages.uiSteps.openBuildSummaryAndClickImFinished();
@@ -11,10 +11,17 @@ for (const brand of orv) {
       });   
 }
 
-test.only('Get Categories', async ( { pages } ) => {
+test('Get Categories', async ( { pages } ) => {
     const qa = `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
     const prod = `https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
-    await pages.navigation.navigateToUrl(qa);
-    await pages.build.waitForPcLoaded();
-    await pages.build.carousel.addAccessory();
+    pages.page.evaluate(() => console.error('Adding Test Error'));
+
+    await pages.navigation.navigateToUrl(prod);
+    /* await pages.build.waitForPcLoaded();
+    await pages.build.carousel.addAccessory(); */
   });
+
+  test.afterEach(async({ pages }) => {
+    const errors = pages.pageConsoleErrors;
+    expect.soft(pages.pageConsoleErrors, 'Console errors thrown').toStrictEqual([]);
+  })

@@ -2,7 +2,7 @@ import { test }  from '../framework/BaseTest';
 import { BuildPage } from '../pageFactory/pageRepository/BuildPage'
 import { LoginPage } from '../pageFactory/pageRepository/LoginPage';
 import { QuotePage } from '../pageFactory/pageRepository/QuotePage';
-import { Pages } from '../pageFactory/pageRepository/Pages';
+import { BasePage } from '../pageFactory/pageRepository/BasePage';
 
 let webContext;
 
@@ -44,7 +44,7 @@ test('Api Test', async ( {browser} ) => {
   await login.clickSignIn();
 })
 
-test('TEST with pom manager', async( { pages } ) => {
+test('TEST with pom manager', async( { pages: pages } ) => {
 
   await pages.navigation.navigateToUrl('https://ranger.polaris.com/en-us/build-model/');
   await pages.build.clickAnySeatCategory();
