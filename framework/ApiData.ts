@@ -47,7 +47,7 @@ class ApiData {
             .map(x => {
                 urls.push(x.BuildURL);
             }));
-        
+        const singleUrl = `${testConfig.baseUrl}${urls[3].replace(/^\//, '')}`;
         return responseContent;
     }
 
