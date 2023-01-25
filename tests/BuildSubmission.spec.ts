@@ -11,7 +11,7 @@ for (const brand of orv) {
       });   
 }
 
-test.only('Get Categories', async ( { pages } ) => {
+test('Get Categories', async ( { pages } ) => {
     const qa = `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
     const prod = `https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
     pages.build.page.evaluate(() => console.error('Adding Test Error'));
@@ -22,7 +22,7 @@ test.only('Get Categories', async ( { pages } ) => {
     await pages.build.carousel.addAccessory(); */
   });
 
-  test.afterEach(async({ pages }) => {
+  test.afterEach(async({ pages }, testInfo) => {
     const errors = pages.pageConsoleErrors;
     expect.soft(pages.pageConsoleErrors, 'Console errors thrown').toStrictEqual([]);
   })

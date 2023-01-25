@@ -1,4 +1,4 @@
-import { testConfig } from "@testConfig/*";
+import { testConfig } from "@testConfig";
 const sql = require("mssql/msnodesqlv8");
 
 

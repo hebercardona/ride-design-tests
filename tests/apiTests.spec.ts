@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BuildPage } from '../pageFactory/pageRepository/BuildPage';
 import * as fs from 'fs';
 import TestRailApi from '../reporters/testRail/TestRailApi';
-import { testConfig } from '@testConfig/';
+import { testConfig } from '@testConfig';
 import testRailReporter from 'reporters/testRail/TestRailReporter';
 
 let responseBody = {

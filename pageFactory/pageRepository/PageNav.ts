@@ -1,5 +1,5 @@
 import type { Page } from "@playwright/test";
-import { testConfig } from "@testConfig/*";
+import { testConfig } from "@testConfig";
 import { StringFormat } from "@framework/Common";
 
 export class PageNav {

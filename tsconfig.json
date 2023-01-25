@@ -5,7 +5,7 @@
       "@pages/*":["./pageFactory/pageRepository/*"],
       "@objects/*":["./pageFactory/objectRepository/*"],
       "@framework/*":["./framework/*"],
-      "@testConfig/*":["./testConfig.ts"],
+      "@testConfig":["./testConfig.ts"],
       "@base":["framework/BaseTest.ts"],
       "@commonActions/*":["./commonActions/*"]
     }                                         

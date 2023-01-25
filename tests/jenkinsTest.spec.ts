@@ -1,4 +1,4 @@
-import { testConfig } from '@testConfig/*';
+import { testConfig } from '@testConfig';
 import { expect, test }  from '../framework/BaseTest';
 import SqlClient from '@framework/SqlClient';
 

@@ -17,6 +17,7 @@ const qaConfig = {
             enableArithAbort: true
         }
     },
+    baseUrl: 'https://www-qa.polarisindcms.com/',
     currentYearUrls: {
         rzr: 'https://www-qa.polarisindcms.com/{0}/off-road/rzr/build-model',
         rgr: 'https://www-qa.polarisindcms.com/{0}/off-road/ranger/build-model',
@@ -53,6 +54,7 @@ const prodConfig = {
             enableArithAbort: true
         }
     },
+    baseUrl: 'https://www.polaris.com/',
     currentYearUrls: {
         rzr: 'https://www.polaris.com/{0}/off-road/rzr/build-model',
         rgr: 'https://www.polaris.com/{0}/off-road/ranger/build-model',
@@ -91,8 +93,23 @@ export const testConfig = {
     testRailProjectId: '31',
     testRailSuiteName: process.env.SUITE_NAME,
     db: envConfig[process.env.ENV].db,
+    baseUrl: envConfig[process.env.ENV].baseUrl,
     currentYearUrls: envConfig[process.env.ENV].currentYearUrls,
     previousYearUrls: envConfig[process.env.ENV].previousYearUrls,
+    currentYears: {
+        rzr: '2023',
+        rgr: '2023',
+        grl: '2023',
+        atv: '2023',
+        ind: '2023',
+        slg: '2023',
+        sno: '2023',
+        cmv: '2023',
+        mil: '2023',
+        ben: '2023',
+        hur: '2023',
+        gdy: '2023',
+    },
     previousYears: {
         rzr: '2022',
         rgr: '2022',

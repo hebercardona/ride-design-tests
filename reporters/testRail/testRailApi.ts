@@ -1,4 +1,4 @@
-import { testConfig } from '@testConfig/'
+import { testConfig } from '@testConfig'
 import { Request, Response } from './payload';
 import axios, { Axios } from 'axios';
 
