@@ -49,6 +49,10 @@ export class BuildPage extends BuildPageObjects{
         await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
     }
 
+    async isPlayCanvasLoaded(): Promise<boolean> {
+        return await this.page.locator(BuildPageObjects.PC_LOADED).isVisible();
+    }
+
     async openSummary(): Promise<void> {
         await this.waitForPcLoaded();
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);

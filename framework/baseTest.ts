@@ -14,7 +14,7 @@ BasePage
         pageObjects.page.on('console', msg => {
             if(msg.type() == 'error') {
                 pageObjects.pageConsoleErrors.push({
-                    message: msg.type(),
+                    message: msg.text(),
                     url: page.url()
                 });
             }

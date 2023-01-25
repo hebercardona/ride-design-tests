@@ -1,5 +1,6 @@
 import { testConfig } from "@testConfig";
 import { Request, expect, request } from "@playwright/test";
+import { Brands } from "@brands";
 
 /*
 {0} - locale
@@ -30,25 +31,37 @@ export interface Products {
 
 class ApiData {
 
-    async getCurrentYearResponse(locale: string = 'en-us', brand: string): Promise<string> {
+    async getApiBuildUrl(locale: string = 'en-us', brand: string): Promise<string> {
+        const urls: string[] = [];
         const endpoint = getAllModelsEndpoint(locale, brand, testConfig.currentYears[brand]);
         const responseContent = await this.sendGetRequest(endpoint);
         const productObjects: Products[] = await JSON.parse(responseContent);
-        const productsWithVariants: Products[] = await productObjects
-        .filter(x => x.IsConfigurable && x.IsPublished && x.IsVisible && x.Variants.length > 0);
-
-        const urls: string[] = [];
-
         const products = await productObjects
-        .filter(x => x.IsConfigurable && x.IsPublished && x.IsVisible && x.Variants.length > 0);
+        .filter(x => {
+            return x.IsConfigurable && x.IsPublished && x.IsVisible && x.Variants.length > 0 && x.PageUrl.length > 0 
+        });
 
         const variants = await products.filter(x => x.Variants
-            .filter(x => x.BuildURL != null && x.PageUrl != null)
+            .filter(x => {
+                return x.BuildURL.length > 0 && x.PageUrl.length > 0
+            })
             .map(x => {
-                urls.push(x.BuildURL);
+                if(x.BuildURL)
+                {
+                    if(Brands.orv.includes(brand)) {
+                        urls.push(`${testConfig.baseUrl}${x.BuildURL.replace(/^\//, '')}`);
+                    } else if(Brands.boats.includes(brand)) {
+                        if(x.BuildURL.includes('build-color')) {
+                            urls.push(`${x.BuildURL.replace(/^\//, '')}`);
+                        }
+                    } 
+                    else {
+                        urls.push(`${x.BuildURL.replace(/^\//, '')}`);
+                    }
+                }
             }));
-        const singleUrl = `${testConfig.baseUrl}${urls[3].replace(/^\//, '')}`;
-        return responseContent;
+            const singleUrl = urls[Math.floor(Math.random() * urls.length)];
+            return singleUrl;
     }
 
     async sendGetRequest(endpoint: string): Promise<string> {

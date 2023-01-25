@@ -134,13 +134,12 @@ export const testConfig = {
         gdy: ['en-us', 'en-ca', 'fr-ca',],
     },
     internationalLocales: {
-        rzr: [ 'en-us', 'en-ca', 'fr-ca', 'es-us' ],
-        rgr: [ 'en-us', 'en-ca', 'fr-ca', 'es-us' ],
-        atv: [ 'en-us', 'en-ca', 'fr-ca', 'es-us' ],
-        grl: [ 'en-us', 'en-ca', 'fr-ca', 'es-us' ],
-        ind: [ 'en-us', 'en-ca', 'fr-ca', 'es-us' ],
-        slg: [ 'en-us', 'en-ca', 'fr-ca', 'es-us' ],
-        sno: [ 'en-us', 'en-ca', 'fr-ca' ]
+        rzr: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'es-es', 'en-001', 'sv-se', 'pt-pt', 'de-de', 'de-at', 'fr-fr'],
+        rgr: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'en-001', 'sv-se', 'es-es', 'pt-pt', 'de-de', 'de-at', 'fr-fr', 'en-nz', 'en-au' ],
+        atv: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'en-001', 'sv-se', 'es-es', 'pt-pt', 'de-de', 'de-at', 'fr-fr'],
+        grl: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'en-001', 'sv-se', 'es-es', 'pt-pt', 'de-de', 'de-at', 'fr-fr'],
+        ind: [ 'en-001', 'es-mx', 'de-de', 'de-at', 'en-nz', 'en-au', 'en-gb', 'en-ie', 'pt-pt', 'en-za', 'sv-se', 'nb-no', 'fi-fi', 'nl-be', 'nl-nl', 'fr-be', 'es-es', 'fr-fr', 'fr-ch', 'de-ch', 'en-in', 'ar-sa' ],
+        sno: [ 'nb-no' ]
     },
     previousYearInternationalLocales : {
         rzr: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'es-es', 'en-001', 'sv-se', 'pt-pt', 'de-de', 'de-at', 'fr-fr', 'pt-br', 'en-nz', 'en-au' ],

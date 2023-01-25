@@ -1,3 +1,4 @@
+import ApiData from "@framework/ApiData";
 import { expect, test } from "@framework/BaseTest"
 
 const orv: string[] = [`rzr`, `rgr`, `atv`, `grl`];
@@ -6,12 +7,13 @@ for (const brand of orv) {
     test(`Submit ${brand} build @${brand}`, async ( { pages } ) => {
         await pages.navigation.navigateToStartingBuildUrl(brand);
         await pages.uiSteps.modelSelectionToAccessoriesPage(brand);
+        const accessoryAdded = await pages.build.carousel.addAccessory();
         await pages.uiSteps.openBuildSummaryAndClickImFinished();
         await pages.quote.enterFormDetailsAndSubmit();
       });   
 }
 
-test('Get Categories', async ( { pages } ) => {
+test('Get Categories', async ( { pages }, testInfo ) => {
     const qa = `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
     const prod = `https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
     pages.build.page.evaluate(() => console.error('Adding Test Error'));
@@ -21,6 +23,14 @@ test('Get Categories', async ( { pages } ) => {
     /* await pages.build.waitForPcLoaded();
     await pages.build.carousel.addAccessory(); */
   });
+
+  test.only('Quote Changes', async ( { pages } ) => {
+    const buildUrl = await ApiData.getApiBuildUrl('es-mx', 'rzr');
+    await pages.navigation.navigateToUrl(buildUrl);
+    await pages.uiSteps.openBuildSummaryAndClickImFinished();
+        await pages.quote.enterFormDetailsAndSubmit();
+  });
+
 
   test.afterEach(async({ pages }, testInfo) => {
     const errors = pages.pageConsoleErrors;
