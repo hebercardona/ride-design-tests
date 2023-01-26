@@ -1,6 +1,7 @@
 import { Common } from "@framework/Common";
 
 export class TestData {
+    
     static NORTH_AMERICA_EMAIL = 'testenusinternal@polaris.com';
     static APLA_EMAIL = 'testaplainternal@polaris.com';
     static EMA_EMAIL = 'testemeainternal@polaris.com';

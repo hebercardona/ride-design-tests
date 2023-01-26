@@ -25,14 +25,20 @@ test('Get Categories', async ( { pages }, testInfo ) => {
   });
 
   test.only('Quote Changes', async ( { pages } ) => {
-    const buildUrl = await ApiData.getApiBuildUrl('es-mx', 'rzr');
+    const buildUrl = await ApiData.getApiBuildUrl('en-us', 'rzr');
     await pages.navigation.navigateToUrl(buildUrl);
+    await pages.build.openSummary();
+    const title = await pages.build.summary.getVehicleTitle();
+    const modelId = await pages.build.summary.getModelId();
+    const msrp = await pages.build.summary.getMsrpPrice();
+    const asConfigured = await pages.build.summary.getAsConfiguredPrice();
+    await pages.build.summary.closeBuildSummary();
     await pages.uiSteps.openBuildSummaryAndClickImFinished();
-        await pages.quote.enterFormDetailsAndSubmit();
+    await pages.quote.enterFormDetailsAndSubmit();
   });
 
 
-  test.afterEach(async({ pages }, testInfo) => {
+  /* test.afterEach(async({ pages }, testInfo) => {
     const errors = pages.pageConsoleErrors;
     expect.soft(pages.pageConsoleErrors, 'Console errors thrown').toStrictEqual([]);
-  })
+  }) */

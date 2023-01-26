@@ -19,6 +19,7 @@ export class QuotePage extends QuotePageObjects {
     await webActions.enterElementText(QuotePageObjects.LAST_NAME, 'Validation');
     await webActions.enterElementText(QuotePageObjects.EMAIL, TestData.getTestEmail(this.page.url()));
     await webActions.enterElementText(QuotePageObjects.POSTAL_CODE, TestData.getTestPostalCode(this.page.url()));
+    await webActions.clickElement(QuotePageObjects.AGE_CHK);
     await webActions.clickElement(QuotePageObjects.SUBMIT);
    }
 }

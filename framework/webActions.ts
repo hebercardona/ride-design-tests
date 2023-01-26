@@ -44,7 +44,7 @@ export class WebActions {
     return await this.page.locator(locator);
    }
 
-   async getInnerTextFromElementHandles(locator: string):Promise<string[]> {
+   async getInnerTextFromElements(locator: string):Promise<string[]> {
     let handlesInnerText: string[] = [];
     const elementHandles = await this.page.locator(locator);
     if(elementHandles) {
@@ -53,5 +53,9 @@ export class WebActions {
         }
     }
     return handlesInnerText;
+   }
+
+   async getElementInnerText(locator: string): Promise<string> {
+    return await this.page.locator(locator).innerText();
    }
 }

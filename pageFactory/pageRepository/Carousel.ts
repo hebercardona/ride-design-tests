@@ -25,12 +25,12 @@ export class Carousel extends CarouselObjects {
     }
 
     async getCategories(): Promise<string[]> {
-        const categories = await webActions.getInnerTextFromElementHandles(CarouselObjects.CATEGORIES_BTN_VISIBLE);
+        const categories = await webActions.getInnerTextFromElements(CarouselObjects.CATEGORIES_BTN_VISIBLE);
         return categories;
     }
 
     async getSubcategories(): Promise<string[]> {
-        const subcategories = await webActions.getInnerTextFromElementHandles(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE);
+        const subcategories = await webActions.getInnerTextFromElements(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE);
         return subcategories;
     }
 

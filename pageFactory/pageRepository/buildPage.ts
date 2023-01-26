@@ -3,6 +3,7 @@ import { BuildPageObjects } from '@objects/BuildPageObjects';
 import { WebActions } from '@framework/WebActions';
 import { Header } from './Header';
 import { Carousel } from './Carousel';
+import { BuildSummary } from './BuildSummary';
 
 let webActions: WebActions;
 
@@ -10,12 +11,14 @@ export class BuildPage extends BuildPageObjects{
     readonly page: Page;
     readonly header: Header;
     readonly carousel: Carousel;
+    readonly summary: BuildSummary;
 
     constructor(page: Page) {
         super();
         this.page = page;
         this.header = new Header(this.page);
         this.carousel = new Carousel(this.page);
+        this.summary = new BuildSummary(this.page);
         webActions = new WebActions(this.page);
     }
 
