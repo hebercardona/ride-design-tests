@@ -1,8 +1,19 @@
 import { WebActions } from "@framework/WebActions";
 import { ConfirmationPageObjects } from "@objects/ConfirmationPageObjects";
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 let webActions: WebActions;
+
+type Product = {
+    name: string,
+    price: string,
+    id: string
+}
+
+type Collection = {
+    name: string,
+    price: string
+}
 
 export class ConfirmationPage extends ConfirmationPageObjects {
     readonly page: Page;
@@ -31,5 +42,17 @@ export class ConfirmationPage extends ConfirmationPageObjects {
     async getModelId(): Promise<string> {
         const modelId = await webActions.getElement(ConfirmationPageObjects.CONFIRMATION_SUMMARY_CONTAINER);
         return await modelId.getAttribute('data-model-id');
+    }
+
+    async getProducts() {
+        const productItems = await webActions.getElements(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS);
+        const products = await Promise.all(productItems.map(async (x) => {
+            const product: Product = await {
+                name: await x.locator(ConfirmationPageObjects.PRODUCT_NAME).innerText(),
+                price: await x.locator(ConfirmationPageObjects.PRODUCT_PRICE).innerText(),
+                id: await x.locator(ConfirmationPageObjects.PRODUCT_ID).innerText()
+            }
+            return product;
+        }));
     }
 }

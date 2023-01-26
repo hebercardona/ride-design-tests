@@ -58,4 +58,14 @@ export class WebActions {
    async getElementInnerText(locator: string): Promise<string> {
     return await this.page.locator(locator).innerText();
    }
+
+   async getElements(locator: string): Promise<Locator[]> {
+    let elementList: Locator[] = [];
+    const elements = this.page.locator(locator);
+    const count = await elements.count();
+    for (let i = 0; i < await elements.count(); i++) {
+        elementList.push(await elements.nth(i));
+    }
+    return elementList;
+   }
 }

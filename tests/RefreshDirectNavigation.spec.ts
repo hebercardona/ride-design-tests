@@ -8,8 +8,8 @@ const orv: string[] = [`rzr`, `rgr`, `atv`, `grl`];
 for (const brand of orv) {
     test(`Submit ${brand} build @${brand}`, async ( { pages } ) => {
         await pages.navigation.navigateToStartingBuildUrl(brand);
-        await pages.uiSteps.modelSelectionToAccessoriesPage(brand);
-        await pages.uiSteps.openBuildSummaryAndClickImFinished();
+        await pages.build.modelSelectionToAccessoriesPage(brand);
+        await pages.build.openBuildSummaryAndClickImFinished();
         await pages.quote.enterFormDetailsAndSubmit();
       });   
 }

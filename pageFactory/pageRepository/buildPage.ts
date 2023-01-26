@@ -4,6 +4,7 @@ import { WebActions } from '@framework/WebActions';
 import { Header } from './Header';
 import { Carousel } from './Carousel';
 import { BuildSummary } from './BuildSummary';
+import { Login } from './Login';
 
 let webActions: WebActions;
 
@@ -12,6 +13,7 @@ export class BuildPage extends BuildPageObjects{
     readonly header: Header;
     readonly carousel: Carousel;
     readonly summary: BuildSummary;
+    readonly login: Login;
 
     constructor(page: Page) {
         super();
@@ -19,6 +21,7 @@ export class BuildPage extends BuildPageObjects{
         this.header = new Header(this.page);
         this.carousel = new Carousel(this.page);
         this.summary = new BuildSummary(this.page);
+        this.login = new Login(this.page);
         webActions = new WebActions(this.page);
     }
 
@@ -74,5 +77,17 @@ export class BuildPage extends BuildPageObjects{
           });
         });
       }
+
+    async modelSelectionToAccessoriesPage(brand: string): Promise<void> {
+        await this.clickAnySeatCategory();
+        await this.clickAnyModelCategory();
+        await this.clickAnyTrim();
+        await this.clickColorPageNextBtn();
+    }
+
+    async openBuildSummaryAndClickImFinished(): Promise<void> {
+        await this.openSummary();
+        await this.clickIamFinishedBtn();
+    }
 
 }
