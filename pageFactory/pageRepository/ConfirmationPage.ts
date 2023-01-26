@@ -48,9 +48,9 @@ export class ConfirmationPage extends ConfirmationPageObjects {
         const productItems = await webActions.getElements(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS);
         const products = await Promise.all(productItems.map(async (x) => {
             const product: Product = await {
-                name: await x.locator(ConfirmationPageObjects.PRODUCT_NAME).innerText(),
-                price: await x.locator(ConfirmationPageObjects.PRODUCT_PRICE).innerText(),
-                id: await x.locator(ConfirmationPageObjects.PRODUCT_ID).innerText()
+                name: await x.locator(ConfirmationPageObjects.PRODUCT_NAME)?.innerText(),
+                price: await x.locator(ConfirmationPageObjects.PRODUCT_PRICE)?.innerText(),
+                id: await x.locator(ConfirmationPageObjects.PRODUCT_ID)?.innerText()
             }
             return product;
         }));

@@ -87,13 +87,16 @@ export class Carousel extends CarouselObjects {
                         await product.cta.click();
                         if(await this.modals.isPrpDisplayed()) {
                             await this.modals.clickPrpPrimaryPartRemove();
+                            continue;
                         } else {
                             added = true;
+                            await this.page.locator('div.shapes-minus').click();
                             break;
                         }
                     }
                 }
                 if(added) {
+                    await this.page.locator('i.up').click();
                     break;
                 }
             }
@@ -103,8 +106,6 @@ export class Carousel extends CarouselObjects {
         }
         return product;
     }
-
-    
 
     async areProductsAvailable(): Promise<boolean> {
         const productItems = await webActions.getElement(CarouselObjects.PRODUCT_ITEM_VISIBLE);
@@ -121,5 +122,13 @@ export class Carousel extends CarouselObjects {
             cta: await element.locator(CarouselObjects.PRODUCT_CTA)
         };
         return product;
+    }
+
+    async collapseSubcategories(): Promise<void> {
+        await webActions.clickElement(CarouselObjects.SUBCATEGORY_MINUS_ICON);
+    }
+
+    async collapseCategories(): Promise<void> {
+        await webActions.clickElement(CarouselObjects.CATEGORY_UP_ARROW);
     }
 }
