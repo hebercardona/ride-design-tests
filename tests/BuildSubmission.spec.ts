@@ -1,5 +1,6 @@
 import ApiData from "@framework/ApiData";
 import { expect, test } from "@framework/BaseTest"
+import { Brands } from "@framework/Brands";
 
 const orv: string[] = [`rzr`, `rgr`, `atv`, `grl`];
 
@@ -37,15 +38,34 @@ test('Get Categories', async ( { pages }, testInfo ) => {
     await pages.quote.enterFormDetailsAndSubmit();
   });
 
-  test.only('Confirmation', async ( { pages } ) => {
-    //const buildUrl = 'https://www.polaris.com/en-us/off-road/rzr/build-quote-confirm/?__FormGuid=ae9869b1-6435-45df-907f-aa0f421f4d7a&__FormLanguage=en-us&__FormSubmissionId=6d7d8aa9-13a9-41f7-aaa5-c6dc4fcefbca&swv=726078__CatalogContent';
-    const buildUrl = await ApiData.getApiBuildUrl('en-us', 'rzr');
-    await pages.navigation.navigateToUrl(buildUrl);
-    await pages.build.waitForPcLoaded();
-    for (let i = 0; i < 4; i++) {
-      await pages.build.carousel.addAccessory();
-    }
-  });
+
+  for (const brand of Brands.orv) {
+    test(`Submit ${brand} build and verify confirmation page @${brand}`, async ( { pages } ) => {
+      await pages.navigation.navigateToStartingBuildUrl(brand, 'en-us');
+      await pages.build.modelSelectionToAccessoriesPage(brand);
+      const accessoryAdded = await pages.build.carousel.addAccessory();
+      await pages.build.openBuildSummaryAndClickImFinished();
+      await pages.quote.enterFormDetailsAndSubmit();
+  
+      expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+      `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+  
+      expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+    }); 
+  }
+
+  test.only(`Submit rgr build new @rgr`, async ( { pages } ) => {
+    await pages.navigation.navigateToStartingBuildUrl('rgr', 'en-us');
+    await pages.build.modelSelectionToAccessoriesPage('rgr');
+    const accessoryAdded = await pages.build.carousel.addAccessory();
+    await pages.build.openBuildSummaryAndClickImFinished();
+    await pages.quote.enterFormDetailsAndSubmit();
+
+    expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+    `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+
+    expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+  }); 
 
 
   /* test.afterEach(async({ pages }, testInfo) => {

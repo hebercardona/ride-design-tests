@@ -1,6 +1,7 @@
 import { WebActions } from "@framework/WebActions";
 import { ConfirmationPageObjects } from "@objects/ConfirmationPageObjects";
 import { Locator, Page } from "@playwright/test";
+import { CarouselProduct } from "./Carousel";
 
 let webActions: WebActions;
 
@@ -44,7 +45,8 @@ export class ConfirmationPage extends ConfirmationPageObjects {
         return await modelId.getAttribute('data-model-id');
     }
 
-    async getProducts() {
+    async getProducts(): Promise<Product[]> {
+        await this.page.locator(ConfirmationPageObjects.ADDED_ACCESSORIES_CONTAINER).scrollIntoViewIfNeeded();
         const productItems = await webActions.getElements(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS);
         const products = await Promise.all(productItems.map(async (x) => {
             const product: Product = await {
@@ -54,5 +56,24 @@ export class ConfirmationPage extends ConfirmationPageObjects {
             }
             return product;
         }));
+        return products;
+    }
+
+    async verifyIfProductPresent(product: CarouselProduct): Promise<boolean> {
+        const confirmationAddedProducts = await this.getProducts();
+        for (const item of confirmationAddedProducts) {
+            if(item.id.includes(product.id) 
+            && item.name.includes(product.title) 
+            && item.price.includes(product.price)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    async verifyDuplicateItems(): Promise<boolean> {
+        const confirmationAddedProducts = await this.getProducts();
+        const productIds = confirmationAddedProducts.map(x => x.id);
+        return new Set(productIds).size !== productIds.length;
     }
 }

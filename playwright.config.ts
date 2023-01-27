@@ -61,14 +61,17 @@ const config: PlaywrightTestConfig = {
     trace: 'on',
     screenshot: 'only-on-failure',
     video: 'off',
-    baseURL: ENV === `qa` ? 'https://www-qa.polarisindcms.com/' : 'https://www.polaris.com/'
+    baseURL: ENV === `qa` ? 'https://www-qa.polarisindcms.com/' : 'https://www.polaris.com/',
+    headless: true
   },
   
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome']
+     },
     }
     /*
     {

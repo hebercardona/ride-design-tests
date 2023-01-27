@@ -62,10 +62,13 @@ export class WebActions {
    async getElements(locator: string): Promise<Locator[]> {
     let elementList: Locator[] = [];
     const elements = this.page.locator(locator);
-    const count = await elements.count();
     for (let i = 0; i < await elements.count(); i++) {
         elementList.push(await elements.nth(i));
     }
     return elementList;
+   }
+
+   async waitForElementToHide(locator: string): Promise<void> {
+    await this.page.locator(locator).waitFor({state: 'hidden'});
    }
 }

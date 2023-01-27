@@ -2,12 +2,12 @@ import { WebActions } from "@framework/WebActions";
 import { CarouselObjects } from "@objects/CarouselObjects";
 import { ElementHandle, Locator, Page, expect } from "@playwright/test";
 import { ModalDialogs } from "./ModalDialogs";
-import { add } from "winston";
 
 let webActions: WebActions;
 
-type Product = {
+export type CarouselProduct = {
     title: string,
+    id: string,
     price: string,
     seeDetails: Locator,
     cta: Locator
@@ -54,11 +54,12 @@ export class Carousel extends CarouselObjects {
         await webActions.clickElement(CarouselObjects.PRODUCT_CTA_BY_NAME(accessoryName));
     }
 
-    async getAccessoryItem():Promise<Product> {
+    async getAccessoryItem():Promise<CarouselProduct> {
         const accessoryItems = await webActions.getElement(CarouselObjects.PRODUCT_ITEM_VISIBLE);
         const acc = await accessoryItems.filter({has: this.page.locator(`text='Add'`)}).first();
-        const product: Product = await {
+        const product: CarouselProduct = await {
             title: await acc.locator(CarouselObjects.PRODUCT_TITLE)?.textContent(),
+            id: await acc.locator(CarouselObjects.PRODUCT_ID)?.innerText(),
             price: await acc.locator(CarouselObjects.PRODUCT_PRICE)?.innerText(),
             seeDetails: await acc.locator(CarouselObjects.SEE_DETAILS),
             cta: await acc.locator(CarouselObjects.PRODUCT_CTA)
@@ -67,9 +68,9 @@ export class Carousel extends CarouselObjects {
     }
 
 
-    async addAccessory(): Promise<Product> {
+    async addAccessory(): Promise<CarouselProduct> {
         let added: boolean;
-        let product: Product;
+        let product: CarouselProduct;
         const categories = await this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
         .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)})
         .filter({ has: this.page.locator(CarouselObjects.SUBCATEGORY_ITEMS) });
@@ -114,9 +115,10 @@ export class Carousel extends CarouselObjects {
         return productsAvailable;
     }
 
-    async getProductObject(element: Locator): Promise<Product> {
-        const product: Product = await {
+    async getProductObject(element: Locator): Promise<CarouselProduct> {
+        const product: CarouselProduct = await {
             title: await element.locator(CarouselObjects.PRODUCT_TITLE).textContent(),
+            id: await element.locator(CarouselObjects.PRODUCT_ID).nth(1).innerText(),
             price: await element.locator(CarouselObjects.PRODUCT_PRICE).innerText(),
             seeDetails: await element.locator(CarouselObjects.SEE_DETAILS),
             cta: await element.locator(CarouselObjects.PRODUCT_CTA)

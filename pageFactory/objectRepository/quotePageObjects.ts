@@ -5,4 +5,6 @@ export class QuotePageObjects {
     protected static POSTAL_CODE = 'div[data-form-mapping="AddressPostalCode"] input';
     protected static AGE_CHK = 'div.ValidationRequired input.FormChoice__Input';
     protected static SUBMIT = 'span.btn-color-primary';
+    protected static DEALER_NAME = 'div.dealer-selector-element__dropdown-button-dealer-name';
+    protected static SEARCH_BTN = 'button.dealer-selector-element__search-button';
 }
