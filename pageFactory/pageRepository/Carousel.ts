@@ -90,13 +90,13 @@ export class Carousel extends CarouselObjects {
                             continue;
                         } else {
                             added = true;
-                            await this.page.locator('div.shapes-minus').click();
+                            await this.collapseSubcategories();
                             break;
                         }
                     }
                 }
                 if(added) {
-                    await this.page.locator('i.up').click();
+                    await this.collapseCategories();
                     break;
                 }
             }
