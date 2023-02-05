@@ -2,6 +2,7 @@ import { WebActions } from "@framework/WebActions";
 import { CarouselObjects } from "@objects/CarouselObjects";
 import { ElementHandle, Locator, Page, expect } from "@playwright/test";
 import { ModalDialogs } from "./ModalDialogs";
+import { add } from "winston";
 
 let webActions: WebActions;
 
@@ -72,8 +73,8 @@ export class Carousel extends CarouselObjects {
         let added: boolean;
         let product: CarouselProduct;
         const categories = await this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
-        .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)})
-        .filter({ has: this.page.locator(CarouselObjects.SUBCATEGORY_ITEMS) });
+        .filter({ has: this.page.locator(CarouselObjects.SUBCATEGORY_ITEMS)})
+        .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)});
 
         for (let i = 0; i < await categories.count(); i++) {
             await categories.nth(i).click();
@@ -105,6 +106,7 @@ export class Carousel extends CarouselObjects {
                 break;
             }
         }
+        expect(added, 'No accessory added on add accessory step').toBeTruthy();
         return product;
     }
 
