@@ -1,10 +1,12 @@
-import { Page, expect } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 import { BuildPageObjects } from '@objects/BuildPageObjects';
 import { WebActions } from '@framework/WebActions';
 import { Header } from './Header';
 import { Carousel } from './Carousel';
 import { BuildSummary } from './BuildSummary';
 import { Login } from './Login';
+import { ModalDialogs } from './ModalDialogs';
+import { Common } from '@framework/Common';
 
 let webActions: WebActions;
 
@@ -14,6 +16,7 @@ export class BuildPage extends BuildPageObjects{
     readonly carousel: Carousel;
     readonly summary: BuildSummary;
     readonly login: Login;
+    readonly modals: ModalDialogs;
 
     constructor(page: Page) {
         super();
@@ -22,6 +25,7 @@ export class BuildPage extends BuildPageObjects{
         this.carousel = new Carousel(this.page);
         this.summary = new BuildSummary(this.page);
         this.login = new Login(this.page);
+        this.modals = new ModalDialogs(this.page);
         webActions = new WebActions(this.page);
     }
 
@@ -35,17 +39,37 @@ export class BuildPage extends BuildPageObjects{
         await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
     }
 
+    async clickMilModelCategory(): Promise<void> {
+        if(this.page.url().includes('trim')) {
+            return;
+        }
+        await webActions.clickAnyElement(BuildPageObjects.SEAT_CATEGORIES);
+    }
+
+    async clickAnyMilBrand(): Promise<void> {
+        await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
+    }
+
+    async clickBrandByName(name: string): Promise<void> {
+        await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.MODEL_CATEGORIES, name);
+    }
+
     async clickAnyTrim(): Promise<void> {
         await expect(BuildPageObjects.TRIMS, `No trim category elements were displayed`).toBeTruthy();
         await webActions.clickAnyElement(BuildPageObjects.TRIMS);
     }
 
+    async clickFooterNextBtn(): Promise<void> {
+        if(await webActions.isElementVisible(BuildPageObjects.FOOTER_SPINNER_LOADING)) {
+            await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
+        }
+        await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
+    }
+
     async clickColorPageNextBtn(): Promise<void> {
-        let title = await this.page.locator('div.cpq-header span').textContent();
-        await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
+        await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
-        await this.page.waitForFunction(`document.querySelector('div.cpq-header span').innerText !== '${title}'`);
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
     }
 
@@ -90,4 +114,126 @@ export class BuildPage extends BuildPageObjects{
         await this.clickIamFinishedBtn();
     }
 
+    async clickAnyCategory(): Promise<void> {
+        await webActions.clickAnyElement(BuildPageObjects.CATEGORIES);
+    }
+
+    async clickVehicleCategoryByName(name: string): Promise<void> {
+        await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.CATEGORIES, name);
+    }
+
+    async categoryToAccessoriesPageInd(): Promise<void> {
+        await this.clickAnyCategory();
+        await this.clickAnyModelCategory();
+        await this.clickAnyTrim();
+        await this.clickColorPageNextBtn();
+        await this.modals.clickPurposePromptNewVehicle();
+    }
+
+    async clickAnySubstepRadio(): Promise<void> {
+        await webActions.clickAnyElement(BuildPageObjects.SUBSTEP_ITEM_TITLE);
+    }
+
+    async performFeatureSelectionSubsteps(): Promise<void> {
+        let substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
+
+        while (await webActions.isElementVisible(BuildPageObjects.SUBSTEP_SECTION)) {
+            await new Promise(f => setTimeout(f, 3000));
+            let substepItem: Locator;
+            await this.waitForSubstepOptionsToLoad();
+
+            let substepItems = await substep.locator(BuildPageObjects.SUBSTEP_ITEMS);
+
+            if(await substep.count() > 0) {
+                expect(await substepItems.count(), 
+                `Substep ${substep.textContent()} is not displaying any substep items`).toBeGreaterThan(0);
+            }
+
+            if(await substepItems.count() > 0) {
+                substepItem = await webActions.getAnyElementFromList(BuildPageObjects.SUBSTEP_ITEMS);
+            }
+
+            await substepItem.click();
+            await new Promise(f => setTimeout(f, 1500));
+            await this.clickFooterNextBtn();
+            await new Promise(f => setTimeout(f, 3000));
+
+            /* if(await substepItems.count() === 1) {
+                await this.clickFooterNextBtn();
+            } else {
+                await webActions.clickAnyElement(BuildPageObjects.SUBSTEP_ITEMS);
+                await this.clickFooterNextBtn();
+            } */
+            substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
+        }
+    }
+
+    async performOptionSelectionSubsteps(): Promise<void> {
+        let substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
+        
+        while (await substep.count() > 0) {
+            await this.waitForSubstepOptionsToLoad();
+            await new Promise(f => setTimeout(f, 4000));
+            let substepItems = await substep.locator(BuildPageObjects.SUBSTEP_ITEMS);
+            
+            if(await substepItems.count() > 1) {
+                await webActions.clickAnyElement(BuildPageObjects.SUBSTEP_ITEMS);
+            }
+            await this.clickFooterNextBtn();
+            if(await webActions.isElementVisible(BuildPageObjects.SAVE_BUILD_TEXT)) {
+                await webActions.waitForElementHidden(BuildPageObjects.SAVE_BUILD_TEXT);
+            }
+            await this.waitForPcLoaded();
+            
+            
+            await new Promise(f => setTimeout(f, 3000));
+            substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
+        }
+    }
+
+    async clickAnyColorItem(): Promise<void> {
+        await webActions.clickAnyElement(BuildPageObjects.COLOR_ITEMS);
+    }
+
+    async clickCmvAnyColorItem(): Promise<void> {
+        if(this.page.url().includes('build-color')) {
+            await webActions.clickAnyElement(BuildPageObjects.COLOR_ITEMS);
+            await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
+        }
+    }
+
+    async verifySubstepItemsDisplayed(): Promise<void> {
+        const substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
+        
+        if(await substep.count() > 0) {
+            const substepItems = await substep.locator(BuildPageObjects.SUBSTEP_ITEMS);
+            expect(await substepItems.count(), 
+            `No Substep items displayed for substep: ${await substep.innerText()}`).toBeGreaterThan(0);
+        }
+    }
+
+    async waitForSubstepOptionsToLoad(): Promise<void> {
+        const currentSubstep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE).last();
+        await currentSubstep.locator(BuildPageObjects.SUBSTEP_SPINNER_LOADER).waitFor({state: 'hidden'});
+    }
+
+    async clickSnoColorItems(): Promise<void> {
+        if(!(await webActions.isElementVisible(BuildPageObjects.SNO_STOCK_LABEL))) {
+            const sidePanelSection = await webActions.getElement(BuildPageObjects.SNO_SIDE_PANEL_SECTION);
+            const sidePanelColors = await webActions.getChildElementsFromParentElement(await sidePanelSection, BuildPageObjects.SNO_COLORS_WATCHES)
+            await webActions.clickAnyFromElementList(await sidePanelColors);
+
+            const tunnelSection = await webActions.getElement(BuildPageObjects.SNO_TUNNEL_SECTION);
+            const tunnelColors = await webActions.getChildElementsFromParentElement(await tunnelSection, BuildPageObjects.SNO_COLORS_WATCHES)
+            await webActions.clickAnyFromElementList(await tunnelColors);
+
+            const railSection = await webActions.getElement(BuildPageObjects.SNO_RAIL_SECTION);
+            const railColors = await webActions.getChildElementsFromParentElement(await railSection, BuildPageObjects.SNO_COLORS_WATCHES)
+            await webActions.clickAnyFromElementList(await railColors);
+        }
+    }
+
+    async isSnoStockModel(): Promise<boolean> {
+        return await webActions.isElementVisible(BuildPageObjects.SNO_STOCK_LABEL);
+    }
 }

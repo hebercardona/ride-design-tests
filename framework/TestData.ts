@@ -4,7 +4,7 @@ export class TestData {
     
     static NORTH_AMERICA_EMAIL = 'testenusinternal@polaris.com';
     static APLA_EMAIL = 'testaplainternal@polaris.com';
-    static EMA_EMAIL = 'testemeainternal@polaris.com';
+    static EMEA_EMAIL = 'testemeainternal@polaris.com';
     static EMEA_LOCALES: string[] = ['en-ie','pt-pt','sv-se','nb-no','fi-fi','nl-be','fr-be','nl-nl','en-gb','en-au','en-nz','es-es','de-de','de-at','de-ch','fr-ch','fr-fr','fr-lu','en-001'];
     static APLA_LOCALES: string[] = ['ar-sa','en-za','en-in'];
     static NORTH_AMERICA_LOCALES = ['en-us','es-us','en-ca','fr-ca','es-mx'];
@@ -44,7 +44,7 @@ export class TestData {
         if(this.NORTH_AMERICA_LOCALES.includes(locale)) {
             email = this.NORTH_AMERICA_EMAIL;
         } else if(this.EMEA_LOCALES.includes(locale)) {
-            email = this.EMA_EMAIL;
+            email = this.EMEA_EMAIL;
         } else if(this.APLA_LOCALES.includes(locale)) {
             email = this.APLA_EMAIL;
         } else {

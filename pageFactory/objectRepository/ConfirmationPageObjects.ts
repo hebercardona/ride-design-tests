@@ -8,5 +8,6 @@ export class ConfirmationPageObjects {
     protected static PRODUCT_NAME = 'div.product-name>div>>nth=0';
     protected static PRODUCT_PRICE = 'div.product-name div span>>nth=0';
     protected static PRODUCT_ID = 'div.product-name div span>>nth=2';
-    protected static ADDED_ACCESSORIES_CONTAINER = 'div.added-accessories';
+    protected static PRODUCT_IMAGE = 'div.product-image';
+    protected static ADDED_ACCESSORIES_CONTAINER = `div.added-accessories`;
 }

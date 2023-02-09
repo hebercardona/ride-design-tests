@@ -10,6 +10,10 @@ export class Common {
     const locale = /com\/([^\/]+)/.exec(url)[1];
     return locale;
   }
+
+  static delay(ms: number) {
+    new Promise(r => setTimeout(r, ms));
+  }
 }
 
   

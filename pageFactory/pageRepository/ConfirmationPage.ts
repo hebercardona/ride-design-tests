@@ -1,6 +1,6 @@
 import { WebActions } from "@framework/WebActions";
 import { ConfirmationPageObjects } from "@objects/ConfirmationPageObjects";
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 import { CarouselProduct } from "./Carousel";
 
 let webActions: WebActions;
@@ -48,6 +48,7 @@ export class ConfirmationPage extends ConfirmationPageObjects {
     async getProducts(): Promise<Product[]> {
         await this.page.locator(ConfirmationPageObjects.ADDED_ACCESSORIES_CONTAINER).scrollIntoViewIfNeeded();
         const productItems = await webActions.getElements(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS);
+
         const products = await Promise.all(productItems.map(async (x) => {
             const product: Product = await {
                 name: await x.locator(ConfirmationPageObjects.PRODUCT_NAME)?.innerText(),
@@ -59,21 +60,26 @@ export class ConfirmationPage extends ConfirmationPageObjects {
         return products;
     }
 
-    async verifyIfProductPresent(product: CarouselProduct): Promise<boolean> {
-        const confirmationAddedProducts = await this.getProducts();
-        for (const item of confirmationAddedProducts) {
-            if(item.id.includes(product.id) 
-            && item.name.includes(product.title) 
-            && item.price.includes(product.price)) {
-                return true;
-            }
+    async verifyIfProductPresent(carouselProduct: CarouselProduct): Promise<boolean> {
+        await this.page.locator(ConfirmationPageObjects.ADDED_ACCESSORIES_CONTAINER).nth(0).scrollIntoViewIfNeeded();
+        const productContainer = await webActions.getElementThatHasTextInChildElement(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS, carouselProduct.title);
+        expect(await productContainer.count(), `Product ${carouselProduct.title} not found on confirmation page`).toBeGreaterThan(0);
+        const product: Product = await {
+            name: await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME)?.innerText(),
+            price: await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE)?.innerText(),
+            id: await productContainer.locator(ConfirmationPage.PRODUCT_ID)?.innerText()
+        };
+        
+        if(productContainer && product.id.includes(carouselProduct.id)) {
+            return true;
         }
         return false;
     }
 
     async verifyDuplicateItems(): Promise<boolean> {
-        const confirmationAddedProducts = await this.getProducts();
-        const productIds = confirmationAddedProducts.map(x => x.id);
-        return new Set(productIds).size !== productIds.length;
+        await this.page.locator(ConfirmationPageObjects.ADDED_ACCESSORIES_CONTAINER).nth(0).scrollIntoViewIfNeeded();
+        const products = await webActions.getElements(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS);
+        const productNames = products.map(x => x.locator(ConfirmationPageObjects.PRODUCT_NAME));
+        return new Set(productNames).size !== productNames.length;
     }
 }

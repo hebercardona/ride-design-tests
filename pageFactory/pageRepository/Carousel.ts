@@ -73,37 +73,55 @@ export class Carousel extends CarouselObjects {
         let added: boolean;
         let product: CarouselProduct;
         const categories = await this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
-        .filter({ has: this.page.locator(CarouselObjects.SUBCATEGORY_ITEMS)})
         .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)});
 
         for (let i = 0; i < await categories.count(); i++) {
             await categories.nth(i).click();
 
             const subcategories = this.page.locator(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE);
-            for (let j = 0; j < await subcategories.count(); j++) {
-                await subcategories.nth(j).click();
-                if(await this.areProductsAvailable()) {
-                    const products = this.page.locator(CarouselObjects.PRODUCT_ITEM_VISIBLE);
-                    for (let k = 0; k < await products.count(); k++) {
-                        product = await this.getProductObject(products.nth(k));
-                        await product.cta.click();
-                        if(await this.modals.isPrpDisplayed()) {
-                            await this.modals.clickPrpPrimaryPartRemove();
-                            continue;
-                        } else {
-                            added = true;
-                            await this.collapseSubcategories();
-                            break;
+            if(await subcategories.count() > 0) {
+                for (let j = 0; j < await subcategories.count(); j++) {
+                    await subcategories.nth(j).click();
+                    if(await this.areProductsAvailable()) {
+                        const products = this.page.locator(CarouselObjects.PRODUCT_ITEM_VISIBLE);
+                        for (let k = 0; k < await products.count(); k++) {
+                            product = await this.getProductObject(products.nth(k));
+                            await product.cta.click();
+                            if(await this.modals.isPrpDisplayed()) {
+                                await this.modals.clickPrpPrimaryPartRemove();
+                                continue;
+                            } else {
+                                added = true;
+                                await this.collapseSubcategories();
+                                break;
+                            }
                         }
+                    }
+                    if(added) {
+                        await this.collapseCategories();
+                        break;
+                    }
+                }
+                if(added) {
+                    break;
+                }
+            } else {
+                const products = this.page.locator(CarouselObjects.PRODUCT_ITEM_VISIBLE);
+                for (let l = 0; l < await products.count(); l++) {
+                    product = await this.getProductObject(products.nth(l));
+                    await product.cta.click();
+                    if(await this.modals.isPrpDisplayed()) {
+                        await this.modals.clickPrpPrimaryPartRemove();
+                        continue;
+                    } else {
+                        added = true;
+                        break;
                     }
                 }
                 if(added) {
                     await this.collapseCategories();
                     break;
                 }
-            }
-            if(added) {
-                break;
             }
         }
         expect(added, 'No accessory added on add accessory step').toBeTruthy();
@@ -120,8 +138,9 @@ export class Carousel extends CarouselObjects {
     async getProductObject(element: Locator): Promise<CarouselProduct> {
         const product: CarouselProduct = await {
             title: await element.locator(CarouselObjects.PRODUCT_TITLE).textContent(),
-            id: await element.locator(CarouselObjects.PRODUCT_ID).nth(1).innerText(),
-            price: await element.locator(CarouselObjects.PRODUCT_PRICE).innerText(),
+            id: await element.locator(CarouselObjects.PRODUCT_ID).nth(1)?.innerText(),
+            price: await element.locator(CarouselObjects.PRODUCT_PRICE).count() > 0 ?
+            await element.locator(CarouselObjects.PRODUCT_PRICE).innerText() : null,
             seeDetails: await element.locator(CarouselObjects.SEE_DETAILS),
             cta: await element.locator(CarouselObjects.PRODUCT_CTA)
         };

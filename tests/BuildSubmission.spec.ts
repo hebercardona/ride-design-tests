@@ -1,42 +1,7 @@
-import ApiData from "@framework/ApiData";
 import { expect, test } from "@framework/BaseTest"
 import { Brands } from "@framework/Brands";
+import { testConfig } from "@testConfig";
 
-const orv: string[] = [`rzr`, `rgr`, `atv`, `grl`];
-
-for (const brand of orv) {
-    test(`Submit ${brand} build @${brand}`, async ( { pages } ) => {
-        await pages.navigation.navigateToStartingBuildUrl(brand);
-        await pages.build.modelSelectionToAccessoriesPage(brand);
-        const accessoryAdded = await pages.build.carousel.addAccessory();
-        await pages.build.openBuildSummaryAndClickImFinished();
-        await pages.quote.enterFormDetailsAndSubmit();
-      });   
-}
-
-test('Get Categories', async ( { pages }, testInfo ) => {
-    const qa = `https://www-qa.polarisindcms.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
-    const prod = `https://www.polaris.com/en-us/off-road/rzr/build?selectedmodel=2-seat&CatalogContentId=726069__CatalogContent`;
-    pages.build.page.evaluate(() => console.error('Adding Test Error'));
-    pages.build.page.evaluate(() => console.error('Adding Test Error 2'));
-
-    await pages.navigation.navigateToUrl(prod);
-    /* await pages.build.waitForPcLoaded();
-    await pages.build.carousel.addAccessory(); */
-  });
-
-  test('Quote Changes', async ( { pages } ) => {
-    const buildUrl = await ApiData.getApiBuildUrl('en-us', 'rzr');
-    await pages.navigation.navigateToUrl(buildUrl);
-    await pages.build.openSummary();
-    const title = await pages.build.summary.getVehicleTitle();
-    const modelId = await pages.build.summary.getModelId();
-    const msrp = await pages.build.summary.getMsrpPrice();
-    const asConfigured = await pages.build.summary.getAsConfiguredPrice();
-    await pages.build.summary.closeBuildSummary();
-    await pages.build.openBuildSummaryAndClickImFinished();
-    await pages.quote.enterFormDetailsAndSubmit();
-  });
 
 
   for (const brand of Brands.orv) {
@@ -54,9 +19,9 @@ test('Get Categories', async ( { pages }, testInfo ) => {
     }); 
   }
 
-  test.only(`Submit rgr build new @rgr`, async ( { pages } ) => {
-    await pages.navigation.navigateToStartingBuildUrl('rgr', 'en-us');
-    await pages.build.modelSelectionToAccessoriesPage('rgr');
+  test(`Verify ind build submission`, async ( { pages } ) => {
+    await pages.navigation.navigateToStartingBuildUrl(Brands.ind, 'en-us');
+    await pages.build.categoryToAccessoriesPageInd();
     const accessoryAdded = await pages.build.carousel.addAccessory();
     await pages.build.openBuildSummaryAndClickImFinished();
     await pages.quote.enterFormDetailsAndSubmit();
@@ -65,7 +30,82 @@ test('Get Categories', async ( { pages }, testInfo ) => {
     `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
 
     expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
-  }); 
+  });
+
+  test(`Verify slg build submission`, async ( { pages } ) => {
+    await pages.navigation.navigateToStartingBuildUrl(Brands.slg, 'en-us');
+    await pages.build.clickAnyCategory();
+    await pages.build.performFeatureSelectionSubsteps();
+    await pages.build.waitForPcLoaded();
+    await pages.build.clickAnyColorItem();
+    await pages.build.clickFooterNextBtn();
+    await pages.build.waitForPcLoaded();
+    await pages.build.performOptionSelectionSubsteps();
+    await pages.build.waitForPcLoaded();
+    const accessoryAdded = await pages.build.carousel.addAccessory();
+    await pages.build.openBuildSummaryAndClickImFinished();
+    await pages.quote.enterSlgFormDetailsAndSubmit();
+    expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+    `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+
+    expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+  });
+
+  test(`Verify sno build submission`, async ( { pages } ) => {
+    await pages.navigation.navigateToStartingBuildUrl(Brands.sno);
+    await pages.build.clickAnyCategory();
+    await pages.build.performFeatureSelectionSubsteps();
+    await pages.build.waitForPcLoaded();
+    await pages.build.clickSnoColorItems();
+    await pages.build.clickFooterNextBtn();
+    await pages.build.performOptionSelectionSubsteps();
+    await pages.build.waitForPcLoaded();
+    const accessoryAdded = await pages.build.carousel.addAccessory();
+    await pages.build.openBuildSummaryAndClickImFinished();
+    await pages.quote.enterFormDetailsAndSubmit();
+    expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+    `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+
+    expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+  });
+
+  test(`Verify cmv build submission`, async ( { pages } ) => {
+    await pages.navigation.navigateToStartingBuildUrl(Brands.cmv);
+    await pages.build.clickAnySeatCategory();
+    await pages.build.clickAnyModelCategory();
+    await pages.build.clickAnyTrim();
+    await pages.build.waitForPcLoaded();
+    await pages.build.clickCmvAnyColorItem();
+    await pages.build.performOptionSelectionSubsteps();
+    await pages.build.waitForPcLoaded();
+    const accessoryAdded = await pages.build.carousel.addAccessory();
+    await pages.build.openBuildSummaryAndClickImFinished();
+    await pages.quote.enterCmvFormDetailsAndSubmit();
+    expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+    `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+
+    expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+  });
+
+  test.only(`Verify mil build submission`, async ( { pages } ) => {
+    await pages.navigation.navigateToStartingBuildUrl(Brands.mil);
+    await pages.build.clickAnyCategory();
+    await pages.build.clickAnyMilBrand();
+    await pages.build.clickMilModelCategory();
+    await pages.build.clickAnyTrim();
+    await pages.build.clickAnyColorItem();
+    await pages.build.clickFooterNextBtn();
+    await pages.build.waitForPcLoaded();
+    const accessoryAdded = await pages.build.carousel.addAccessory();
+    await pages.build.openBuildSummaryAndClickImFinished();
+    await pages.quote.enterMilFormDetailsAndSubmit();
+
+    expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+    `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+
+    expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+  });
+
 
 
   /* test.afterEach(async({ pages }, testInfo) => {

@@ -6,4 +6,5 @@ export class HeaderObjects {
     protected static LOGIN_PASSWORD = `input[type='password']`;
     protected static LOGIN_SUBMIT = `button[type='submit']`;
     protected static MODELS_NAV_ITEM = `a.navItem`;
+    protected static CPQ_HEADER = '#cpq-header';
 }

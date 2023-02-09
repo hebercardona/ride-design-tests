@@ -7,6 +7,7 @@ export class Brands {
     static atv: string = 'atv';
     static ind: string = 'ind';
     static slg: string = 'slg';
+    static sno: string = 'sno';
     static cmv: string = 'cmv';
     static mil: string = 'mil';
     static ben: string = 'ben';

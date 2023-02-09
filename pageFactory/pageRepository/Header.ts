@@ -16,4 +16,8 @@ export class Header extends HeaderObjects {
     async clickModelsNavigationItem(): Promise<void> {
         await webActions.clickElementThatHasTextInChildElement(HeaderObjects.MODELS_NAV_ITEM, 'Models');
     }
+
+    async clickCpqHeader(): Promise<void> {
+        await webActions.clickElement(HeaderObjects.CPQ_HEADER);
+    }
 }

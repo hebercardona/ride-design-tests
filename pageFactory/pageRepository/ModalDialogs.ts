@@ -19,4 +19,10 @@ export class ModalDialogs extends ModalDialogObjects {
     async clickPrpPrimaryPartRemove(): Promise<void> {
         await webActions.clickElement(ModalDialogObjects.PRP_PRIMARY_PART_REMOVE);
     }
+
+    async clickPurposePromptNewVehicle(): Promise<void> {
+        if(await webActions.isElementVisible(ModalDialogObjects.PURPOSE_PROMPT_DIALOG)) {
+            await webActions.clickElement(ModalDialogObjects.PURPOSE_PROMPT_NEW);
+        }
+    }
 }

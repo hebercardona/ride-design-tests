@@ -14,12 +14,18 @@ export class WebActions {
 
     async clickElement(locator: string): Promise<void> {
         await this.page.click(locator);
+        await this.page.waitForLoadState('domcontentloaded');
     }
 
     async clickAnyElement(locator: string): Promise<void> {
         let elements = await this.page.locator(locator);
         let rndElement =  Math.floor(Math.random() * await elements.count());
         await elements.nth(rndElement).click();
+    }
+
+    async clickAnyFromElementList(elements: Locator[]): Promise<void> {
+        let rndElement =  Math.floor(Math.random() * await elements.length);
+        await elements[rndElement].click();
     }
 
     async clickElementThatHasText(locator: string, text: string): Promise<void> {
@@ -32,8 +38,17 @@ export class WebActions {
         await element.click();
     }
 
+    async getElementThatHasTextInChildElement(parentLocator: string, text: string): Promise<Locator> {
+        let element = await this.page.locator(parentLocator, {has: this.page.locator(`text='${text}'`)});
+        return await element;
+    }
+
     async enterElementText(locator: string, text: string): Promise<void> {
         await this.page.fill(locator, text);
+    }
+
+    async checkRadioElement(locator: string) {
+        await this.page.locator(locator).check();
     }
 
    async waitForElementGone(locator: string): Promise<void> {
@@ -68,7 +83,53 @@ export class WebActions {
     return elementList;
    }
 
-   async waitForElementToHide(locator: string): Promise<void> {
+   async getChildElementsFromParenLocator(parentLocator: string, childLocator): Promise<Locator[]> {
+    let elementList: Locator[] = [];
+    const elements = this.page.locator(parentLocator).locator(childLocator);
+    for (let i = 0; i < await elements.count(); i++) {
+        elementList.push(await elements.nth(i));
+    }
+    return elementList;
+   }
+
+   async getChildElementsFromParentElement(parentElement: Locator, childLocator): Promise<Locator[]> {
+    let elementList: Locator[] = [];
+    const elements = parentElement.locator(childLocator);
+    for (let i = 0; i < await elements.count(); i++) {
+        elementList.push(await elements.nth(i));
+    }
+    return elementList;
+   }
+
+   async waitForElementHidden(locator: string): Promise<void> {
     await this.page.locator(locator).waitFor({state: 'hidden'});
+   }
+
+   async isElementVisible(locator: string): Promise<boolean> {
+    return await this.page.locator(locator).isVisible();
+   }
+
+   async waitForElementDetached(locator: string): Promise<void> {
+    await this.page.locator(locator).waitFor({state: 'detached'});
+   }
+
+   async getAnyElementFromList(locator: string): Promise<Locator> {
+    let elements = await this.page.locator(locator);
+    let rndElement =  Math.floor(Math.random() * await elements.count());
+    return await elements.nth(rndElement);
+   }
+
+   async waitForAngular() {
+    await this.page.evaluate(async () => {
+      // @ts-expect-error
+      if (window.getAllAngularTestabilities) {
+        // @ts-expect-error
+        await Promise.all(window.getAllAngularTestabilities().map(whenStable));
+        // @ts-expect-error
+        async function whenStable(testability) {
+          return new Promise((res) => testability.whenStable(res) );
+        }
+      }
+     });
    }
 }

@@ -1,6 +1,6 @@
 export class CarouselObjects {
     protected static CATEGORIES_BTN_VISIBLE = `button.build-accessories-category-title >> visible=true`;
-    protected static CATEGORY_ITEMS_VISIBLE = `div.build-accessories-category`;
+    protected static CATEGORY_ITEMS_VISIBLE = `div.build-accessories-category >> visible=true`;
     protected static SUBCATEGORIES_BTN_VISIBLE = `button.build-accessories-subcategory-title >> visible=true`;
     protected static SUBCATEGORY_ITEMS = `div.build-accessories-subcategory`
     protected static PRODUCT_CTA_BY_NAME = (accessoryName: string) => `//button[contains(@class,'btn') and contains(@title,'${accessoryName}')] >> visible=true`;
