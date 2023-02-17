@@ -1,6 +1,7 @@
 import { test as baseTest, expect } from '@playwright/test';
 import { BasePage } from '../pageFactory/pageRepository/BasePage';
 import { testConfig } from '@testConfig';
+import { Common } from './Common';
 
 type cookie = {
     name: string,

@@ -9,6 +9,8 @@ export class BuildPageObjects {
     protected static GET_QUOTE = 'button.cpq-footer__cta-button';
     protected static RADIAL_PROGRESS = 'div.radial-progress';
     protected static FOOTER_SPINNER_LOADING = 'div.cpq-footer__spinner-loading';
+    protected static FOOTER_SPINNER_WRAPPER = 'div.cpq-footer__cta div.spinner-wrapper';
+    protected static FOOTER_SPINNER_LOADER_TEXT = 'div.cpq-footer__cta div.loader-text';
     protected static CATEGORIES = 'a.wholegood-models-card';
     protected static SUBSTEP_RADIO = 'input.radio';
     protected static SUBSTEP_ITEM_TITLE = 'div.substep-options-title-items-input-label-container >> visible=true';

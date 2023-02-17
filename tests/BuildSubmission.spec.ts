@@ -5,19 +5,62 @@ import { Common } from "@framework/Common";
 import { testConfig } from "@testConfig";
 
 
+test.only(`Verify atv debug en-us stepped process and build submission`, async ( { pages } ) => {
+
+  let accessoryAdded;
+  await test.step(`Navigate to atv en-us start build page`, async () => {
+    await pages.navigation.navigateToStartingBuildUrl('atv', 'en-us');
+  });
+  await test.step(`Select any model and go to accessories page`, async () => {
+    await pages.build.modelSelectionToAccessoriesPage();
+  });
+  await test.step(`Add any regular accessory`, async () => {
+    accessoryAdded = await pages.build.carousel.addAccessory();
+  });
+  await test.step(`Open build summary and click I am Finished`, async () => {
+    await pages.build.openBuildSummaryAndClickImFinished();
+  });
+  await test.step(`Fill quote form details and submit`, async () => {
+    await pages.quote.enterFormDetailsAndSubmit();
+  });
+  await test.step(`Verify the product added is present in confirmation page`, async () => {
+    expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+  `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+  });
+  await test.step(`Verify no duplicate products`, async () => {
+    expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+  });
+});
+
   for (const brand of Brands.orv) {
-    test(`Submit ${brand} build and verify confirmation page @${brand}`, async ( { pages } ) => {
-      await pages.navigation.navigateToStartingBuildUrl(brand, 'en-us');
-      await pages.build.modelSelectionToAccessoriesPage(brand);
-      const accessoryAdded = await pages.build.carousel.addAccessory();
-      await pages.build.openBuildSummaryAndClickImFinished();
-      await pages.quote.enterFormDetailsAndSubmit();
-  
-      expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
-      `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
-  
-      expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
-    }); 
+    for (const locale of testConfig.domesticLocales[brand]) {
+      test(`Verify ${brand} ${locale} stepped process and build submission`, async ( { pages } ) => {
+
+        let accessoryAdded;
+        await test.step(`Navigate to ${brand} ${locale} start build page`, async () => {
+          await pages.navigation.navigateToStartingBuildUrl(brand, locale);
+        });
+        await test.step(`Select any model and go to accessories page`, async () => {
+          await pages.build.modelSelectionToAccessoriesPage();
+        });
+        await test.step(`Add any regular accessory`, async () => {
+          accessoryAdded = await pages.build.carousel.addAccessory();
+        });
+        await test.step(`Open build summary and click I am Finished`, async () => {
+          await pages.build.openBuildSummaryAndClickImFinished();
+        });
+        await test.step(`Fill quote form details and submit`, async () => {
+          await pages.quote.enterFormDetailsAndSubmit();
+        });
+        await test.step(`Verify the product added is present in confirmation page`, async () => {
+          expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+        `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
+        });
+        await test.step(`Verify no duplicate products`, async () => {
+          expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
+        });
+      }); 
+    } 
   }
 
   for (const locale of testConfig.domesticLocales.ind) {
@@ -124,10 +167,10 @@ import { testConfig } from "@testConfig";
     await pages.confirmation.verifyBuildItemsPresentOnConfirmation(items);
   });
 
-  test.only(`Verify gdy build submission`, async ( { pages } ) => {
+  test(`Verify gdy build submission`, async ( { pages } ) => {
     await pages.navigation.navigateToStartingBuildUrl(Brands.gdy);
     await pages.build.clickGdyBoatSeries();
-    await pages.build.performFeatureSelectionSubsteps('default');
+    await pages.build.performFeatureDefaultSelections();
     await pages.build.clickAvailableLayoutItem();
     await pages.build.clickFooterNextBtn();    
     const model = await pages.build.getJsModelId();
@@ -135,7 +178,29 @@ import { testConfig } from "@testConfig";
     const items = await pages.build.summary.getBuildSummaryItemDescriptions();
     await pages.build.clickIamFinishedBtn();
     await pages.quote.enterGdyFormDetailsAndSubmit();
+    await pages.confirmation.verifyBuildItemsPresentOnConfirmation(items);
   });
+
+  for (const locale of testConfig.domesticLocales.gdy) {
+    test(`Verify hur build submission for ${locale}`, async ( { pages } ) => {
+      await test.step(`Navigate to hurricane ${locale} start build page`, async () => {
+        await pages.navigation.navigateToStartingBuildUrl(Brands.gdy);
+      });
+      await test.step('Click any boat series category', async () => {
+        await pages.build.clickGdyBoatSeries();
+      });
+      await test.step('Go through feature selection substeps', async () => {
+        await pages.build.performFeatureDefaultSelections();
+      });
+      await test.step('Click any available layout item', async () => {
+        await pages.build.clickAvailableLayoutItem();
+      });
+      await test.step('Click footer button', async () => {
+        await pages.build.clickFooterNextBtn(); 
+      });
+    }); 
+  }
+
 
 
   /* test.afterEach(async({ pages }) => {

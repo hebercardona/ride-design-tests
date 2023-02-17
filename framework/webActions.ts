@@ -113,6 +113,10 @@ export class WebActions {
     await this.page.locator(locator).waitFor({state: 'detached'});
    }
 
+   async waitForDomContentLoaded(): Promise<void> {
+    await this.page.waitForLoadState('domcontentloaded');
+   }
+
    async getAnyElementFromList(locator: string): Promise<Locator> {
     let elements = await this.page.locator(locator);
     let rndElement =  Math.floor(Math.random() * await elements.count());

@@ -6,9 +6,9 @@ async function globalSetup(): Promise<void> {
     await new Promise(resolve => {
         rimraf(`./allure-results`, resolve);
     });
-    const buildUrls = await await ApiData.getApiAllBuildUrl('en-us', 'sno')
+    /* const buildUrls = await ApiData.getApiAllBuildUrl('en-us', 'sno')
     .then(result => {
         fs.writeFileSync('./buildUrls.json', JSON.stringify(result, null, 2));
-    });
+    }); */
 }
 export default globalSetup;

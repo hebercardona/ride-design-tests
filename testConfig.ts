@@ -36,7 +36,7 @@ const qaConfig = {
         rzr: 'https://www-qa.polarisindcms.com/{0}/off-road/rzr/build-model',
         rgr: 'https://www-qa.polarisindcms.com/{0}/off-road/ranger/build-model',
         grl: 'https://www-qa.polarisindcms.com/{0}/off-road/general/build-model',
-        atv: 'https://www-qa.polaris.com/{0}/off-road/sportsman/build-model',
+        atv: 'https://www-qa.polarisindcms.com/{0}/off-road/sportsman/build-model',
         ind: 'https://www-qa.indianmotorcyclecms.com/{0}/build-category/',
         slg: 'https://slingshot-qa.polarisindcms.com/{0}/build-category/',
         sno: 'https://snowmobiles-qa.polarisindcms.com/{0}/build-category/',
@@ -115,6 +115,7 @@ const envConfig = {
 
 export const testConfig = {
     waitForElement: 120000,
+    canvasWait: process.env.ENV === 'qa' ? 3000 : 2000,
     testRailHost: 'https://ridecommand.testrail.io',
     testRailUserName: 'heber.cardona@polaris.com',
     testRailPassword: 'Flowers2012',

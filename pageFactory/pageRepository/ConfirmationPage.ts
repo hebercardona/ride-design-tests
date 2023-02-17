@@ -68,9 +68,9 @@ export class ConfirmationPage extends ConfirmationPageObjects {
         }
         expect(await productContainer.count(), `Product ${carouselProduct.title} not found on confirmation page`).toBeGreaterThan(0);
         const product: Product = await {
-            name: await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME)?.innerText(),
-            price: await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE)?.innerText(),
-            id: await productContainer.locator(ConfirmationPage.PRODUCT_ID)?.innerText()
+            name: await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME).first()?.innerText(),
+            price: await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE).first()?.innerText(),
+            id: await productContainer.locator(ConfirmationPage.PRODUCT_ID).first()?.innerText()
         };
         
         if(productContainer && product.id.includes(carouselProduct.id)) {

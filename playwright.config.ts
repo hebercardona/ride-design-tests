@@ -1,6 +1,6 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
-process.env.ENV = `prod`
+process.env.ENV = `qa`
 const ENV = process.env.ENV;
 console.log('ENV is: ' + process.env.ENV);
 
@@ -62,7 +62,7 @@ const config: PlaywrightTestConfig = {
     screenshot: 'only-on-failure',
     video: 'off',
     baseURL: ENV === `qa` ? 'https://www-qa.polarisindcms.com/' : 'https://www.polaris.com/',
-    headless: false
+    headless: true
   },
   
   /* Configure projects for major browsers */

@@ -7,6 +7,8 @@ import { BuildSummary } from './BuildSummary';
 import { Login } from './Login';
 import { ModalDialogs } from './ModalDialogs';
 import { EvaluateJs } from '@framework/EvaluateJs';
+import { Common } from '@framework/Common';
+import { testConfig } from '@testConfig';
 
 let webActions: WebActions;
 
@@ -117,21 +119,29 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickColorPageNextBtn(): Promise<void> {
-        await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
-        await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
+        await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
+        this.waitForNextFooterBtnInitialized();
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
+    }
+
+    async waitForNextFooterBtnInitialized(): Promise<void> {
+        await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
+        await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_WRAPPER);
+        await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADER_TEXT);
+        Common.delay(testConfig.canvasWait);
     }
 
     async waitForPcLoaded(): Promise<void> {
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
-        await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});
+        await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
     }
 
     async waitForCanvasLoaded(): Promise<void> {
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
+        await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});
     }
 
     async isPlayCanvasLoaded(): Promise<boolean> {
@@ -165,7 +175,7 @@ export class BuildPage extends BuildPageObjects{
         });
       }
 
-    async modelSelectionToAccessoriesPage(brand: string): Promise<void> {
+    async modelSelectionToAccessoriesPage(): Promise<void> {
         await this.clickAnySeatCategory();
         await this.clickAnyModelCategory();
         await this.clickAnyTrim();
@@ -221,6 +231,10 @@ export class BuildPage extends BuildPageObjects{
             await new Promise(f => setTimeout(f, 3000));
             substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
         }
+    }
+
+    async performFeatureDefaultSelections(): Promise<void> {
+        await this.performFeatureSelectionSubsteps('default');
     }
 
     async performOptionSelectionSubsteps(): Promise<void> {
