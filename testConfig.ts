@@ -18,6 +18,20 @@ const qaConfig = {
         }
     },
     baseUrl: 'https://www-qa.polarisindcms.com/',
+    brandDomains: {
+        rzr: 'www-qa.polarisindcms.com',
+        rgr: 'www-qa.polarisindcms.com',
+        grl: 'www-qa.polarisindcms.com',
+        atv: 'www-qa.polaris.com',
+        ind: 'www-qa.indianmotorcyclecms.com',
+        slg: 'slingshot-qa.polarisindcms.com',
+        sno: 'snowmobiles-qa.polarisindcms.com',
+        cmv: 'commercial-qa.polarisindcms.com',
+        mil: 'military-qa.polarisindcms.com',
+        ben: 'www-qa.benningtonmarinecms.com',
+        hur: 'www-qa.hurricaneboatscms.com',
+        gdy: 'www-qa.godfreypontoonboatscms.com'
+    },
     currentYearUrls: {
         rzr: 'https://www-qa.polarisindcms.com/{0}/off-road/rzr/build-model',
         rgr: 'https://www-qa.polarisindcms.com/{0}/off-road/ranger/build-model',
@@ -55,6 +69,20 @@ const prodConfig = {
         }
     },
     baseUrl: 'https://www.polaris.com/',
+    brandDomains: {
+        rzr: 'www.polaris.com',
+        rgr: 'www.polaris.com',
+        grl: 'www.polaris.com',
+        atv: 'www.polaris.com',
+        ind: 'www.indianmotorcycle.com',
+        slg: 'slingshot.polaris.com',
+        sno: 'snowmobiles.polaris.com',
+        cmv: 'commercial.polaris.com',
+        mil: 'military.polaris.com',
+        ben: 'www.benningtonmarine.com',
+        hur: 'www.hurricaneboats.com',
+        gdy: 'www.godfreypontoonboats.com'
+    },
     currentYearUrls: {
         rzr: 'https://www.polaris.com/{0}/off-road/rzr/build-model',
         rgr: 'https://www.polaris.com/{0}/off-road/ranger/build-model',
@@ -94,6 +122,7 @@ export const testConfig = {
     testRailSuiteName: process.env.SUITE_NAME,
     db: envConfig[process.env.ENV].db,
     baseUrl: envConfig[process.env.ENV].baseUrl,
+    brandDomains: envConfig[process.env.ENV].brandDomains,
     currentYearUrls: envConfig[process.env.ENV].currentYearUrls,
     previousYearUrls: envConfig[process.env.ENV].previousYearUrls,
     currentYears: {

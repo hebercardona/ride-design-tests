@@ -11,6 +11,11 @@ export class Common {
     return locale;
   }
 
+  static getArrayDuplicateElements(array: string[]): string[] {
+    const duplicates = array.filter((item, index) => array.indexOf(item) !== index);
+    return duplicates;
+  }
+
   static delay(ms: number) {
     new Promise(r => setTimeout(r, ms));
   }

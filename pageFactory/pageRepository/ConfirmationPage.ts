@@ -62,7 +62,10 @@ export class ConfirmationPage extends ConfirmationPageObjects {
 
     async verifyIfProductPresent(carouselProduct: CarouselProduct): Promise<boolean> {
         await this.page.locator(ConfirmationPageObjects.ADDED_ACCESSORIES_CONTAINER).nth(0).scrollIntoViewIfNeeded();
-        const productContainer = await webActions.getElementThatHasTextInChildElement(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS, carouselProduct.title);
+        let productContainer = await webActions.getElementThatHasTextInChildElement(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS, carouselProduct.title);
+        if(await productContainer.count() < 1) {
+            productContainer = await webActions.getElementThatHasTextInChildElement(ConfirmationPageObjects.SUMMARY_KITS, carouselProduct.title);
+        }
         expect(await productContainer.count(), `Product ${carouselProduct.title} not found on confirmation page`).toBeGreaterThan(0);
         const product: Product = await {
             name: await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME)?.innerText(),
@@ -81,5 +84,11 @@ export class ConfirmationPage extends ConfirmationPageObjects {
         const products = await webActions.getElements(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS);
         const productNames = products.map(x => x.locator(ConfirmationPageObjects.PRODUCT_NAME));
         return new Set(productNames).size !== productNames.length;
+    }
+
+    async verifyBuildItemsPresentOnConfirmation(itemTitles: string[]): Promise<void> {
+        const confirmationPageItemsTitles = await webActions.getInnerTextFromElements(ConfirmationPageObjects.PRODUCT_NAME);
+        const allItemsPresent = itemTitles.every(async item => await confirmationPageItemsTitles.includes(item));
+        expect(allItemsPresent, 'Missing items on confirmation page').toBeTruthy();
     }
 }

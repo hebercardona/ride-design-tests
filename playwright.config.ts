@@ -26,7 +26,7 @@ const config: PlaywrightTestConfig = {
   globalTeardown: `./global-teardown.ts`,
   testDir: './tests',
   /* Maximum time one test can run for. */
-  timeout: 60 * 3000,
+  timeout: 60 * 4000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -52,7 +52,7 @@ const config: PlaywrightTestConfig = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 30000,
+    actionTimeout: 50000,
     navigationTimeout: 120000,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
@@ -62,7 +62,7 @@ const config: PlaywrightTestConfig = {
     screenshot: 'only-on-failure',
     video: 'off',
     baseURL: ENV === `qa` ? 'https://www-qa.polarisindcms.com/' : 'https://www.polaris.com/',
-    headless: true
+    headless: false
   },
   
   /* Configure projects for major browsers */

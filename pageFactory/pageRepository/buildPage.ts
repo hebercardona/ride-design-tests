@@ -6,7 +6,7 @@ import { Carousel } from './Carousel';
 import { BuildSummary } from './BuildSummary';
 import { Login } from './Login';
 import { ModalDialogs } from './ModalDialogs';
-import { Common } from '@framework/Common';
+import { EvaluateJs } from '@framework/EvaluateJs';
 
 let webActions: WebActions;
 
@@ -17,6 +17,7 @@ export class BuildPage extends BuildPageObjects{
     readonly summary: BuildSummary;
     readonly login: Login;
     readonly modals: ModalDialogs;
+    readonly js: EvaluateJs;
 
     constructor(page: Page) {
         super();
@@ -26,6 +27,7 @@ export class BuildPage extends BuildPageObjects{
         this.summary = new BuildSummary(this.page);
         this.login = new Login(this.page);
         this.modals = new ModalDialogs(this.page);
+        this.js = new EvaluateJs(this.page);
         webActions = new WebActions(this.page);
     }
 
@@ -46,6 +48,51 @@ export class BuildPage extends BuildPageObjects{
         await webActions.clickAnyElement(BuildPageObjects.SEAT_CATEGORIES);
     }
 
+    async clickBenBoatSeries(series: string = 'any'): Promise<void> {
+        if(series === 'any') {
+            await webActions.clickAnyElement(BuildPageObjects.SEAT_CATEGORIES);
+        } else {
+            await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.SEAT_CATEGORIES, series);
+        }
+    }
+
+    async clickBenModelCategory(series: string = 'any'): Promise<void> {
+        if(series === 'any') {
+            await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
+        } else {
+            await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.MODEL_CATEGORIES, series);
+        }
+    }
+
+    async clickGdyBoatSeries(series: string = 'any'): Promise<void> {
+        if(series === 'any') {
+            await webActions.clickAnyElement(BuildPageObjects.CATEGORIES);
+        } else {
+            await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.CATEGORIES, series);
+        }
+    }
+
+    async clickAvailableLayoutItem(): Promise<void> {
+        await webActions.clickAnyElement(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
+    }
+
+    async clickGdyAvailableLayoutItem(): Promise<void> {
+        let layoutsAvailable = await this.areLayout3DAvailable();
+        while(!layoutsAvailable) {
+            await webActions.clickElement(BuildPageObjects.RENDER_UNAVAILABLE_CLOSE);
+            await this.page.goBack();
+            await this.performFeatureSelectionSubsteps();
+            layoutsAvailable = await this.areLayout3DAvailable();
+        }
+        await webActions.clickAnyElement(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
+        await this.waitForCanvasLoaded();
+    }
+
+    async areLayout3DAvailable(): Promise<boolean> {
+        const layouts = await webActions.getElements(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
+        return await layouts.length > 0;
+    }
+
     async clickAnyMilBrand(): Promise<void> {
         await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
     }
@@ -63,6 +110,9 @@ export class BuildPage extends BuildPageObjects{
         if(await webActions.isElementVisible(BuildPageObjects.FOOTER_SPINNER_LOADING)) {
             await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
         }
+        if(await webActions.isElementVisible(BuildPageObjects.EMOTION_ICON_FEEDBACK_CLOSE)) {
+            await webActions.clickElement(BuildPageObjects.EMOTION_ICON_FEEDBACK_CLOSE);
+        }
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
     }
 
@@ -76,7 +126,12 @@ export class BuildPage extends BuildPageObjects{
     async waitForPcLoaded(): Promise<void> {
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
-        await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
+        await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});
+    }
+
+    async waitForCanvasLoaded(): Promise<void> {
+        await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
+        await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
     }
 
     async isPlayCanvasLoaded(): Promise<boolean> {
@@ -85,6 +140,14 @@ export class BuildPage extends BuildPageObjects{
 
     async openSummary(): Promise<void> {
         await this.waitForPcLoaded();
+        await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
+    }
+
+    async openSummaryGdy(): Promise<void> {
+        await this.waitForCanvasLoaded();
+        const openSummary = await this.page.locator(BuildPageObjects.FOOTER_NEXT).count() > 0 ?
+        await webActions.clickElement(BuildPageObjects.FOOTER_NEXT) :
+        await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
     }
 
@@ -134,7 +197,7 @@ export class BuildPage extends BuildPageObjects{
         await webActions.clickAnyElement(BuildPageObjects.SUBSTEP_ITEM_TITLE);
     }
 
-    async performFeatureSelectionSubsteps(): Promise<void> {
+    async performFeatureSelectionSubsteps(stepSelections: string = 'any'): Promise<void> {
         let substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
 
         while (await webActions.isElementVisible(BuildPageObjects.SUBSTEP_SECTION)) {
@@ -149,21 +212,13 @@ export class BuildPage extends BuildPageObjects{
                 `Substep ${substep.textContent()} is not displaying any substep items`).toBeGreaterThan(0);
             }
 
-            if(await substepItems.count() > 0) {
-                substepItem = await webActions.getAnyElementFromList(BuildPageObjects.SUBSTEP_ITEMS);
+            if(await substepItems.count() > 0 && stepSelections !== 'default') {
+                await webActions.clickAnyElement(BuildPageObjects.SUBSTEP_ITEMS);
             }
 
-            await substepItem.click();
             await new Promise(f => setTimeout(f, 1500));
             await this.clickFooterNextBtn();
             await new Promise(f => setTimeout(f, 3000));
-
-            /* if(await substepItems.count() === 1) {
-                await this.clickFooterNextBtn();
-            } else {
-                await webActions.clickAnyElement(BuildPageObjects.SUBSTEP_ITEMS);
-                await this.clickFooterNextBtn();
-            } */
             substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
         }
     }
@@ -235,5 +290,9 @@ export class BuildPage extends BuildPageObjects{
 
     async isSnoStockModel(): Promise<boolean> {
         return await webActions.isElementVisible(BuildPageObjects.SNO_STOCK_LABEL);
+    }
+
+    async getJsModelId(): Promise<string> {
+        return await this.js.getModelId();
     }
 }

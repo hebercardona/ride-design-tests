@@ -3,6 +3,7 @@ export class BuildPageObjects {
     protected static MODEL_CATEGORIES = 'div.wholegood-models-card';
     protected static TRIMS = 'div.trim-models-card i.shapes-arrow';
     protected static PC_LOADED = 'div.grab';
+    protected static CANVAS_LOADED = 'canvas.grab';
     protected static FOOTER_NEXT = 'a.cpq-footer__cta-button';
     protected static OPEN_SUMMARY = 'button.cpq-footer__cta-button';
     protected static GET_QUOTE = 'button.cpq-footer__cta-button';
@@ -25,4 +26,10 @@ export class BuildPageObjects {
     protected static SNO_RAIL_SECTION = 'section.color-section-title >> nth=2';
     protected static SNO_COLORS_WATCHES = 'button:not([disabled])';
     protected static SNO_STOCK_LABEL = `div.model-family-info:has(translate:has-text('Stock'))`;
+    protected static AVAILABLE_LAYOUT_ITEM = 'li.wholegood-layout-items-item:not(:has(div.wholegood-layout-items-item-render-unavailable))';
+    protected static RENDER_UNAVAILABLE = 'div.wholegood-layout-items-item-render-unavailable';
+    protected static EMOTION_ICON_FEEDBACK_CLOSE = `button[class*='MinimizedWidgetMessage__close']`;
+    protected static RENDER_UNAVAILABLE_DIALOG = '#render-unavailable-dialog-content';
+    protected static RENDER_UNAVAILABLE_CLOSE = 'button.render-unavailable__header-close';
+    protected static RENDER_UNAVAILABLE_DIFFERENT_LAYOUT = 'button.render-unavailable__btn-layout-different';
 }

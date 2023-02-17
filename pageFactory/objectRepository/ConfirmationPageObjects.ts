@@ -5,7 +5,8 @@ export class ConfirmationPageObjects {
     protected static VEHICLE_TITLE = 'div.form-confirmation-build-summary h4';
     protected static CONFIRMATION_SUMMARY_CONTAINER = 'div.form-confirmation-build-summary';
     protected static SUMMARY_PRODUCT_ITEMS = 'div.product';
-    protected static PRODUCT_NAME = 'div.product-name>div>>nth=0';
+    protected static SUMMARY_KITS = 'div.kit';
+    protected static PRODUCT_NAME = 'div.product-name>div:nth-child(1)';
     protected static PRODUCT_PRICE = 'div.product-name div span>>nth=0';
     protected static PRODUCT_ID = 'div.product-name div span>>nth=2';
     protected static PRODUCT_IMAGE = 'div.product-image';

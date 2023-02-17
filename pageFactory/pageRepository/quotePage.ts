@@ -21,7 +21,7 @@ export class QuotePage extends QuotePageObjects {
     await this.enterPostalCodeAndWaitForDealer();
     await webActions.clickElement(QuotePageObjects.AGE_CHK);
     await webActions.clickElement(QuotePageObjects.SUBMIT);
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.waitForFormSubmitted();
    }
 
    async enterSlgFormDetailsAndSubmit () {
@@ -32,7 +32,7 @@ export class QuotePage extends QuotePageObjects {
     await this.enterPostalCodeAndWaitForDealer();
     await webActions.clickElement(QuotePageObjects.AGE_CHK);
     await webActions.clickElement(QuotePageObjects.SUBMIT);
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.waitForFormSubmitted();
    }
 
    async enterCmvFormDetailsAndSubmit () {
@@ -44,7 +44,6 @@ export class QuotePage extends QuotePageObjects {
     await this.enterPostalCodeAndWaitForDealer();
     await webActions.clickElement(QuotePageObjects.AGE_CHK);
     await webActions.clickElement(QuotePageObjects.SUBMIT);
-    await this.page.waitForLoadState('domcontentloaded');
     await this.waitForFormSubmitted();
    }
 
@@ -57,7 +56,29 @@ export class QuotePage extends QuotePageObjects {
     await this.page.locator(QuotePageObjects.MIL_MKT_DROPDOWN).selectOption({ index: 1 });
     await webActions.clickElement(QuotePageObjects.AGE_CHK);
     await webActions.clickElement(QuotePageObjects.SUBMIT);
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.waitForFormSubmitted();
+   }
+
+   async enterBenFormDetailsAndSubmit () {
+    await webActions.enterElementText(QuotePageObjects.FIRST_NAME, 'Polaris');
+    await webActions.enterElementText(QuotePageObjects.LAST_NAME, 'Validation');
+    await webActions.enterElementText(QuotePageObjects.EMAIL, TestData.getTestEmail(this.page.url()));
+    await webActions.enterElementText(QuotePageObjects.PHONE, '2067243787');
+    await this.enterPostalCodeAndWaitForDealer();
+    await this.page.locator(QuotePageObjects.MIL_MKT_DROPDOWN).selectOption({ index: 1 });
+    await webActions.clickElement(QuotePageObjects.AGE_CHK);
+    await webActions.clickElement(QuotePageObjects.SUBMIT);
+    await this.waitForFormSubmitted();
+   }
+
+   async enterGdyFormDetailsAndSubmit () {
+    await webActions.enterElementText(QuotePageObjects.FIRST_NAME, 'Polaris');
+    await webActions.enterElementText(QuotePageObjects.LAST_NAME, 'Validation');
+    await webActions.enterElementText(QuotePageObjects.EMAIL, TestData.getTestEmail(this.page.url()));
+    await webActions.enterElementText(QuotePageObjects.PHONE, '2067243787');
+    await this.enterPostalCodeAndWaitForDealer();
+    await this.page.locator(QuotePageObjects.MIL_MKT_DROPDOWN).selectOption({ index: 1 });
+    await webActions.clickElement(QuotePageObjects.SUBMIT);
     await this.waitForFormSubmitted();
    }
 
@@ -68,6 +89,6 @@ export class QuotePage extends QuotePageObjects {
    }
 
    async waitForFormSubmitted(): Promise<void> {
-    expect(this.page.locator(QuotePageObjects.SUBMIT), 'Quote Form was not submitted').toBeHidden();
+    await webActions.waitForElementDetached(QuotePageObjects.FORM_SUBMISSION_SPINNER);
    }
 }

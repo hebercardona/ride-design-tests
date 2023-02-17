@@ -119,6 +119,10 @@ export class WebActions {
     return await elements.nth(rndElement);
    }
 
+   async goBack(): Promise<void> {
+    this.page.goBack();
+   }
+
    async waitForAngular() {
     await this.page.evaluate(async () => {
       // @ts-expect-error

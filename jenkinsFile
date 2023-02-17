@@ -16,7 +16,6 @@ pipeline {
         stage('Running Tests') {
             steps {
                 bat 'npx cross-env ENV=prod npm run test ./jenkinsTest.spec.ts'
-                echo 'Hello world!' 
             }
         }
     }

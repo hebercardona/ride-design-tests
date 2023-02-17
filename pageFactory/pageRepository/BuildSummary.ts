@@ -38,4 +38,8 @@ export class BuildSummary extends BuildSummaryObjects{
         const asConfigured = await footer_cost.nth(1);
         return await asConfigured.innerText();
     }
+
+    async getBuildSummaryItemDescriptions(): Promise<string[]> {
+        return await webActions.getInnerTextFromElements(BuildSummaryObjects.SUMMARY_ITEM_DESCRIPTION);
+    }
 }

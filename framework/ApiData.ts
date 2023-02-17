@@ -32,6 +32,13 @@ export interface Products {
 class ApiData {
 
     async getApiBuildUrl(locale: string = 'en-us', brand: string): Promise<string> {
+        let urls: string[] = [];
+        urls = await this.getApiAllBuildUrl(locale, brand);
+        const singleUrl = urls[Math.floor(Math.random() * urls.length)];
+        return singleUrl;
+    }
+
+    async getApiAllBuildUrl(locale: string = 'en-us', brand: string): Promise<string[]> {
         const urls: string[] = [];
         const endpoint = getAllModelsEndpoint(locale, brand, testConfig.currentYears[brand]);
         const responseContent = await this.sendGetRequest(endpoint);
@@ -60,8 +67,7 @@ class ApiData {
                     }
                 }
             }));
-            const singleUrl = urls[Math.floor(Math.random() * urls.length)];
-            return singleUrl;
+            return urls;
     }
 
     async sendGetRequest(endpoint: string): Promise<string> {
