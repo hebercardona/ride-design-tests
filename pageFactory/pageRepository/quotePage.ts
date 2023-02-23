@@ -96,7 +96,9 @@ export class QuotePage extends QuotePageObjects {
 
    async enterPostalCodeAndWaitForDealer(): Promise<void> {
     await webActions.enterElementText(QuotePageObjects.POSTAL_CODE, TestData.getTestPostalCode(this.page.url()));
-    await webActions.clickElement(QuotePageObjects.SEARCH_BTN);
+    if(await webActions.isElementVisible(QuotePageObjects.SEARCH_BTN)) {
+        await webActions.clickElement(QuotePageObjects.SEARCH_BTN);
+    }
     await webActions.waitForElementHidden(QuotePageObjects.SEARCH_BTN);
    }
 
