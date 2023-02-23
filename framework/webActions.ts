@@ -117,6 +117,10 @@ export class WebActions {
     await this.page.waitForLoadState('domcontentloaded');
    }
 
+   async waitForNetworkIdle(): Promise<void> {
+    await this.page.waitForLoadState('networkidle');
+   }
+
    async getAnyElementFromList(locator: string): Promise<Locator> {
     let elements = await this.page.locator(locator);
     let rndElement =  Math.floor(Math.random() * await elements.count());

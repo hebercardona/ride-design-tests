@@ -1,6 +1,7 @@
 import { Page, expect } from "@playwright/test";
 import { testConfig } from "@testConfig";
 import { Common } from "@framework/Common";
+import { Brands } from "@framework/Brands";
 
 export class PageNav {
     readonly page: Page;
@@ -14,12 +15,18 @@ export class PageNav {
     }
 
     async navigateToStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
-        const url = Common.stringFormat(testConfig.currentYearUrls[brand], locale);
+        let url = Common.stringFormat(testConfig.currentYearUrls[brand], locale);
+        if(brand === Brands.ind && !(testConfig.domesticLocales.ind.includes(locale))) {
+            url.replace('category','model');
+        }
         await this.page.goto(url);
     }
 
     async navigateToPreviousYearStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
-        const url = Common.stringFormat(testConfig.previousYearUrls[brand], locale, testConfig.previousYears[brand]);
+        let url = Common.stringFormat(testConfig.previousYearUrls[brand], locale, testConfig.previousYears[brand]);
+        if(brand === Brands.ind && !(testConfig.domesticLocales.ind.includes(locale))) {
+            url = url.replace('category','model');
+        }
         await this.page.goto(url);
     }
 }

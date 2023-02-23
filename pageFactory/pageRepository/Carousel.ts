@@ -131,7 +131,7 @@ export class Carousel extends CarouselObjects {
     async areProductsAvailable(): Promise<boolean> {
         const productItems = await webActions.getElement(CarouselObjects.PRODUCT_ITEM_VISIBLE);
         const productsAvailable = productItems ?
-        await productItems.filter({has: this.page.locator(`text='Add'`)}).count() > 0 ? true : false : false;
+        await productItems.filter({has: this.page.locator(`button.build-accessories-product-choice-add`)}).count() > 0 ? true : false : false;
         return productsAvailable;
     }
 

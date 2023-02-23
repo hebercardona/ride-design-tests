@@ -1,0 +1,151 @@
+{"level":"info","message":"Test Case Started : @regression Verify rzr en-us stepped process and build submission"}
+{"level":"info","message":"Test Case Started : @regression Verify rzr en-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to rzr en-us start build page"}
+{"level":"info","message":"Executing Step : Navigate to rzr en-ca start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify rzr en-us stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify rzr fr-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to rzr fr-ca start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Test Case Completed : @regression Verify rzr en-ca stepped process and build submission Status : failed"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Started : @regression Verify rzr es-us stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to rzr es-us start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Test Case Completed : @regression Verify rzr fr-ca stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify rgr en-us stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to rgr en-us start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify rzr es-us stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify rgr en-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to rgr en-ca start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Test Case Completed : @regression Verify rgr en-us stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify rgr fr-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to rgr fr-ca start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify rgr en-ca stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify rgr es-us stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to rgr es-us start build page"}
+{"level":"info","message":"Test Case Completed : @regression Verify rgr fr-ca stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify grl en-us stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to grl en-us start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Test Case Completed : @regression Verify rgr es-us stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify grl en-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to grl en-ca start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify grl en-us stepped process and build submission Status : timedOut"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify grl en-ca stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify grl es-us stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to grl es-us start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Test Case Started : @regression Verify grl fr-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to grl fr-ca start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify grl es-us stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify atv en-us stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to atv en-us start build page"}
+{"level":"info","message":"Test Case Completed : @regression Verify grl fr-ca stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify atv en-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to atv en-ca start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify atv en-ca stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify atv fr-ca stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to atv fr-ca start build page"}
+{"level":"info","message":"Test Case Completed : @regression Verify atv en-us stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify atv es-us stepped process and build submission"}
+{"level":"info","message":"Executing Step : Navigate to atv es-us start build page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Select any model and go to accessories page"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Add any regular accessory"}
+{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
+{"level":"info","message":"Executing Step : Fill quote form details and submit"}
+{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
+{"level":"info","message":"Executing Step : Verify no duplicate products"}
+{"level":"info","message":"Test Case Completed : @regression Verify atv fr-ca stepped process and build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify ind build submission for en-us"}
+{"level":"info","message":"Test Case Completed : @regression Verify atv es-us stepped process and build submission Status : failed"}
+{"level":"info","message":"Test Case Started : @regression Verify ind build submission for en-ca"}
+{"level":"info","message":"Test Case Completed : @regression Verify ind build submission for en-us Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify ind build submission for fr-ca"}
+{"level":"info","message":"Test Case Completed : @regression Verify ind build submission for fr-ca Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify ind build submission for es-us"}
+{"level":"info","message":"Test Case Completed : @regression Verify ind build submission for en-ca Status : failed"}
+{"level":"info","message":"Test Case Completed : @regression Verify ind build submission for es-us Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify slg build submission"}
+{"level":"info","message":"Test Case Started : @regression Verify sno build submission"}
+{"level":"info","message":"Test Case Completed : @regression Verify slg build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify cmv build submission"}
+{"level":"info","message":"Test Case Completed : @regression Verify sno build submission Status : timedOut"}
+{"level":"info","message":"Test Case Started : @regression Verify mil build submission"}
+{"level":"info","message":"Test Case Completed : @regression Verify mil build submission Status : passed"}
+{"level":"info","message":"Test Case Started : @regression Verify ben build submission"}

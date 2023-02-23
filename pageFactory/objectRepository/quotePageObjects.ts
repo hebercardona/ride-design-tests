@@ -11,5 +11,6 @@ export class QuotePageObjects {
     protected static COMMERCIAL_USE_RADIO = `input[type='radio'][value='commercial']`;
     protected static ORGANIZATION_INPUT_FIELD = `input:below(:text('Organization'))`;
     protected static MIL_MKT_DROPDOWN = 'div.ValidationRequired select';
+    protected static HUR_PURCHASE_DATE = 'div.ValidationRequired select >> nth=1';
     protected static FORM_SUBMISSION_SPINNER = 'div.Form__Submission-Animation';
 }

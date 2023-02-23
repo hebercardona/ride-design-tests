@@ -82,6 +82,18 @@ export class QuotePage extends QuotePageObjects {
     await this.waitForFormSubmitted();
    }
 
+   async enterHurFormDetailsAndSubmit () {
+    await webActions.enterElementText(QuotePageObjects.FIRST_NAME, 'Polaris');
+    await webActions.enterElementText(QuotePageObjects.LAST_NAME, 'Validation');
+    await webActions.enterElementText(QuotePageObjects.EMAIL, TestData.getTestEmail(this.page.url()));
+    await webActions.enterElementText(QuotePageObjects.PHONE, '2067243787');
+    await this.enterPostalCodeAndWaitForDealer();
+    await this.page.locator(QuotePageObjects.HUR_PURCHASE_DATE).selectOption({ index: 1 });
+    await webActions.clickElement(QuotePageObjects.AGE_CHK);
+    await webActions.clickElement(QuotePageObjects.SUBMIT);
+    await this.waitForFormSubmitted();
+   }
+
    async enterPostalCodeAndWaitForDealer(): Promise<void> {
     await webActions.enterElementText(QuotePageObjects.POSTAL_CODE, TestData.getTestPostalCode(this.page.url()));
     await webActions.clickElement(QuotePageObjects.SEARCH_BTN);

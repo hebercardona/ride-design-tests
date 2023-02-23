@@ -1,15 +1,13 @@
-import ApiData from "@framework/ApiData";
 import { expect, test } from "@framework/BaseTest"
 import { Brands } from "@framework/Brands";
-import { Common } from "@framework/Common";
 import { testConfig } from "@testConfig";
 
 
-test.only(`Verify atv debug en-us stepped process and build submission`, async ( { pages } ) => {
+test(`Verify atv debug en-us stepped process and build submission`, async ( { pages } ) => {
 
   let accessoryAdded;
   await test.step(`Navigate to atv en-us start build page`, async () => {
-    await pages.navigation.navigateToStartingBuildUrl('atv', 'en-us');
+    await pages.navigation.navigateToStartingBuildUrl('rzr', 'fr-ca');
   });
   await test.step(`Select any model and go to accessories page`, async () => {
     await pages.build.modelSelectionToAccessoriesPage();
@@ -34,7 +32,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
 
   for (const brand of Brands.orv) {
     for (const locale of testConfig.domesticLocales[brand]) {
-      test(`Verify ${brand} ${locale} stepped process and build submission`, async ( { pages } ) => {
+      test(`@regression Verify ${brand} ${locale} stepped process and build submission`, async ( { pages } ) => {
 
         let accessoryAdded;
         await test.step(`Navigate to ${brand} ${locale} start build page`, async () => {
@@ -64,7 +62,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
   }
 
   for (const locale of testConfig.domesticLocales.ind) {
-    test(`Verify ind build submission for ${locale}`, async ( { pages } ) => {
+    test(`@regression Verify ind build submission for ${locale}`, async ( { pages } ) => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.ind, locale);
       await pages.build.categoryToAccessoriesPageInd();
       const accessoryAdded = await pages.build.carousel.addAccessory();
@@ -78,7 +76,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
     }); 
   }
 
-  test(`Verify slg build submission`, async ( { pages } ) => {
+  test(`@regression Verify slg build submission`, async ( { pages } ) => {
     await pages.navigation.navigateToStartingBuildUrl(Brands.slg, 'en-us');
     await pages.build.clickAnyCategory();
     await pages.build.performFeatureSelectionSubsteps();
@@ -97,7 +95,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
     expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
   });
 
-  test(`Verify sno build submission`, async ( { pages } ) => {
+  test(`@regression Verify sno build submission`, async ( { pages } ) => {
     await pages.navigation.navigateToStartingBuildUrl(Brands.sno);
     await pages.build.clickAnyCategory();
     await pages.build.performFeatureSelectionSubsteps();
@@ -115,7 +113,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
     expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
   });
 
-  test(`Verify cmv build submission`, async ( { pages } ) => {
+  test(`@regression Verify cmv build submission`, async ( { pages } ) => {
     await pages.navigation.navigateToStartingBuildUrl(Brands.cmv);
     await pages.build.clickAnySeatCategory();
     await pages.build.clickAnyModelCategory();
@@ -133,7 +131,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
     expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
   });
 
-  test(`Verify mil build submission`, async ( { pages } ) => {
+  test(`@regression Verify mil build submission`, async ( { pages } ) => {
     await pages.navigation.navigateToStartingBuildUrl(Brands.mil);
     await pages.build.clickAnyCategory();
     await pages.build.clickAnyMilBrand();
@@ -152,7 +150,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
     expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
   });
 
-  test(`Verify ben build submission`, async ( { pages } ) => {
+  test(`@regression Verify ben build submission`, async ( { pages } ) => {
     await pages.navigation.navigateToStartingBuildUrl(Brands.ben);
     await pages.build.clickBenBoatSeries('Q Series');
     await pages.build.clickBenModelCategory('QX Line');
@@ -167,7 +165,7 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
     await pages.confirmation.verifyBuildItemsPresentOnConfirmation(items);
   });
 
-  test(`Verify gdy build submission`, async ( { pages } ) => {
+  test(`@regression Verify gdy build submission`, async ( { pages } ) => {
     await pages.navigation.navigateToStartingBuildUrl(Brands.gdy);
     await pages.build.clickGdyBoatSeries();
     await pages.build.performFeatureDefaultSelections();
@@ -182,15 +180,15 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
   });
 
   for (const locale of testConfig.domesticLocales.gdy) {
-    test(`Verify hur build submission for ${locale}`, async ( { pages } ) => {
+    test(`@regression Verify hur build submission for ${locale}`, async ( { pages } ) => {
       await test.step(`Navigate to hurricane ${locale} start build page`, async () => {
-        await pages.navigation.navigateToStartingBuildUrl(Brands.gdy);
+        await pages.navigation.navigateToStartingBuildUrl(Brands.hur);
       });
-      await test.step('Click any boat series category', async () => {
-        await pages.build.clickGdyBoatSeries();
+      await test.step('Click hurricane boat series category', async () => {
+        await pages.build.clickHurBoatSeries('SunDeck Series');
       });
-      await test.step('Go through feature selection substeps', async () => {
-        await pages.build.performFeatureDefaultSelections();
+      await test.step('Click hurricane model', async () => {
+        await pages.build.clickHurModelCategory('SunDeck OB');
       });
       await test.step('Click any available layout item', async () => {
         await pages.build.clickAvailableLayoutItem();
@@ -198,8 +196,39 @@ test.only(`Verify atv debug en-us stepped process and build submission`, async (
       await test.step('Click footer button', async () => {
         await pages.build.clickFooterNextBtn(); 
       });
+      await test.step(`Open build summary and click I am Finished`, async () => {
+        await pages.build.openBuildSummaryAndClickImFinished();
+      });
+      await test.step(`Fill quote form details and submit`, async () => {
+        await pages.quote.enterFormDetailsAndSubmit();
+      });
     }); 
   }
+
+  test(`@regression Verify hur build submission for `, async ( { pages } ) => {
+    await test.step(`Navigate to hurricane start build page`, async () => {
+      await pages.navigation.navigateToStartingBuildUrl(Brands.hur);
+    });
+    await test.step('Click hurricane boat series category', async () => {
+      await pages.build.clickHurBoatSeries('SunDeck Series');
+    });
+    await test.step('Click hurricane model', async () => {
+      await pages.build.clickHurModelCategory('SunDeck OB');
+    });
+    await test.step('Click any available layout item', async () => {
+      await pages.build.clickAvailableLayoutItem();
+    });
+    await test.step('Click footer button', async () => {
+      await pages.build.clickFooterNextBtn(); 
+    });
+    await test.step(`Open build summary and click I am Finished`, async () => {
+      await pages.build.openSummaryHur();
+      await pages.build.clickIamFinishedBtn();
+    });
+    await test.step(`Fill quote form details and submit`, async () => {
+      await pages.quote.enterHurFormDetailsAndSubmit();
+    });
+  });
 
 
 

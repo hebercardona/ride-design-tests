@@ -43,6 +43,22 @@ export class BuildPage extends BuildPageObjects{
         await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
     }
 
+    async clickIndFamily(series: string = 'any'): Promise<void> {
+        if(series === 'any') {
+            await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
+        } else {
+            await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.MODEL_CATEGORIES, series);
+        }
+    }
+
+    async clickIndTrim(series: string = 'any'): Promise<void> {
+        if(series === 'any') {
+            await webActions.clickAnyElement(BuildPageObjects.TRIMS);
+        } else {
+            await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.TRIMS, series);
+        }
+    }
+
     async clickMilModelCategory(): Promise<void> {
         if(this.page.url().includes('trim')) {
             return;
@@ -66,11 +82,27 @@ export class BuildPage extends BuildPageObjects{
         }
     }
 
+    async clickHurModelCategory(series: string = 'any'): Promise<void> {
+        if(series === 'any') {
+            await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
+        } else {
+            await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.MODEL_CATEGORIES, series);
+        }
+    }
+
     async clickGdyBoatSeries(series: string = 'any'): Promise<void> {
         if(series === 'any') {
             await webActions.clickAnyElement(BuildPageObjects.CATEGORIES);
         } else {
             await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.CATEGORIES, series);
+        }
+    }
+
+    async clickHurBoatSeries(series: string = 'any'): Promise<void> {
+        if(series === 'any') {
+            await webActions.clickAnyElement(BuildPageObjects.SEAT_CATEGORIES);
+        } else {
+            await webActions.clickElementThatHasTextInChildElement(BuildPageObjects.SEAT_CATEGORIES, series);
         }
     }
 
@@ -119,7 +151,7 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickColorPageNextBtn(): Promise<void> {
-        await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
+        await this.waitForPcLoaded();
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         this.waitForNextFooterBtnInitialized();
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
@@ -133,6 +165,7 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async waitForPcLoaded(): Promise<void> {
+        await webActions.waitForNetworkIdle();
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
@@ -158,6 +191,13 @@ export class BuildPage extends BuildPageObjects{
         const openSummary = await this.page.locator(BuildPageObjects.FOOTER_NEXT).count() > 0 ?
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT) :
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
+        await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
+    }
+
+    async openSummaryHur(): Promise<void> {
+        await this.waitForCanvasLoaded();
+        const openSummary = await this.page.locator(BuildPageObjects.FOOTER_NEXT).count() > 0 ?
+        await webActions.clickElement(BuildPageObjects.FOOTER_NEXT) :
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);
     }
 
