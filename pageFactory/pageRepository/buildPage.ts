@@ -108,7 +108,7 @@ export class BuildPage extends BuildPageObjects{
 
     async clickAvailableLayoutItem(): Promise<void> {
         await webActions.clickAnyElement(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
-        await this.waitForCanvasLoaded();
+        await this.waitForFurnitureLayoutCanvas();
     }
 
     async clickGdyAvailableLayoutItem(): Promise<void> {
@@ -175,7 +175,17 @@ export class BuildPage extends BuildPageObjects{
         await webActions.waitForDomContentLoaded();
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
+
         await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});
+    }
+
+    async waitForFurnitureLayoutCanvas(): Promise<void> {
+        await webActions.waitForDomContentLoaded();
+        if(await webActions.isElementVisible(BuildPageObjects.CANVAS_DEFAULT_CURSOR)) {
+            return;
+        } else {
+            await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});
+        }
     }
 
     async isPlayCanvasLoaded(): Promise<boolean> {
