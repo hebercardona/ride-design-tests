@@ -107,8 +107,8 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickAvailableLayoutItem(): Promise<void> {
-        await this.waitForCanvasLoaded();
         await webActions.clickAnyElement(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
+        await this.waitForCanvasLoaded();
     }
 
     async clickGdyAvailableLayoutItem(): Promise<void> {
