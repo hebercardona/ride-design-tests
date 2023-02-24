@@ -1,7 +1,0 @@
-{"level":"info","message":"Test Case Started : @smoke Verify atv debug en-us stepped process and build submission"}
-{"level":"info","message":"Executing Step : Add any regular accessory"}
-{"level":"info","message":"Executing Step : Open build summary and click I am Finished"}
-{"level":"info","message":"Executing Step : Fill quote form details and submit"}
-{"level":"info","message":"Executing Step : Verify the product added is present in confirmation page"}
-{"level":"info","message":"Executing Step : Verify no duplicate products"}
-{"level":"info","message":"Test Case Completed : @smoke Verify atv debug en-us stepped process and build submission Status : passed"}

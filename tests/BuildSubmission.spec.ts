@@ -248,8 +248,8 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
     await test.step(`Click ben boat series`, async () => {
       await pages.build.clickBenBoatSeries('Q Series');
     });
-    await test.step(`Perform boat feature selections`, async () => {
-      await pages.build.performFeatureDefaultSelections();
+    await test.step(`Click ben model category`, async () => {
+      await pages.build.clickBenModelCategory('Q Line');
     });
     await test.step(`Click any available furniture layout`, async () => {
       await pages.build.clickAvailableLayoutItem();
@@ -258,13 +258,13 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
       await pages.build.clickFooterNextBtn();
     });
     await test.step(`Open build summary and get summary items and model id`, async () => {
-      await pages.build.openSummaryGdy();
+      await pages.build.openSummary();
       modelId = await pages.build.getJsModelId();
       items = await pages.build.summary.getBuildSummaryItemDescriptions();
     });
     await test.step(`Click I am Finished and fill quote form`, async () => {
       await pages.build.clickIamFinishedBtn();
-      await pages.quote.enterGdyFormDetailsAndSubmit();
+      await pages.quote.enterBenFormDetailsAndSubmit();
     });    
     await test.step(`Verify confirmation page details`, async () => {
       await pages.confirmation.verifyBuildItemsPresentOnConfirmation(items);
@@ -277,8 +277,8 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
     await test.step(`Navigate to gdy start build page`, async () => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.gdy);
     });
-    await test.step(`Click any gdy boat series`, async () => {
-      await pages.navigation.navigateToStartingBuildUrl(Brands.gdy);
+    await test.step(`Navigate to gdy start build page`, async () => {
+      await pages.build.clickGdyBoatSeries('Sanpan');
     });
     await test.step(`Perform boat feature selections`, async () => {
       await pages.build.performFeatureDefaultSelections();
