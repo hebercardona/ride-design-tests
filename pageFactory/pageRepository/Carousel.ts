@@ -154,4 +154,17 @@ export class Carousel extends CarouselObjects {
     async collapseCategories(): Promise<void> {
         await webActions.clickElement(CarouselObjects.CATEGORY_UP_ARROW);
     }
+
+    async isEmployeeDiscountLabelPresentAllProducts(): Promise<boolean> {
+        const carouselProducts = await webActions.getElements(CarouselObjects.PRODUCT_ITEMS);
+        expect(carouselProducts.length, 'No products present on the carousel').toBeGreaterThan(0);
+        carouselProducts.forEach(async product => {
+            const discount = product.locator(CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
+            const itemName = await product.locator(CarouselObjects.PRODUCT_TITLE).innerText();
+            if(await discount.count() < 1) {
+                //console.log(`Item ${itemName} has not discount label`)
+            }
+        });
+        return false;
+    }
 }

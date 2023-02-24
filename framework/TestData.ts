@@ -38,6 +38,17 @@ export class TestData {
 
     }
 
+    static ACCOUNTS = {
+        REGULAR: {
+            email: 'testenusinternal@polaris.com',
+            password: 'Polaris2014'
+        },
+        MILITARY: {
+            email: 'ramya.ginugu@polaris.com',
+            password: 'Polaris2015'
+        }
+    }
+
     static getTestEmail(url: string): string {
         let email: string;
         const locale = Common.getUrlLocale(url);

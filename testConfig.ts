@@ -121,6 +121,7 @@ export const testConfig = {
     testRailPassword: 'Flowers2012',
     testRailProjectId: '31',
     testRailSuiteName: process.env.SUITE_NAME,
+    testEnvironment: process.env.ENV ?? 'qa',
     db: envConfig[process.env.ENV].db,
     baseUrl: envConfig[process.env.ENV].baseUrl,
     brandDomains: envConfig[process.env.ENV].brandDomains,

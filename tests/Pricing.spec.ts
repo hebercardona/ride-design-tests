@@ -3,10 +3,12 @@ import { expect, test } from "@framework/BaseTest"
 import { Brands } from "@framework/Brands";
 import { testConfig } from "@testConfig";
 
-test.only('Pricing Discount Test', async( {pages} ) => {
+test('Pricing Discount Test', async( {pages} ) => {
     const url = await ApiData.getApiBuildUrl('en-us', 'rzr');
     await pages.navigation.navigateToUrl(url);
     await pages.build.waitForPcLoaded();
+    const isDiscountLabelPresent = await pages.build.carousel.isEmployeeDiscountLabelPresentAllProducts();
+    await pages.build.login.employeeLogin();
 });
 
 test(`@regression Verify hur build submission for test`, async ( { pages } ) => {

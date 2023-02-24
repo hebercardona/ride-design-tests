@@ -14,4 +14,5 @@ export class CarouselObjects {
     protected static SEE_DETAILS = `#SeeProductDetailsLabel`;
     protected static SUBCATEGORY_MINUS_ICON = 'div.shapes-minus';
     protected static CATEGORY_UP_ARROW = 'i.up';
+    protected static EMPLOYEE_DISCOUNT_LABEL = 'div.build-accessories-product-label-discount';
 }
