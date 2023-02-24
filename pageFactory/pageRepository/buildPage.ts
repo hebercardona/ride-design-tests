@@ -166,13 +166,13 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async waitForPcLoaded(): Promise<void> {
-        await webActions.waitForNetworkIdle();
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
     }
 
     async waitForCanvasLoaded(): Promise<void> {
+        await webActions.waitForDomContentLoaded();
         await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
         await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
         await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});

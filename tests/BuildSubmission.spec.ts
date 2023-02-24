@@ -271,7 +271,7 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
     });
   });
 
-  test.only(`@regression @gdy Verify gdy build submission`, async ( { pages } ) => {
+  test(`@regression @gdy Verify gdy build submission`, async ( { pages } ) => {
     let modelId;
     let items;
     await test.step(`Navigate to gdy start build page`, async () => {
@@ -304,7 +304,7 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
   });
 
   for (const locale of testConfig.domesticLocales.hur) {
-    test(`@regression Verify hur build submission for ${locale}`, async ( { pages } ) => {
+    test(`@regression @hur Verify hur build submission for ${locale}`, async ( { pages } ) => {
       await test.step(`Navigate to hurricane ${locale} start build page`, async () => {
         await pages.navigation.navigateToStartingBuildUrl(Brands.hur);
       });
@@ -328,6 +328,30 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
       });
     }); 
   }
+
+  test.only(`@regression @hur Verify hur build submission for hurricane`, async ( { pages } ) => {
+    await test.step(`Navigate to hurricane start build page`, async () => {
+      await pages.navigation.navigateToStartingBuildUrl(Brands.hur);
+    });
+    await test.step('Click hurricane boat series category', async () => {
+      await pages.build.clickHurBoatSeries('SunDeck Series');
+    });
+    await test.step('Click hurricane model', async () => {
+      await pages.build.clickHurModelCategory('SunDeck OB');
+    });
+    await test.step('Click any available layout item', async () => {
+      await pages.build.clickAvailableLayoutItem();
+    });
+    await test.step('Click footer button', async () => {
+      await pages.build.clickFooterNextBtn(); 
+    });
+    await test.step(`Open build summary and click I am Finished`, async () => {
+      await pages.build.openBuildSummaryAndClickImFinished();
+    });
+    await test.step(`Fill quote form details and submit`, async () => {
+      await pages.quote.enterHurFormDetailsAndSubmit();
+    });
+  });
 
 
 
