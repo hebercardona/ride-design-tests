@@ -88,7 +88,7 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
     }); 
   }
 
-  test(`@regression Verify slg build submission`, async ( { pages } ) => {
+  test.only(`@regression Verify slg build submission`, async ( { pages } ) => {
     let accessoryAdded;
     await test.step(`Navigate to slingshot start build page`, async () => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.slg);
@@ -304,7 +304,7 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
   });
 
   for (const locale of testConfig.domesticLocales.hur) {
-    test.only(`@regression @hur Verify hur build submission for ${locale}`, async ( { pages } ) => {
+    test(`@regression @hur Verify hur build submission for ${locale}`, async ( { pages } ) => {
       await test.step(`Navigate to hurricane ${locale} start build page`, async () => {
         await pages.navigation.navigateToStartingBuildUrl(Brands.hur, locale);
       });

@@ -88,7 +88,7 @@ export class ConfirmationPage extends ConfirmationPageObjects {
 
     async verifyBuildItemsPresentOnConfirmation(itemTitles: string[]): Promise<void> {
         const confirmationPageItemsTitles = await webActions.getInnerTextFromElements(ConfirmationPageObjects.PRODUCT_NAME);
-        const allItemsPresent = itemTitles.every(async item => await confirmationPageItemsTitles.includes(item));
+        const allItemsPresent = itemTitles.every(async item => confirmationPageItemsTitles.includes(item));
         expect(allItemsPresent, 'Missing items on confirmation page').toBeTruthy();
     }
 }

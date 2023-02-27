@@ -25,4 +25,15 @@ export class ModalDialogs extends ModalDialogObjects {
             await webActions.clickElement(ModalDialogObjects.PURPOSE_PROMPT_NEW);
         }
     }
+
+    async clickPrpRequiredPartAddIfNeeded(): Promise<void> {
+        
+        while(await this.isPrpDisplayed()) {
+            if(await webActions.isElementVisible(ModalDialogObjects.PRP_REQUIRED_ITEM_ADD)) {
+                await webActions.clickElement(ModalDialogObjects.PRP_REQUIRED_ITEM_ADD);
+            } else if(await webActions.isElementVisible(ModalDialogObjects.PRP_GRANDPARENT_CONTINUE_BTN)) {
+                await webActions.clickElement(ModalDialogObjects.PRP_GRANDPARENT_CONTINUE_BTN);
+            }
+        }
+    }
 }

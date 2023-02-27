@@ -34,12 +34,12 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickAnySeatCategory(): Promise<void> {
-        await expect(BuildPageObjects.SEAT_CATEGORIES, `No seat category elements were displayed`).toBeTruthy();
+        expect(await this.page.locator(BuildPageObjects.SEAT_CATEGORIES).count(), `No seat category elements were displayed`).toBeGreaterThan(0);
         await webActions.clickAnyElement(BuildPageObjects.SEAT_CATEGORIES);
     }
 
     async clickAnyModelCategory(): Promise<void> {
-        await expect(BuildPageObjects.MODEL_CATEGORIES, `No model category elements were displayed`).toBeTruthy();
+        expect(await this.page.locator(BuildPageObjects.MODEL_CATEGORIES).count(), `No model category elements were displayed`).toBeGreaterThan(0);
         await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
     }
 
@@ -108,7 +108,7 @@ export class BuildPage extends BuildPageObjects{
 
     async clickAvailableLayoutItem(): Promise<void> {
         await webActions.clickAnyElement(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
-        await this.waitForFurnitureLayoutCanvas();
+        await this.waitForCanvasLoaded();
     }
 
     async clickGdyAvailableLayoutItem(): Promise<void> {
@@ -153,7 +153,7 @@ export class BuildPage extends BuildPageObjects{
 
     async clickColorPageNextBtn(): Promise<void> {
         await this.waitForPcLoaded();
-        await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
+        await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS);
         this.waitForNextFooterBtnInitialized();
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
     }
@@ -166,17 +166,16 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async waitForPcLoaded(): Promise<void> {
-        await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
-        await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
-        await this.page.waitForSelector(BuildPageObjects.PC_LOADED, {state: 'visible'});
+        await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
+        await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS);
+        await webActions.waitForElementVisible(BuildPageObjects.PC_LOADED);
     }
 
     async waitForCanvasLoaded(): Promise<void> {
         await webActions.waitForDomContentLoaded();
-        await this.page.locator(BuildPageObjects.FOOTER_SPINNER_LOADING).waitFor({state: 'detached'});
-        await this.page.locator(BuildPageObjects.RADIAL_PROGRESS).waitFor({state: 'hidden'});
-
-        await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});
+        await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
+        await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS);
+        await webActions.waitForElementVisible(BuildPageObjects.CANVAS_LOADED);
     }
 
     async waitForFurnitureLayoutCanvas(): Promise<void> {
@@ -184,7 +183,7 @@ export class BuildPage extends BuildPageObjects{
         if(await webActions.isElementVisible(BuildPageObjects.CANVAS_DEFAULT_CURSOR)) {
             return;
         } else {
-            await this.page.waitForSelector(BuildPageObjects.CANVAS_LOADED, {state: 'visible'});
+            await webActions.waitForElementVisible(BuildPageObjects.CANVAS_LOADED);
         }
     }
 

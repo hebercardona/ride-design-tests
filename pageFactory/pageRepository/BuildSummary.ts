@@ -1,6 +1,8 @@
 import { WebActions } from "@framework/WebActions";
 import { BuildSummaryObjects } from "@objects/BuildSummaryObjects";
-import { Page } from "@playwright/test";
+import { Page, expect } from "@playwright/test";
+import { CarouselProduct } from "./Carousel";
+import { Common } from "@framework/Common";
 
 let webActions: WebActions;
 
@@ -41,5 +43,15 @@ export class BuildSummary extends BuildSummaryObjects{
 
     async getBuildSummaryItemDescriptions(): Promise<string[]> {
         return await webActions.getInnerTextFromElements(BuildSummaryObjects.SUMMARY_ITEM_DESCRIPTION);
+    }
+
+    async isSummaryProductPriceAsExpected(product: CarouselProduct): Promise<void> {
+        const summaryProductInfo = await webActions.getElementThatHasText(BuildSummaryObjects.SUMMARY_ACCESSORY_INFO, product.id);
+        expect(summaryProductInfo, `Product ID: ${product.id} not found in summary`).toBeTruthy();
+        const productSummaryPrice = await webActions.getChildElementFromParentElement(summaryProductInfo, BuildSummaryObjects.SUMMARY_PRODUCT_PRICE);
+        const productCarouselDiscountPrice = Common.getPriceString(product.discountLabel);
+        const productSummaryPriceText = await productSummaryPrice.innerText(); 
+        expect(Common.getPriceString(productSummaryPriceText), 
+        `Summary price for product ${product.title} does not match carousel price`).toEqual(productCarouselDiscountPrice);
     }
 }

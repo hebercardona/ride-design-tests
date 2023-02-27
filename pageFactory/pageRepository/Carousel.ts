@@ -3,6 +3,7 @@ import { CarouselObjects } from "@objects/CarouselObjects";
 import { ElementHandle, Locator, Page, expect } from "@playwright/test";
 import { ModalDialogs } from "./ModalDialogs";
 import { add } from "winston";
+import { it } from "test";
 
 let webActions: WebActions;
 
@@ -10,6 +11,7 @@ export type CarouselProduct = {
     title: string,
     id: string,
     price: string,
+    discountLabel?: string,
     seeDetails: Locator,
     cta: Locator
 }
@@ -57,13 +59,13 @@ export class Carousel extends CarouselObjects {
 
     async getAccessoryItem():Promise<CarouselProduct> {
         const accessoryItems = await webActions.getElement(CarouselObjects.PRODUCT_ITEM_VISIBLE);
-        const acc = await accessoryItems.filter({has: this.page.locator(`text='Add'`)}).first();
-        const product: CarouselProduct = await {
+        const acc = accessoryItems.filter({has: this.page.locator(`text='Add'`)}).first();
+        const product: CarouselProduct = {
             title: await acc.locator(CarouselObjects.PRODUCT_TITLE)?.textContent(),
             id: await acc.locator(CarouselObjects.PRODUCT_ID)?.innerText(),
             price: await acc.locator(CarouselObjects.PRODUCT_PRICE)?.innerText(),
-            seeDetails: await acc.locator(CarouselObjects.SEE_DETAILS),
-            cta: await acc.locator(CarouselObjects.PRODUCT_CTA)
+            seeDetails: acc.locator(CarouselObjects.SEE_DETAILS),
+            cta: acc.locator(CarouselObjects.PRODUCT_CTA)
         };
         return product;
     }
@@ -72,7 +74,7 @@ export class Carousel extends CarouselObjects {
     async addAccessory(): Promise<CarouselProduct> {
         let added: boolean;
         let product: CarouselProduct;
-        const categories = await this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
+        const categories = this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
         .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)});
 
         for (let i = 0; i < await categories.count(); i++) {
@@ -141,8 +143,10 @@ export class Carousel extends CarouselObjects {
             id: await element.locator(CarouselObjects.PRODUCT_ID).nth(1)?.innerText(),
             price: await element.locator(CarouselObjects.PRODUCT_PRICE).count() > 0 ?
             await element.locator(CarouselObjects.PRODUCT_PRICE).innerText() : null,
-            seeDetails: await element.locator(CarouselObjects.SEE_DETAILS),
-            cta: await element.locator(CarouselObjects.PRODUCT_CTA)
+            discountLabel: await element.locator(CarouselObjects.EMPLOYEE_DISCOUNT_LABEL).count() > 0 ? 
+            await element.locator(CarouselObjects.EMPLOYEE_DISCOUNT_LABEL).innerText() : undefined,
+            seeDetails: element.locator(CarouselObjects.SEE_DETAILS),
+            cta: element.locator(CarouselObjects.PRODUCT_CTA)
         };
         return product;
     }
@@ -155,16 +159,38 @@ export class Carousel extends CarouselObjects {
         await webActions.clickElement(CarouselObjects.CATEGORY_UP_ARROW);
     }
 
-    async isEmployeeDiscountLabelPresentAllProducts(): Promise<boolean> {
-        const carouselProducts = await webActions.getElements(CarouselObjects.PRODUCT_ITEMS);
-        expect(carouselProducts.length, 'No products present on the carousel').toBeGreaterThan(0);
-        carouselProducts.forEach(async product => {
-            const discount = product.locator(CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
-            const itemName = await product.locator(CarouselObjects.PRODUCT_TITLE).innerText();
-            if(await discount.count() < 1) {
-                //console.log(`Item ${itemName} has not discount label`)
-            }
-        });
-        return false;
+    async isEmployeeDiscountLabelPresentForProducts(): Promise<boolean> {
+        const productsEmployeeDiscount = await webActions.getChildElementsFromParenLocator(CarouselObjects.PRODUCT_ITEMS, CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
+        const flag = productsEmployeeDiscount.length > 0 ? true : false;
+        return flag;
+    }
+
+    async getProductWithEmployeeDiscountDisplayed(): Promise<CarouselProduct> {
+        let productLocator;
+        const category = await webActions.getElementThatContainsChildElement(CarouselObjects.CATEGORY_ITEMS_VISIBLE, CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
+        await category[0].click();
+        const itemVisible = await webActions.isElementVisible(CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
+        if(itemVisible) {
+            productLocator = await webActions.getElementThatContainsChildElement(CarouselObjects.PRODUCT_ITEM_VISIBLE, CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
+        } else {
+            const subcategory = await webActions.getElementThatContainsChildElement(CarouselObjects.SUBCATEGORIES_BTN_VISIBLE, CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
+            await subcategory[0].click();
+            productLocator = await webActions.getElementThatContainsChildElement(CarouselObjects.PRODUCT_ITEM_VISIBLE, CarouselObjects.EMPLOYEE_DISCOUNT_LABEL);
+        }
+        const product = await this.getProductObject(productLocator[0]);
+        return product;
+    }
+
+    async isDiscountPriceLessThanRegularAnyProduct(): Promise<boolean> {
+        const product = await this.getProductWithEmployeeDiscountDisplayed();
+        expect(product).toBeTruthy();
+        const regularPrice = parseFloat(product.price.replace(/,/g, '').split('$')[1].trim()).toFixed(2);
+        const discountPrice = parseFloat(product.discountLabel.replace(/,/g, '').split('$')[1].trim()).toFixed(2);
+        return regularPrice > discountPrice;
+    }
+
+    async addProductItem(product: CarouselProduct): Promise<void> {
+        await webActions.clickElement(product.cta);
+        await this.modals.clickPrpRequiredPartAddIfNeeded();
     }
 }

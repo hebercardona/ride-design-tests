@@ -19,6 +19,11 @@ export class Common {
   static delay(ms: number) {
     new Promise(r => setTimeout(r, ms));
   }
+
+  static getPriceString(priceStr: string): string {
+    const currency = priceStr.replace(/,/g, '').split('$')[1].trim();
+    return parseFloat(currency).toFixed(2);
+  }
 }
 
   
