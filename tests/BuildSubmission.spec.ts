@@ -271,7 +271,7 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
     });
   });
 
-  test(`@regression @gdy Verify gdy build submission`, async ( { pages } ) => {
+  test.only(`@regression @gdy Verify gdy build submission`, async ( { pages } ) => {
     let modelId;
     let items;
     await test.step(`Navigate to gdy start build page`, async () => {
