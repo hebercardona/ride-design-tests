@@ -184,6 +184,9 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async waitForGdyHurricaneCanvas(): Promise<void> {
+        if(await webActions.isElementVisible(BuildPageObjects.CANVAS_RENDER_CONTAINER)) {
+            await webActions.clickElement(BuildPageObjects.CANVAS_RENDER_CONTAINER);
+        }
         await webActions.waitForDomContentLoaded();
         if(await webActions.isElementVisible(BuildPageObjects.CANVAS_DEFAULT_CURSOR)) {
             return;
