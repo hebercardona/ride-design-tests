@@ -4,6 +4,7 @@ export class BuildPageObjects {
     protected static TRIMS = 'div.trim-models-card i.shapes-arrow';
     protected static PC_LOADED = '.grab';
     protected static CANVAS_LOADED = '.grab';
+    protected static HUR_GDY_CANVAS_GRAB = '#render-container canvas.grab';
     protected static CANVAS_DEFAULT_CURSOR = '.defaultCursor';
     protected static FOOTER_NEXT = 'a.cpq-footer__cta-button';
     protected static OPEN_SUMMARY = 'button.cpq-footer__cta-button';

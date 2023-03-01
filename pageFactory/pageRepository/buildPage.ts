@@ -183,7 +183,7 @@ export class BuildPage extends BuildPageObjects{
         if(await webActions.isElementVisible(BuildPageObjects.CANVAS_DEFAULT_CURSOR)) {
             return;
         } else {
-            await webActions.waitForElementVisible(BuildPageObjects.CANVAS_LOADED);
+            await webActions.waitForElementVisible(BuildPageObjects.HUR_GDY_CANVAS_GRAB);
         }
     }
 
@@ -205,10 +205,10 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async openSummaryHur(): Promise<void> {
-        await this.waitForHurricaneCanvas();
         if(await webActions.isElementVisible(BuildPageObjects.CANVAS_RENDER_CONTAINER)) {
             await webActions.clickElement(BuildPageObjects.CANVAS_RENDER_CONTAINER);
         }
+        await this.waitForHurricaneCanvas();
         const openSummary = await this.page.locator(BuildPageObjects.FOOTER_NEXT).count() > 0 ?
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT) :
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);

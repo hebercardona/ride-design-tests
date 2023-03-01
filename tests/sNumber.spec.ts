@@ -3,7 +3,7 @@ import { Brands } from "@framework/Brands";
 import { CarouselProduct } from "@pages/Carousel";
 import { expect, test } from "@framework/BaseTest"
 
-test.only('Verify sNumber', async( { pages } ) => {
+test('Verify sNumber', async( { pages } ) => {
     const url = 'https://snowmobiles-auth-vnext.polarisind.com/en-us/build-color/?pressid=123456&CatalogContentId=746830__CatalogContent&category=1073769919__CatalogContent';
     const regular_non_stock = 'https://snowmobiles-auth-vnext.polarisind.com/en-us/build-color/?CatalogContentId=746795__CatalogContent&category=1073769897__CatalogContent';
     const employee_QA = 'https://snowmobiles-qa.polarisindcms.com/en-us/build-color/?employeeid=123456&CatalogContentId=746795__CatalogContent&category=1073769897__CatalogContent';
