@@ -137,7 +137,7 @@ export class WebActions {
    }
 
    async waitForElementVisible(locator: string): Promise<void> {
-    await this.page.locator(locator).waitFor({state: 'visible'});
+    await this.page.locator(locator).first().waitFor({state: 'visible'});
    }
 
    async waitForElementDetached(locator: string): Promise<void> {

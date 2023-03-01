@@ -88,7 +88,7 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
     }); 
   }
 
-  test.only(`@regression Verify slg build submission`, async ( { pages } ) => {
+  test(`@regression Verify slg build submission`, async ( { pages } ) => {
     let accessoryAdded;
     await test.step(`Navigate to slingshot start build page`, async () => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.slg);
@@ -321,7 +321,8 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
         await pages.build.clickFooterNextBtn(); 
       });
       await test.step(`Open build summary and click I am Finished`, async () => {
-        await pages.build.openBuildSummaryAndClickImFinished();
+        await pages.build.openSummaryHur();
+      await pages.build.clickIamFinishedBtn();
       });
       await test.step(`Fill quote form details and submit`, async () => {
         await pages.quote.enterHurFormDetailsAndSubmit();

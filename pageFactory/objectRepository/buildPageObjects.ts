@@ -35,4 +35,5 @@ export class BuildPageObjects {
     protected static RENDER_UNAVAILABLE_DIALOG = '#render-unavailable-dialog-content';
     protected static RENDER_UNAVAILABLE_CLOSE = 'button.render-unavailable__header-close';
     protected static RENDER_UNAVAILABLE_DIFFERENT_LAYOUT = 'button.render-unavailable__btn-layout-different';
+    protected static CANVAS_RENDER_CONTAINER = '#render-container';
 }

@@ -108,7 +108,7 @@ export class BuildPage extends BuildPageObjects{
 
     async clickAvailableLayoutItem(): Promise<void> {
         await webActions.clickAnyElement(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
-        await this.waitForCanvasLoaded();
+        await this.waitForHurricaneCanvas();
     }
 
     async clickGdyAvailableLayoutItem(): Promise<void> {
@@ -178,7 +178,7 @@ export class BuildPage extends BuildPageObjects{
         await webActions.waitForElementVisible(BuildPageObjects.CANVAS_LOADED);
     }
 
-    async waitForFurnitureLayoutCanvas(): Promise<void> {
+    async waitForHurricaneCanvas(): Promise<void> {
         await webActions.waitForDomContentLoaded();
         if(await webActions.isElementVisible(BuildPageObjects.CANVAS_DEFAULT_CURSOR)) {
             return;
@@ -205,7 +205,10 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async openSummaryHur(): Promise<void> {
-        await this.waitForCanvasLoaded();
+        await this.waitForHurricaneCanvas();
+        if(await webActions.isElementVisible(BuildPageObjects.CANVAS_RENDER_CONTAINER)) {
+            await webActions.clickElement(BuildPageObjects.CANVAS_RENDER_CONTAINER);
+        }
         const openSummary = await this.page.locator(BuildPageObjects.FOOTER_NEXT).count() > 0 ?
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT) :
         await webActions.clickElement(BuildPageObjects.OPEN_SUMMARY);

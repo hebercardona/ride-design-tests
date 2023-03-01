@@ -2,7 +2,7 @@ export class QuotePageObjects {
     protected static FIRST_NAME = `div[data-form-mapping='FirstName'] input`;
     protected static LAST_NAME = `div[data-form-mapping='LastName'] input`;
     protected static EMAIL = `div[data-form-mapping='Email'] input`;
-    protected static PHONE = `div[data-form-mapping='Phone'] input >> visible=true`;
+    protected static PHONE = `div[data-form-mapping='Phone'] input[required] >> visible=true`;
     protected static POSTAL_CODE = 'div[data-form-mapping="AddressPostalCode"] input';
     protected static AGE_CHK = 'div.ValidationRequired input.FormChoice__Input >> nth=-1';
     protected static SUBMIT = 'span.btn-color-primary >> visible=true';
