@@ -241,6 +241,7 @@ export class BuildPage extends BuildPageObjects{
         await this.clickAnyModelCategory();
         await this.clickAnyTrim();
         await this.clickColorPageNextBtn();
+        await this.modals.clickPurposePromptNewVehicle();
     }
 
     async openBuildSummaryAndClickImFinished(): Promise<void> {

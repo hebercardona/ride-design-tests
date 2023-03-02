@@ -3,35 +3,6 @@ import { Brands } from "@framework/Brands";
 import { testConfig } from "@testConfig";
 
 
-test(`@smoke Verify atv debug en-us stepped process and build submission`, async ( { pages } ) => {
-
-  let accessoryAdded;
-  /* await test.step(`Navigate to atv en-us start build page`, async () => {
-    await pages.navigation.navigateToStartingBuildUrl('atv', 'fr-ca');
-  });
-  await test.step(`Select any model and go to accessories page`, async () => {
-    await pages.build.modelSelectionToAccessoriesPage();
-  }); */
-  await pages.navigation.navigateToUrl('https://www.polaris.com/fr-ca/off-road/sportsman/build/?selectedmodel=2-seat&CatalogContentId=725582__CatalogContent');
-  await pages.build.waitForPcLoaded();
-  await test.step(`Add any regular accessory`, async () => {
-    accessoryAdded = await pages.build.carousel.addAccessory();
-  });
-  await test.step(`Open build summary and click I am Finished`, async () => {
-    await pages.build.openBuildSummaryAndClickImFinished();
-  });
-  await test.step(`Fill quote form details and submit`, async () => {
-    await pages.quote.enterFormDetailsAndSubmit();
-  });
-  await test.step(`Verify the product added is present in confirmation page`, async () => {
-    expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
-  `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
-  });
-  await test.step(`Verify no duplicate products`, async () => {
-    expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
-  });
-});
-
   for (const brand of Brands.orv) {
     for (const locale of testConfig.domesticLocales[brand]) {
       test(`@regression Verify ${brand} ${locale} stepped process and build submission`, async ( { pages } ) => {
@@ -271,7 +242,7 @@ test(`@smoke Verify atv debug en-us stepped process and build submission`, async
     });
   });
 
-  test.only(`@regression @gdy Verify gdy build submission`, async ( { pages } ) => {
+  test(`@regression @gdy Verify gdy build submission`, async ( { pages } ) => {
     let modelId;
     let items;
     await test.step(`Navigate to gdy start build page`, async () => {
