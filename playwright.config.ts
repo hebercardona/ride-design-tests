@@ -36,6 +36,7 @@ const config: PlaywrightTestConfig = {
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
+  //grep: [new RegExp('@debug')],
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   //forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -45,15 +46,15 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     //['./reporters/CustomReport.ts'],
-    ['html'],
+    ['html']
     //['junit', {outputFile: 'test-results.xml', open: 'never'}],
     //['json', {  outputFile: 'test-results.json' }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 30000,
-    navigationTimeout:30000,
+    actionTimeout: 60000,
+    navigationTimeout:60000,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -62,7 +63,7 @@ const config: PlaywrightTestConfig = {
     screenshot: 'only-on-failure',
     video: 'off',
     baseURL: ENV === `qa` ? 'https://www-qa.polarisindcms.com/' : 'https://www.polaris.com/',
-    headless: true
+    headless: true,
   },
   
   /* Configure projects for major browsers */

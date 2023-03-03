@@ -9,7 +9,7 @@ type errorType = {
     url: string
 }
 
-type pages = {
+export type pages = {
     page: Page,
     build: BuildPage,
     quote: QuotePage,

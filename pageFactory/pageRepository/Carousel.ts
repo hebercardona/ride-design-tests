@@ -193,4 +193,10 @@ export class Carousel extends CarouselObjects {
         await webActions.clickElement(product.cta);
         await this.modals.clickPrpRequiredPartAddIfNeeded();
     }
+
+    async isCarouselPresent(): Promise<boolean> {
+        const isCarouselDisplayed = await webActions.isElementVisible(CarouselObjects.CAROUSEL_CONTAINER) ? 
+        await webActions.isElementVisible(CarouselObjects.CATEGORY_ITEMS_VISIBLE) ? true : false : false;
+        return isCarouselDisplayed;
+    }
 }

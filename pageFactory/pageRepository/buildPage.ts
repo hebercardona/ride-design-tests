@@ -157,6 +157,7 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickColorPageNextBtn(): Promise<void> {
+        await webActions.waitForNetworkIdle();
         await this.waitForPcLoaded();
         await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS);
         this.waitForNextFooterBtnInitialized();

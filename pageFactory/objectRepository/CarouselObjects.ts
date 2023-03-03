@@ -15,4 +15,5 @@ export class CarouselObjects {
     protected static SUBCATEGORY_MINUS_ICON = 'div.shapes-minus';
     protected static CATEGORY_UP_ARROW = 'i.up';
     protected static EMPLOYEE_DISCOUNT_LABEL = 'div.build-accessories-product-label-discount';
+    protected static CAROUSEL_CONTAINER = 'div.build-accessories';
 }
