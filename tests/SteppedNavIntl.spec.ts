@@ -44,7 +44,11 @@ import { pages } from "@pages/BasePage";
             await pages.navigation.navigateToPreviousYearStartingBuildUrl('ind', locale);
         });
         await test.step(`Navigate to accessories page with any selection`, async () => {
-            await pages.build.categoryToAccessoriesPageInd();
+            await pages.build.clickAnyModelCategory();
+            await pages.build.clickAnyTrim();
+            await pages.build.waitForPcLoaded();
+            await pages.build.clickColorPageNextBtn();
+            await pages.build.waitForPcLoaded();
         });
         await test.step(`Verify carousel is displayed`, async () => {
             expect(await pages.build.carousel.isCarouselPresent(), 'Carousel not displayed').toBeTruthy();
