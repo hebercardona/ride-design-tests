@@ -34,11 +34,13 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickAnySeatCategory(): Promise<void> {
+        await webActions.waitForElementVisible(BuildPageObjects.SEAT_CATEGORIES);
         expect(await this.page.locator(BuildPageObjects.SEAT_CATEGORIES).count(), `No seat category elements were displayed`).toBeGreaterThan(0);
         await webActions.clickAnyElement(BuildPageObjects.SEAT_CATEGORIES);
     }
 
     async clickAnyModelCategory(): Promise<void> {
+        await webActions.waitForElementVisible(BuildPageObjects.MODEL_CATEGORIES);
         expect(await this.page.locator(BuildPageObjects.MODEL_CATEGORIES).count(), `No model category elements were displayed`).toBeGreaterThan(0);
         await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
     }
@@ -142,7 +144,7 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickAnyTrim(): Promise<void> {
-        await expect(BuildPageObjects.TRIMS, `No trim category elements were displayed`).toBeTruthy();
+        await webActions.waitForElementVisible(BuildPageObjects.TRIMS);
         await webActions.clickAnyElement(BuildPageObjects.TRIMS);
     }
 
