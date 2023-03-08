@@ -17,7 +17,7 @@ export class PageNav {
     async navigateToStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
         let url = Common.stringFormat(testConfig.currentYearUrls[brand], locale);
         if(brand === Brands.ind && !(testConfig.domesticLocales.ind.includes(locale))) {
-            url.replace('category','model');
+            url = url.replace('category','model');
         }
         await this.page.goto(url);
     }
