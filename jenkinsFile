@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         SUITE_NAME='Playwright'
+        CATEGORY='@pricing'
     }
 
     stages {
@@ -15,7 +16,7 @@ pipeline {
         }
         stage('Running Tests') {
             steps {
-                bat 'npx cross-env ENV=prod npm run test ./jenkinsTest.spec.ts'
+                bat "npx cross-env ENV=prod npx playwright test -g '${CATEGOY}'"
             }
         }
     }
