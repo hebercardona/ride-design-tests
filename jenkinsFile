@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/playwright:v1.30.0-focal'
-        }
-    }
+    agent any
 
     environment {
         SUITE_NAME='Playwright'
@@ -14,8 +10,7 @@ pipeline {
         stage('Playwright Install') {
             steps {
                 bat '''
-                npm i -D @playwright/test
-                npx playwright install
+                npm install
                 '''
             }
         }
