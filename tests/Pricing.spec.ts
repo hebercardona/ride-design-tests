@@ -3,7 +3,7 @@ import { expect, test } from "@framework/BaseTest"
 import { Brands } from "@framework/Brands";
 import { CarouselProduct } from "@pages/Carousel";
 
-test('Verify discount price shown for employee login', async( {pages} ) => {
+test('Verify discount price shown for employee login @pricing', async( {pages} ) => {
   let isDiscountLabelPresentBeforeLogin;
   let isDiscountLabelPresentAfterLogin;
   await test.step(`Navigate to any model build url`, async () => {
