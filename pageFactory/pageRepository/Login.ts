@@ -1,4 +1,4 @@
-import type { Page } from '@playwright/test'
+import { Page, expect } from '@playwright/test'
 import { WebActions } from '../../framework/WebActions'
 import { LoginObjects } from '../objectRepository/LoginObjects'
 import { TestData } from '@framework/TestData';
@@ -38,5 +38,17 @@ export class Login extends LoginObjects {
         await this.enterEmail(TestData.ACCOUNTS.MILITARY.email);
         await this.enterPassword(TestData.ACCOUNTS.MILITARY.password);
         await this.clickSubmit();
+    }
+
+    async customerLogin(): Promise<void> {
+        await this.clickSignIn();
+        await this.enterEmail(TestData.ACCOUNTS.REGULAR.email);
+        await this.enterPassword(TestData.ACCOUNTS.REGULAR.password);
+        await this.clickSubmit();
+    }
+
+    async verifyUserLoggedIn(): Promise<void> {
+        const signInHref = await webActions.getElementAttribute(LoginObjects.ACCOUNT_SIGN_IN_ITEM, 'href');
+        expect(signInHref, 'Login is still present').not.toContain('login');
     }
 }

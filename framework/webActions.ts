@@ -79,6 +79,10 @@ export class WebActions {
     return handlesInnerText;
    }
 
+   async getElementAttribute(locator: string, attribute: string): Promise<string> {
+    return await this.page.locator(locator).getAttribute(attribute);
+   }
+
    async getElementInnerText(locator: string): Promise<string> {
     return await this.page.locator(locator).innerText();
    }
