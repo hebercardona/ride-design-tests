@@ -170,7 +170,7 @@ import { testConfig } from "@testConfig";
     });
   });
 
-  test.only(`@regression Verify mil build submission`, async ( { pages } ) => {
+  test(`@regression Verify mil build submission`, async ( { pages } ) => {
     let accessoryAdded;
     await test.step(`Navigate to military start build page`, async () => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.mil);
