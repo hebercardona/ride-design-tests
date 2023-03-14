@@ -2,7 +2,7 @@ import { test, expect } from "@framework/BaseTest";
 import { testConfig } from "@testConfig";
 
 for (const locale of testConfig.domesticLocales.rzr) {
-    test.only(`Verify user can sucessfully login in rzr ${locale} site`, async({ pages }) => {
+    test(`Verify user can sucessfully login in rzr ${locale} site`, async({ pages }) => {
         await test.step(`Navigate to rzr ${locale} starting build page`, async() => {
             await pages.navigation.navigateToStartingBuildUrl('rzr', locale);
         });
@@ -17,7 +17,7 @@ for (const locale of testConfig.domesticLocales.rzr) {
 }
 
 for (const locale of testConfig.domesticLocales.rgr) {
-    test.only(`Verify user can sucessfully login in rgr ${locale} site`, async({ pages }) => {
+    test(`Verify user can sucessfully login in rgr ${locale} site`, async({ pages }) => {
         await test.step(`Navigate to rgr ${locale} starting build page`, async() => {
             await pages.navigation.navigateToStartingBuildUrl('rgr', locale);
         });
@@ -32,7 +32,7 @@ for (const locale of testConfig.domesticLocales.rgr) {
 }
 
 for (const locale of testConfig.domesticLocales.grl) {
-    test.only(`Verify user can sucessfully login in grl ${locale} site`, async({ pages }) => {
+    test(`Verify user can sucessfully login in grl ${locale} site`, async({ pages }) => {
         await test.step(`Navigate to rgr ${locale} starting build page`, async() => {
             await pages.navigation.navigateToStartingBuildUrl('grl', locale);
         });
@@ -47,7 +47,7 @@ for (const locale of testConfig.domesticLocales.grl) {
 }
 
 for (const locale of testConfig.domesticLocales.atv) {
-    test.only(`Verify user can sucessfully login in atv ${locale} site`, async({ pages }) => {
+    test(`Verify user can sucessfully login in atv ${locale} site`, async({ pages }) => {
         await test.step(`Navigate to rgr ${locale} starting build page`, async() => {
             await pages.navigation.navigateToStartingBuildUrl('atv', locale);
         });

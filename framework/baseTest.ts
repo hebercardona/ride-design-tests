@@ -10,6 +10,8 @@ type cookie = {
     domain: string
 }
 
+const cpqConsoleErrors = ['bannerEnabled'];
+
 export const test = baseTest.extend<
 BasePage
 >({
@@ -23,6 +25,13 @@ BasePage
                 });
             }
         });
+        pageObjects.page.on('console', msg => {
+            if(msg.type() == 'error' && cpqConsoleErrors.some(e => msg.text().includes(e))) {
+                test.fail(true, `cpq console errors thrown for page\n 
+                url: ${pageObjects.page.url()}\n
+                error: ${msg.text()}`);
+            }
+        })
         //Add notice preference cookies
         await context.addCookies(
             setNoticePreferenceCookie()

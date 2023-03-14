@@ -35,7 +35,7 @@ for (const locale of testConfig.previousYearInternationalLocales.ind) {
             await pages.navigation.navigateToUrl(url);
             await pages.page.waitForLoadState('domcontentloaded');
         });
-        await test.step(`Send request to evaluate responsa status for current build url`, async() => {
+        await test.step(`Send request to evaluate respons status for current build url`, async() => {
             response = await pages.page.request.get(pages.page.url());
             expect(await response.status()).toBe(200);
         });
@@ -78,5 +78,25 @@ for (let brand of Brands.orv) {
         });
     }
 }
+
+test(`Get url for slg from getAllModels api and navigate`, async ( {pages} ) => {
+    let response;
+    await test.step(`Navigate to slg accessories page for any model`, async() => {
+        const url = await ApiData.getApiBuildUrl('en-us', Brands.slg);
+        await pages.navigation.navigateToUrl(url);
+        await pages.page.waitForLoadState('domcontentloaded');
+        expect(pages.build.isPlayCanvasLoaded(), 'Vehicle not loaded').toBeTruthy();
+    });
+    await test.step(`Send request to evaluate respons status for current build url`, async() => {
+        response = await pages.page.request.get(pages.page.url());
+        expect(await response.status()).toBe(200);
+    });
+    await test.step(`UI refresh and validate response status is successful`, async() => {
+        await pages.page.reload();
+        response = await pages.page.request.get(pages.page.url());
+        expect(await response.status()).toBe(200); 
+    });
+
+});
 
 
