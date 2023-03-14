@@ -59,7 +59,7 @@ import { testConfig } from "@testConfig";
     }); 
   }
 
-  test.only(`@regression Verify slg build submission`, async ( { pages } ) => {
+  test(`@regression Verify slg build submission`, async ( { pages } ) => {
     let accessoryAdded;
     await test.step(`Navigate to slingshot start build page`, async () => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.slg);
@@ -170,7 +170,7 @@ import { testConfig } from "@testConfig";
     });
   });
 
-  test(`@regression Verify mil build submission`, async ( { pages } ) => {
+  test.only(`@regression Verify mil build submission`, async ( { pages } ) => {
     let accessoryAdded;
     await test.step(`Navigate to military start build page`, async () => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.mil);
@@ -202,7 +202,7 @@ import { testConfig } from "@testConfig";
       await pages.quote.enterMilFormDetailsAndSubmit();
     });
     await test.step(`Verify confirmation page details`, async () => {
-      expect(await pages.confirmation.verifyIfProductPresent(accessoryAdded), 
+      expect(await pages.confirmation.verifyIfProductNoPricingPresent(accessoryAdded), 
     `Accessory ${accessoryAdded.title} was not found on confirmation page`).toBeTruthy();
 
       expect(await pages.confirmation.verifyDuplicateItems(), 'Duplicate items were present').toBeFalsy();
@@ -300,8 +300,6 @@ import { testConfig } from "@testConfig";
       });
     }); 
   }
-
-
 
 
   /* test.afterEach(async({ pages }) => {

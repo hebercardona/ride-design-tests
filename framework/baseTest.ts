@@ -1,7 +1,6 @@
 import { test as baseTest, expect } from '@playwright/test';
 import { BasePage } from '../pageFactory/pageRepository/BasePage';
 import { testConfig } from '@testConfig';
-import { Common } from './Common';
 
 type cookie = {
     name: string,
@@ -10,7 +9,7 @@ type cookie = {
     domain: string
 }
 
-const cpqConsoleErrors = ['bannerEnabled'];
+const cpqConsoleErrors = ['bannerEnabled', 'app-bundle', 'cpq'];
 
 export const test = baseTest.extend<
 BasePage
@@ -27,9 +26,11 @@ BasePage
         });
         pageObjects.page.on('console', msg => {
             if(msg.type() == 'error' && cpqConsoleErrors.some(e => msg.text().includes(e))) {
-                test.fail(true, `cpq console errors thrown for page\n 
+                expect(cpqConsoleErrors.some(e => msg.text().includes(e)), 
+                `cpq console errors thrown for page\n 
                 url: ${pageObjects.page.url()}\n
-                error: ${msg.text()}`);
+                error: ${msg.text()}`)
+                .toBeFalsy();
             }
         })
         //Add notice preference cookies

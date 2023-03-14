@@ -68,9 +68,37 @@ export class ConfirmationPage extends ConfirmationPageObjects {
         }
         expect(await productContainer.count(), `Product ${carouselProduct.title} not found on confirmation page`).toBeGreaterThan(0);
         const product: Product = await {
-            name: await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME).first()?.innerText(),
-            price: await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE).first()?.innerText(),
-            id: await productContainer.locator(ConfirmationPage.PRODUCT_ID).first()?.innerText()
+            name: await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME).first().count() > 0 ? 
+            await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME).first().innerText() : null,
+
+            price: await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE).first().count() > 0 ?
+            await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE).first().innerText() : null,
+
+            id: await productContainer.locator(ConfirmationPage.PRODUCT_ID).first().count() > 0 ? 
+            await productContainer.locator(ConfirmationPage.PRODUCT_ID).first().innerText() : null
+        };
+        
+        if(productContainer && product.id.includes(carouselProduct.id)) {
+            return true;
+        }
+        return false;
+    }
+
+    async verifyIfProductNoPricingPresent(carouselProduct: CarouselProduct): Promise<boolean> {
+        await this.page.locator(ConfirmationPageObjects.ADDED_ACCESSORIES_CONTAINER).nth(0).scrollIntoViewIfNeeded();
+        let productContainer = await webActions.getElementThatHasTextInChildElement(ConfirmationPageObjects.SUMMARY_PRODUCT_ITEMS, carouselProduct.title);
+        if(await productContainer.count() < 1) {
+            productContainer = await webActions.getElementThatHasTextInChildElement(ConfirmationPageObjects.SUMMARY_KITS, carouselProduct.title);
+        }
+        expect(await productContainer.count(), `Product ${carouselProduct.title} not found on confirmation page`).toBeGreaterThan(0);
+        const product: Product = await {
+            name: await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME).first().count() > 0 ? 
+            await productContainer.locator(ConfirmationPageObjects.PRODUCT_NAME).first().innerText() : null,
+
+            id: await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE).first().count() > 0 ?
+            await productContainer.locator(ConfirmationPageObjects.PRODUCT_PRICE).first().innerText() : null,
+
+            price: null
         };
         
         if(productContainer && product.id.includes(carouselProduct.id)) {
