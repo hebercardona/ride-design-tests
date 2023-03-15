@@ -149,6 +149,16 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickFooterNextBtn(): Promise<void> {
+        if(this.page.url().includes('layout') || this.page.url().includes('color')) {
+            Promise.all([
+                await webActions.waitForNetworkIdle(),
+                await this.waitForPcLoaded(),
+                await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS),
+                await this.waitForNextFooterBtnInitialized(),
+                await webActions.clickElement(BuildPageObjects.FOOTER_NEXT)
+            ]);
+            return;
+        }
         if(await webActions.isElementVisible(BuildPageObjects.FOOTER_SPINNER_LOADING)) {
             await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
         }
@@ -159,11 +169,18 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickColorPageNextBtn(): Promise<void> {
-        await webActions.waitForNetworkIdle();
+        /* await webActions.waitForNetworkIdle();
         await this.waitForPcLoaded();
         await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS);
-        this.waitForNextFooterBtnInitialized();
-        await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
+        await this.waitForNextFooterBtnInitialized();
+        await webActions.clickElement(BuildPageObjects.FOOTER_NEXT); */
+        Promise.all([
+            await webActions.waitForNetworkIdle(),
+            await this.waitForPcLoaded(),
+            await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS),
+            await this.waitForNextFooterBtnInitialized(),
+            await webActions.clickElement(BuildPageObjects.FOOTER_NEXT)
+        ]);
     }
 
     async waitForNextFooterBtnInitialized(): Promise<void> {
