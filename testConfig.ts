@@ -115,7 +115,7 @@ const envConfig = {
 
 export const testConfig = {
     waitForElement: 120000,
-    canvasWait: process.env.ENV === 'qa' ? 3000 : 2000,
+    canvasWait: process.env.ENV === 'qa' ? 6000 : 3000,
     testRailHost: 'https://ridecommand.testrail.io',
     testRailUserName: 'heber.cardona@polaris.com',
     testRailPassword: 'Flowers2012',

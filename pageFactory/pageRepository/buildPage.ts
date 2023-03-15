@@ -369,6 +369,7 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickSnoColorItems(): Promise<void> {
+        await this.waitForNextFooterBtnInitialized();
         if(!(await webActions.isElementVisible(BuildPageObjects.SNO_STOCK_LABEL))) {
             const sidePanelSection = await webActions.getElement(BuildPageObjects.SNO_SIDE_PANEL_SECTION);
             const sidePanelColors = await webActions.getChildElementsFromParentElement(await sidePanelSection, BuildPageObjects.SNO_COLORS_WATCHES)
