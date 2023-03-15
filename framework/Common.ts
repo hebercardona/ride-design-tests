@@ -16,7 +16,7 @@ export class Common {
     return duplicates;
   }
 
-  static delay(ms: number) {
+  static async delay(ms: number) {
     new Promise(r => setTimeout(r, ms));
   }
 

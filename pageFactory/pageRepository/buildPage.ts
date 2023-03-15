@@ -187,7 +187,7 @@ export class BuildPage extends BuildPageObjects{
         await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADING);
         await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_WRAPPER);
         await webActions.waitForElementDetached(BuildPageObjects.FOOTER_SPINNER_LOADER_TEXT);
-        Common.delay(testConfig.canvasWait);
+        await Common.delay(testConfig.canvasWait);
     }
 
     async waitForPcLoaded(): Promise<void> {
