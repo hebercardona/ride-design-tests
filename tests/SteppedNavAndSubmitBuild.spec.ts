@@ -59,7 +59,7 @@ import { testConfig } from "@testConfig";
     }); 
   }
 
-  test.only(`@regression Verify slg build submission`, async ( { pages } ) => {
+  test(`@regression Verify slg build submission`, async ( { pages } ) => {
     let accessoryAdded;
     await test.step(`Navigate to slingshot start build page`, async () => {
       await pages.navigation.navigateToStartingBuildUrl(Brands.slg);
