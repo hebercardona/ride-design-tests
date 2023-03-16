@@ -4,4 +4,6 @@ node_modules/
 /playwright/.cache/
 logs/info.log
 reporters/testRailResults.json
-
+logs
+logs/info.log
+reporters/testRailResults.json

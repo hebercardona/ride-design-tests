@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "title": "Test with urls dynamic",
+      "status": "passed",
+      "message": "Automated Test Passed"
+    },
+    {
+      "title": "C15432126_en-ca Test Title with parameters",
+      "status": "passed",
+      "message": "Automated Test Passed"
+    },
+    {
+      "title": "C15432125_en-us Test Title with parameters",
+      "status": "passed",
+      "message": "Automated Test Passed"
+    },
+    {
+      "title": "Test SQL Server",
+      "status": "failed",
+      "message": "Cannot read properties of undefined (reading 'LoadUrl')"
+    }
+  ]
+}
