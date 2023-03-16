@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Running Tests') {
             steps {
-                bat "npx cross-env ENV=prod npx playwright test -g '@pricing'"
+                bat "npx cross-env ENV=prod npx playwright test -g '$env.CATEGORY'"
             }
         }
     }
