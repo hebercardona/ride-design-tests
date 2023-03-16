@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         SUITE_NAME='Playwright'
-        CATEGORY='@pricing'
     }
 
     stages {
