@@ -26,13 +26,6 @@ pipeline {
                     reportTitles: ''
                 ])
                 echo 'Publishing Report' 
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: './allure-results']]
-            ])
         }
     }
 }
