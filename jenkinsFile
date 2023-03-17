@@ -1,27 +1,21 @@
 pipeline {
-    agent any
-
-
+    agent {
+        docker {
+            image 'mcr.microsoft.com/playwright:v1.31.2-focal'
+        }
+    }
     stages {
         stage('Playwright Install') {
             steps {
-                bat "npx playwright install"
-            }
-            steps {
-                bat "npm install"
+                bat '''
+                npm i -D @playwright/test
+                npx playwright install
+                '''
             }
         }
         stage('Running Tests') {
             steps {
                 bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY'"
-            }
-        }
-        stage('Allure Report') {
-            steps {
-                bat '''
-                allure generate ./allure-results --clean
-                allure serve
-                '''
             }
         }
     }
