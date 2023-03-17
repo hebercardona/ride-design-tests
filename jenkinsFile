@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        SUITE_NAME='Playwright'
-    }
 
     stages {
         stage('Playwright Install') {
@@ -16,7 +13,7 @@ pipeline {
         }
         stage('Running Tests') {
             steps {
-                bat "npx cross-env ENV=prod npx playwright test -g '$env.CATEGORY'"
+                bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY'"
             }
         }
     }

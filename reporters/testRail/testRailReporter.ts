@@ -41,10 +41,11 @@ class TestRailReporter {
         const testRailSuiteId = await TestRailApi.getSuiteId(this.testRailSuiteName);
 
         //Add test run based on suite ID and project ID
-        await TestRailApi.addTestRun(testRailSuiteId, 'Playwright Run');
+        const runName = `${this.testRailSuiteName}_${testConfig.testEnvironment}_${new Date().toLocaleDateString()}`;
+        await TestRailApi.addTestRun(testRailSuiteId, runName);
 
         //Get newly created run ID
-        const runId = await TestRailApi.getRunId('Playwright Run', testRailSuiteId);
+        const runId = await TestRailApi.getRunId(runName, testRailSuiteId);
 
         //Get tests cases from test rail contained in newly created test run
         const testsList = await TestRailApi.getTests(runId);
