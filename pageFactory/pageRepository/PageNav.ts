@@ -11,7 +11,7 @@ export class PageNav {
 
     async navigateToUrl(url: string): Promise<void> {
         await this.page.goto(url);
-        await expect((await this.page.request.get(url)).status(), `Url ${url} response was not successfull`).toBe(200);
+        expect((await this.page.request.get(url)).status(), `Url ${url} response successfull`).toBe(200);
     }
 
     async navigateToStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {

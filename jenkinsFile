@@ -16,6 +16,14 @@ pipeline {
                 bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY'"
             }
         }
+        stage('Allure Report') {
+            steps {
+                bat '''
+                allure generate ./allure-results --clean
+                allure serve
+                '''
+            }
+        }
     }
     post('Publish Report') {
         always {

@@ -112,7 +112,7 @@ class ApiData {
     async sendGetRequest(endpoint: string): Promise<string> {
         const context = await request.newContext({baseURL: testConfig.baseUrl});
         const response = await context.get(endpoint);
-        expect(response, `Api response not successfull: ${response.url}`).toBeOK();
+        expect(response, `Api response successfull: ${response.url}`).toBeOK();
         return await response.text();
     }
 }
