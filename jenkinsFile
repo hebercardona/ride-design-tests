@@ -10,9 +10,22 @@ pipeline {
         }
         stage('Running Tests') {
             steps {
-                bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY'"
+                bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY' --reporter=line,allure-playwright"
             }
         }
+        stage('reports') {
+        steps {
+        script {
+            allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'target/allure-results']]
+            ])
+        }
+    }
+}
     }
     post('Publish Report') {
         always {
