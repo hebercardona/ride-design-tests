@@ -25,10 +25,6 @@ test('C15432125 Verify discount price shown for employee login', async( {pages} 
   });
 });
 
-test('Pricing test @pricing', async({ pages }) => {
-  expect(true).toBeTruthy();
-})
-
 test('Verify accessory employee discount price is less than regular price', async( {pages} ) => {
   await test.step(`Navigate to any model build url`, async() => {
     const url = await ApiData.getApiBuildUrl('en-us', 'rzr');
