@@ -21,7 +21,8 @@ pipeline {
                     jdk: '',
                     properties: [],
                     reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'C:\\Program Files (x86)\\Jenkins\\jobs\\playwright\\workspace\\allure-results']]
+                    results: [[path: '']]
+                    results: [[path: 'target/allure-results']]
             ])
         }
     }
