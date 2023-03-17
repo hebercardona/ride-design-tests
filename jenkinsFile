@@ -5,10 +5,10 @@ pipeline {
     stages {
         stage('Playwright Install') {
             steps {
-                bat '''
-                npx playwright install
-                npm install
-                '''
+                bat "npx playwright install"
+            }
+            steps {
+                bat "npm install"
             }
         }
         stage('Running Tests') {
