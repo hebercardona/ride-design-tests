@@ -13,20 +13,6 @@ pipeline {
                 bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY' --reporter=line,allure-playwright"
             }
         }
-        stage('reports') {
-        steps {
-        script {
-            allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: '']]
-                    results: [[path: 'target/allure-results']]
-            ])
-        }
-    }
-}
     }
     post('Publish Report') {
         always {
@@ -40,6 +26,14 @@ pipeline {
                     reportTitles: ''
                 ])
                 echo 'Publishing Report' 
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: '']]
+                    results: [[path: 'target/allure-results']]
+            ])
         }
     }
 }
