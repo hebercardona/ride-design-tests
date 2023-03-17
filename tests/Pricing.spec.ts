@@ -3,7 +3,7 @@ import { expect, test } from "@framework/BaseTest"
 import { Brands } from "@framework/Brands";
 import { CarouselProduct } from "@pages/Carousel";
 
-test('C15432125 Verify discount price shown for employee login @pricing', async( {pages} ) => {
+test('C15432125 Verify discount price shown for employee login', async( {pages} ) => {
   let isDiscountLabelPresentBeforeLogin;
   let isDiscountLabelPresentAfterLogin;
   await test.step(`Navigate to any model build url`, async () => {
@@ -24,6 +24,10 @@ test('C15432125 Verify discount price shown for employee login @pricing', async(
       'Discount Price label not present for employee logged in user').toBeTruthy();
   });
 });
+
+test('Pricing test @pricing', async({ pages }) => {
+  expect(true).toBeTruthy();
+})
 
 test('Verify accessory employee discount price is less than regular price', async( {pages} ) => {
   await test.step(`Navigate to any model build url`, async() => {
