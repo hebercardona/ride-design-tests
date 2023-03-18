@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Running Tests') {
             steps {
-                bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY' --reporter=line,allure-playwright"
+                bat "npx cross-env ENV=prod npx playwright test -g '@$env.TEST_CATEGORY'"
             }
         }
     }

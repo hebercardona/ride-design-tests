@@ -1,8 +1,5 @@
-{"level":"info","message":"Test Case Started : C15432125_en-us Test Title with parameters"}
-{"level":"info","message":"Test Case Started : C15432126_en-ca Test Title with parameters"}
-{"level":"info","message":"Test Case Started : Test with urls dynamic"}
-{"level":"info","message":"Test Case Completed : Test with urls dynamic Status : passed"}
-{"level":"info","message":"Test Case Started : Test SQL Server"}
-{"level":"info","message":"Test Case Completed : C15432126_en-ca Test Title with parameters Status : passed"}
-{"level":"info","message":"Test Case Completed : C15432125_en-us Test Title with parameters Status : passed"}
-{"level":"info","message":"Test Case Completed : Test SQL Server Status : failed"}
+{"level":"info","message":"Test Case Started : C15432125 Verify discount price shown for employee login @pricing @regression"}
+{"level":"info","message":"Executing Step : Navigate to any model build url"}
+{"level":"info","message":"Executing Step : Verify discount price not shown before login"}
+{"level":"info","message":"Executing Step : Login with employee account and verify discount price is present"}
+{"level":"info","message":"Test Case Completed : C15432125 Verify discount price shown for employee login @pricing @regression Status : passed"}
