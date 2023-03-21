@@ -217,10 +217,10 @@ import { testConfig } from "@testConfig";
       await pages.navigation.navigateToStartingBuildUrl(Brands.ben);
     });
     await test.step(`Click ben boat series`, async () => {
-      await pages.build.clickBenBoatSeries('Q Series');
+      await pages.build.clickBenBoatSeries('R Series');
     });
     await test.step(`Click ben model category`, async () => {
-      await pages.build.clickBenModelCategory('Q Line');
+      await pages.build.clickBenModelCategory('R Line');
     });
     await test.step(`Click any available furniture layout`, async () => {
       await pages.build.clickAvailableLayoutItem();

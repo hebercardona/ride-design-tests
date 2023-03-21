@@ -114,6 +114,8 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickGdyHurAvailableLayoutItem(): Promise<void> {
+        await this.page.locator(BuildPageObjects.CANVAS_RENDER_CONTAINER);
+        await webActions.clickElement(BuildPageObjects.CANVAS_RENDER_CONTAINER);
         await webActions.clickAnyElement(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
         await this.waitForGdyHurricaneCanvas();
     }
@@ -369,6 +371,7 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickSnoColorItems(): Promise<void> {
+        await this.waitForPcLoaded();
         await this.waitForNextFooterBtnInitialized();
         if(!(await webActions.isElementVisible(BuildPageObjects.SNO_STOCK_LABEL))) {
             const sidePanelSection = await webActions.getElement(BuildPageObjects.SNO_SIDE_PANEL_SECTION);
