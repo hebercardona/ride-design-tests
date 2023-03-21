@@ -24,6 +24,18 @@ export class Common {
     const currency = priceStr.replace(/,/g, '').split('$')[1].trim();
     return parseFloat(currency).toFixed(2);
   }
+
+  static getBuildIdFromQuoteUrl(url: string): string {
+    let paramsBlock = url.split("?")[1];
+                let paramsMap = paramsBlock.split('&').reduce((p, c) => {
+                    let components = c.split('=');
+                    p[components[0]] = components[1]
+                    return p;
+                }, new Map<string, string>());
+    const urlParams = new URLSearchParams(paramsBlock);
+    const buildId = urlParams.get('submissionID');
+    return buildId;
+  }
 }
 
   
