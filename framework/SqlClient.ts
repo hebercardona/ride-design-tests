@@ -2,7 +2,7 @@ import { testConfig } from "@testConfig";
 import sql from 'mssql'
 
 
-class SqlClient {
+class SqlHelper {
 
     async executeQueryAlternate(query: string): Promise<any> {
         let result;
@@ -28,4 +28,4 @@ class SqlClient {
 
 }
 
-export default new SqlClient();
+export default new SqlHelper();

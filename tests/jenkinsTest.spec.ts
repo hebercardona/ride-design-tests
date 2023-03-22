@@ -1,6 +1,6 @@
 import { testConfig } from '@testConfig';
 import { expect, test }  from '../framework/BaseTest';
-import SqlClient from '@framework/SqlClient';
+import SqlHelper from '@framework/SqlClient';
 
 let theList;
 
@@ -45,6 +45,6 @@ test(`Test SQL Server`, async ( { pages } ) => {
   await pages.navigation.navigateToPreviousYearStartingBuildUrl('rzr');
   await pages.navigation.navigateToStartingBuildUrl('rzr');
   const query = `select LoadUrl from ConfiguredWholegoods where BuildID = 'e0627f8d-de24-4458-8292-cf0a35c58371'`;
-  const results = await SqlClient.executeQuery(query);
+  const results = await SqlHelper.executeQuery(query);
   console.log(results.recordset[0].LoadUrl);
 })

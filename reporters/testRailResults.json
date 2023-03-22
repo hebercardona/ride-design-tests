@@ -1,7 +1,7 @@
 {
   "results": [
     {
-      "title": "Test SQL Server",
+      "title": "Verify build load works as expected",
       "status": "passed",
       "message": "Automated Test Passed"
     }

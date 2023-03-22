@@ -1,6 +1,6 @@
 import { WebActions } from "@framework/WebActions";
 import { BuildSummaryObjects } from "@objects/BuildSummaryObjects";
-import { Page, expect } from "@playwright/test";
+import { Page, expect, Locator } from "@playwright/test";
 import { CarouselProduct } from "./Carousel";
 import { Common } from "@framework/Common";
 
@@ -14,6 +14,10 @@ export class BuildSummary extends BuildSummaryObjects{
         super();
         this.page = page;
         webActions = new WebActions(this.page);
+    }
+
+    async getBuildsummaryDialogElement(): Promise<Locator> {
+        return webActions.getElement(BuildSummaryObjects.SUMMARY_DIALOG);
     }
 
     async closeBuildSummary(): Promise<void> {
