@@ -3,6 +3,7 @@ import { test, expect } from "@framework/BaseTest";
 import { Common } from "@framework/Common";
 import SqlHelper from "@framework/SqlClient";
 import { pages } from "@pages/BasePage";
+import { TestInfo } from "@playwright/test";
 import { testConfig } from "@testConfig";
 import { getComparator } from 'playwright-core/lib/utils';
 const comparator = getComparator('image/png');
@@ -128,11 +129,11 @@ for (const locale of testConfig.domesticLocales.grl) {
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
         });
-        await orvBuildLoadTestSteps(pages);
+        await orvBuildLoadTestSteps(pages, testInfo);
     })
 }
 
-const orvBuildLoadTestSteps = async (pages: pages) => {
+const orvBuildLoadTestSteps = async (pages: pages, testInfo: TestInfo) => {
     let beforeImg;
     let afterImg;
     let loadUrl;
