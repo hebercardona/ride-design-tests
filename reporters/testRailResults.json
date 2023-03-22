@@ -1,24 +1,9 @@
 {
   "results": [
     {
-      "title": "Verify ind build load works as expected for domestic en-us @buildLoadInd",
-      "status": "timedOut",
-      "message": "Test timeout of 360000ms exceeded."
-    },
-    {
-      "title": "Verify ind build load works as expected for domestic fr-ca @buildLoadInd",
-      "status": "timedOut",
-      "message": "Test timeout of 360000ms exceeded."
-    },
-    {
-      "title": "Verify ind build load works as expected for domestic en-ca @buildLoadInd",
-      "status": "timedOut",
-      "message": "Test timeout of 360000ms exceeded."
-    },
-    {
-      "title": "Verify ind build load works as expected for domestic es-us @buildLoadInd",
-      "status": "timedOut",
-      "message": "Test timeout of 360000ms exceeded."
+      "title": "Verify mil build load works as expected for domestic en-us @buildLoadMil",
+      "status": "passed",
+      "message": "Automated Test Passed"
     }
   ]
 }
