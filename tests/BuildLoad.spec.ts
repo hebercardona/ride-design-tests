@@ -44,7 +44,7 @@ for (const locale of testConfig.domesticLocales.rzr) {
     })
 }
 
-for (const locale of testConfig.domesticLocales.rzr) {
+for (const locale of testConfig.domesticLocales.rgr) {
     test(`Verify rgr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         let beforeImg;
         let afterImg;
@@ -82,7 +82,7 @@ for (const locale of testConfig.domesticLocales.rzr) {
     })
 }
 
-for (const locale of testConfig.domesticLocales.rzr) {
+for (const locale of testConfig.domesticLocales.atv) {
     test(`Verify atv build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         let beforeImg;
         let afterImg;
@@ -120,7 +120,7 @@ for (const locale of testConfig.domesticLocales.rzr) {
     })
 }
 
-for (const locale of testConfig.domesticLocales.rzr) {
+for (const locale of testConfig.domesticLocales.grl) {
     test(`Verify grl build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         let beforeImg;
         let afterImg;
