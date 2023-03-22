@@ -28,8 +28,8 @@ test.only(`Verify build load url working fine`, async( {pages} ) => {
     await pages.build.waitForPcLoaded();
     await pages.build.openBuildSummaryAndClickImFinished();
     const buildId = Common.getBuildIdFromQuoteUrl(await pages.page.url()); */
-    const query = `select LoadUrl from ConfiguredWholegoods where BuildID = '0e6b4673-7800-4119-b805-7b5956349ed7'`;
-    const results = await SqlHelper.executeQueryAlt(query);
+    const query = `select LoadUrl from ConfiguredWholegoods where BuildID = 'F26971AE-B497-41D2-87E3-792B92CFB610'`;
+    const results = await SqlHelper.executeQuery(query);
     const loadUrl = results.recordset[0].LoadUrl;
     console.log(loadUrl);
 })
