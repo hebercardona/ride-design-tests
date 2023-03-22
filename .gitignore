@@ -5,7 +5,5 @@ node_modules/
 logs/info.log
 reporters/testRailResults.json
 logs
-logs/info.log
-reporters/testRailResults.json
 allure-report/
 allure-results/

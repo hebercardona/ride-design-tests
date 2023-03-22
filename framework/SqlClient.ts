@@ -1,10 +1,10 @@
 import { testConfig } from "@testConfig";
-const sql = require("mssql/msnodesqlv8");
+import sql from 'mssql'
 
 
 class SqlClient {
 
-    async executeQuery(query: string): Promise<any> {
+    async executeQueryAlternate(query: string): Promise<any> {
         let result;
         return sql.connect(testConfig.db).then(pool => {  
             return pool.request()
@@ -16,7 +16,7 @@ class SqlClient {
         })
       }
 
-    async executeQueryAlt(query: string): Promise<any> {
+    async executeQuery(query: string): Promise<any> {
         try {
             const pool = await sql.connect(testConfig.db);
             const result = pool.request().query(query);
