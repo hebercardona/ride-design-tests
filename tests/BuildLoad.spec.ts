@@ -7,7 +7,7 @@ import { getComparator } from 'playwright-core/lib/utils';
 const comparator = getComparator('image/png');
 
 for (const locale of testConfig.domesticLocales.rzr) {
-    test(`Verify rzr build load works as expected for domestic ${locale}`, async( {pages}, testInfo ) => {
+    test(`Verify rzr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         let beforeImg;
         let afterImg;
         let loadUrl;
