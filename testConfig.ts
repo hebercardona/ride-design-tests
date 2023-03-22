@@ -14,6 +14,8 @@ const qaConfig = {
         database: 'PolarisCMS',
         driver: 'msnodesqlv8',
         options: {
+            encrypt: true,
+            trustServerCertificate: true,
             enableArithAbort: true
         }
     },
@@ -65,6 +67,8 @@ const prodConfig = {
         database: 'PolarisCMS',
         driver: 'msnodesqlv8',
         options: {
+            encrypt: true,
+            trustServerCertificate: true,
             enableArithAbort: true
         }
     },

@@ -26,16 +26,11 @@ test.only(`Verify build load url working fine`, async( {pages} ) => {
     /* const url = await ApiData.getApiBuildUrl('en-us', 'rzr');
     await pages.navigation.navigateToUrl(url);
     await pages.build.waitForPcLoaded();
-    await pages.build.openBuildSummaryAndClickImFinished();
-    const buildId = Common.getBuildIdFromQuoteUrl(await pages.page.url()); */
-    const query = `select LoadUrl from ConfiguredWholegoods where BuildID = 'F26971AE-B497-41D2-87E3-792B92CFB610'`;
+    await pages.build.openBuildSummaryAndClickImFinished(); */
+    //const buildId = Common.getBuildIdFromQuoteUrl(await pages.page.url());
+    const buildId = '510a6fc3-18ec-46b3-97d6-02822df4c71c';
+    const query = `select LoadUrl from ConfiguredWholegoods where BuildID = '${buildId}'`;
     const results = await SqlHelper.executeQuery(query);
     const loadUrl = results.recordset[0].LoadUrl;
-    console.log(loadUrl);
+    console.log(results);
 })
-
-async function getConnection() {
-    const pool = await sql.connect(dbSettings);
-    const result = await pool.request().query(`select LoadUrl from ConfiguredWholegoods where BuildID = 'F26971AE-B497-41D2-87E3-792B92CFB610'`);
-    console.log(result);
-}

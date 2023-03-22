@@ -246,7 +246,7 @@ export class BuildPage extends BuildPageObjects{
 
     async clickIamFinishedBtn(): Promise<void> {
         await webActions.clickElement(BuildPageObjects.GET_QUOTE);
-        await webActions.waitForNetworkIdle();
+        await webActions.waitForElementDetached(BuildPageObjects.GET_QUOTE);
     }
 
     async waitForMessageAsync(): Promise<boolean> {

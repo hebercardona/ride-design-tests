@@ -2,8 +2,8 @@
   "results": [
     {
       "title": "Verify build load url working fine",
-      "status": "failed",
-      "message": "Cannot read properties of undefined (reading 'recordset')"
+      "status": "passed",
+      "message": "Automated Test Passed"
     }
   ]
 }
