@@ -52,6 +52,17 @@ for (const locale of testConfig.domesticLocales.grl) {
     })
 }
 
+for (const locale of testConfig.domesticLocales.ind) {
+    test(`Verify ind build load works as expected for domestic ${locale} @buildLoadInd`, async( {pages}, testInfo ) => {
+        await test.step('Navigate to any grl build url', async() => {
+            const url = await ApiData.getApiBuildUrl(locale, 'ind');
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.waitForPcLoaded();
+        });
+        await orvBuildLoadTestSteps(pages, testInfo);
+    })
+}
+
 const orvBuildLoadTestSteps = async (pages: pages, testInfo: TestInfo) => {
     let beforeImg;
     let afterImg;
