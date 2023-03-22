@@ -10,10 +10,6 @@ const comparator = getComparator('image/png');
 
 for (const locale of testConfig.domesticLocales.rzr) {
     test(`Verify rzr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        let beforeImg;
-        let afterImg;
-        let loadUrl;
-    
         await test.step('Navigate to any rzr build url', async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'rzr');
             await pages.navigation.navigateToUrl(url);
@@ -25,10 +21,6 @@ for (const locale of testConfig.domesticLocales.rzr) {
 
 for (const locale of testConfig.domesticLocales.rgr) {
     test(`Verify rgr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        let beforeImg;
-        let afterImg;
-        let loadUrl;
-    
         await test.step('Navigate to any rgr build url', async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'rgr');
             await pages.navigation.navigateToUrl(url);
@@ -40,10 +32,6 @@ for (const locale of testConfig.domesticLocales.rgr) {
 
 for (const locale of testConfig.domesticLocales.atv) {
     test(`Verify atv build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        let beforeImg;
-        let afterImg;
-        let loadUrl;
-    
         await test.step('Navigate to any atv build url', async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'atv');
             await pages.navigation.navigateToUrl(url);
