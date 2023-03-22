@@ -7,3 +7,4 @@ reporters/testRailResults.json
 logs
 allure-report/
 allure-results/
+screenshots/

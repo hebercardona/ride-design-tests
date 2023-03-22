@@ -1,9 +1,19 @@
 {
   "results": [
     {
-      "title": "Verify build load works as expected",
-      "status": "passed",
-      "message": "Automated Test Passed"
+      "title": "Verify rzr build load works as expected for domestic en-us",
+      "status": "interrupted",
+      "message": "locator.waitFor: Target closed\n=========================== logs ===========================\nwaiting for locator('div.radial-progress') to be hidden\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"6\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"7\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"7\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"24\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"33\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"36\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"43\" class=\"radial-progress\">…</div>\n============================================================"
+    },
+    {
+      "title": "Verify rzr build load works as expected for domestic fr-ca",
+      "status": "interrupted",
+      "message": "locator.waitFor: Target closed\n=========================== logs ===========================\nwaiting for locator('div.radial-progress') to be hidden\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"15\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"20\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"20\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"36\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"40\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"47\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"59\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"72\" class=\"radial-progress\">…</div>\n============================================================"
+    },
+    {
+      "title": "Verify rzr build load works as expected for domestic en-ca",
+      "status": "interrupted",
+      "message": "locator.waitFor: Target closed\n=========================== logs ===========================\nwaiting for locator('div.radial-progress') to be hidden\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"0\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"9\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"12\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"18\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"47\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"64\" class=\"radial-progress\">…</div>\n  locator resolved to visible <div data-progress=\"83\" class=\"radial-progress\">…</div>\n============================================================"
     }
   ]
 }
