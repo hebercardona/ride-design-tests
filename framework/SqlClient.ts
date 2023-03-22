@@ -16,6 +16,16 @@ class SqlClient {
         })
       }
 
+    async executeQueryAlt(query: string): Promise<any> {
+        try {
+            const pool = await sql.connect(testConfig.db);
+            const result = pool.request().query(query);
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 }
 
 export default new SqlClient();

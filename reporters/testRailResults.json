@@ -1,9 +1,9 @@
 {
   "results": [
     {
-      "title": "C15432125 Verify discount price shown for employee login @pricing @regression",
-      "status": "passed",
-      "message": "Automated Test Passed"
+      "title": "Verify build load url working fine",
+      "status": "failed",
+      "message": "Cannot read properties of undefined (reading 'recordset')"
     }
   ]
 }

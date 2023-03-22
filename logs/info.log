@@ -1,5 +1,2 @@
-{"level":"info","message":"Test Case Started : C15432125 Verify discount price shown for employee login @pricing @regression"}
-{"level":"info","message":"Executing Step : Navigate to any model build url"}
-{"level":"info","message":"Executing Step : Verify discount price not shown before login"}
-{"level":"info","message":"Executing Step : Login with employee account and verify discount price is present"}
-{"level":"info","message":"Test Case Completed : C15432125 Verify discount price shown for employee login @pricing @regression Status : passed"}
+{"level":"info","message":"Test Case Started : Verify build load url working fine"}
+{"level":"info","message":"Test Case Completed : Verify build load url working fine Status : failed"}
