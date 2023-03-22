@@ -57,6 +57,7 @@ for (const locale of testConfig.domesticLocales.ind) {
         await test.step('Navigate to any grl build url', async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'ind');
             await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
             await pages.build.waitForPcLoaded();
         });
         await orvBuildLoadTestSteps(pages, testInfo);
