@@ -7,5 +7,6 @@ export class ModalDialogObjects {
     protected static PURPOSE_PROMPT_NEW = '#new-vehicle';
     protected static PURPOSE_PROMPT_CURRENT = '#current-vehicle';
     protected static PURPOSE_PROMPT_DIALOG = '#purpose-prompt-modal-dialog';
+    protected static NO_MODEL_DIALOG = '#noModel a';
 
 }

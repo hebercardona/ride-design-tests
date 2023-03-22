@@ -111,6 +111,7 @@ test.only(`Verify mil build load works as expected for domestic test @buildLoadB
         await pages.build.waitForPcLoaded();
     });
     await test.step('Open build summary and take snapshot after load url loaded', async() => {
+        expect(await pages.build.modals.isNoModelDialogPresent(), 'No model dialog should not be present').toBeFalsy();
         await pages.build.openSummary();
         afterImg = await  (await pages.build.summary.getBuildsummaryDialogElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
     });

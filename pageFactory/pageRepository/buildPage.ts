@@ -77,6 +77,7 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickBenModelCategory(series: string = 'any'): Promise<void> {
+        await this.closeEmotionIconFeedbackIfPresent();
         if(series === 'any') {
             await webActions.clickAnyElement(BuildPageObjects.MODEL_CATEGORIES);
         } else {

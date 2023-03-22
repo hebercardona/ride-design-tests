@@ -42,6 +42,7 @@ BasePage
             const response = await pageObjects.page.request.get(pageObjects.page.url());
             expect(await response.status()).toBe(200);
         }
+        expect(await pageObjects.build.modals.isNoModelDialogPresent(), 'No model dialog should not be present').toBeFalsy();
         await use(pageObjects)
     },
 });

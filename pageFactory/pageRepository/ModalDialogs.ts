@@ -36,4 +36,8 @@ export class ModalDialogs extends ModalDialogObjects {
             }
         }
     }
+
+    async isNoModelDialogPresent(): Promise<boolean> {
+        return await webActions.isElementVisible(ModalDialogObjects.NO_MODEL_DIALOG);
+    }
 }
