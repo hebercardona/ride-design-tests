@@ -75,16 +75,49 @@ for (const locale of testConfig.domesticLocales.mil) {
     })
 }
 
-for (const locale of testConfig.domesticLocales.ben) {
-    test(`Verify mil build load works as expected for domestic ${locale} @buildLoadBen`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any bennington build url', async() => {
-            const url = await ApiData.getApiBuildUrl(locale, 'ben');
-            await pages.navigation.navigateToUrl(url);
-            await pages.build.waitForPcLoaded();
-        });
-        await buildLoadTestSteps(pages, testInfo);
-    })
-}
+test.only(`Verify mil build load works as expected for domestic test @buildLoadBen`, async ( { pages }, testInfo ) => {
+    let loadUrl;
+    let beforeImg;
+    let afterImg;
+    await test.step(`Navigate to ben start build page`, async () => {
+      await pages.navigation.navigateToStartingBuildUrl('ben', 'en-us');
+    });
+    await test.step(`Click ben boat series`, async () => {
+      await pages.build.clickBenBoatSeries('R Series');
+    });
+    await test.step(`Click ben model category`, async () => {
+      await pages.build.clickBenModelCategory('R Line');
+    });
+    await test.step(`Click any available furniture layout`, async () => {
+      await pages.build.clickAvailableLayoutItem();
+    });
+    await test.step(`Click footer next button`, async () => {
+      await pages.build.clickFooterNextBtn();
+    });
+    await test.step(`Open build summary and get summary items and model id`, async () => {
+      await pages.build.openSummary();
+      beforeImg = await  (await pages.build.summary.getBuildsummaryDialogElement()).screenshot({path: `screenshots/${testInfo.title}_before.png`});
+    });
+    await test.step(`Click I am Finished to get to build quote page`, async () => {
+      await pages.build.clickIamFinishedBtn();
+    });    
+    await test.step('Get submissionID from url and get load url from database', async() => {
+        const buildId = Common.getBuildIdFromQuoteUrl(pages.page.url());
+        const loadUrlQuery = await SqlHelper.executeQuery(`select LoadUrl from ConfiguredWholegoods where BuildID = '${buildId}'`);
+        loadUrl = loadUrlQuery.recordset[0].LoadUrl;
+    });
+    await test.step('Navigate to load url and verify response is successful', async() => {
+        await pages.navigation.navigateToUrl(loadUrl);
+        await pages.build.waitForPcLoaded();
+    });
+    await test.step('Open build summary and take snapshot after load url loaded', async() => {
+        await pages.build.openSummary();
+        afterImg = await  (await pages.build.summary.getBuildsummaryDialogElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
+    });
+    await test.step('Compare build summary snapshots', async() => {
+        expect(comparator(beforeImg, afterImg)).toBeNull();
+    });
+  });
 
 const buildLoadTestSteps = async (pages: pages, testInfo: TestInfo) => {
     let beforeImg;

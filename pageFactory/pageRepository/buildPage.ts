@@ -157,6 +157,7 @@ export class BuildPage extends BuildPageObjects{
                 await this.waitForPcLoaded(),
                 await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS),
                 await this.waitForNextFooterBtnInitialized(),
+                await this.closeEmotionIconFeedbackIfPresent(),
                 await webActions.clickElement(BuildPageObjects.FOOTER_NEXT)
             ]);
             return;
@@ -168,6 +169,12 @@ export class BuildPage extends BuildPageObjects{
             await webActions.clickElement(BuildPageObjects.EMOTION_ICON_FEEDBACK_CLOSE);
         }
         await webActions.clickElement(BuildPageObjects.FOOTER_NEXT);
+    }
+
+    async closeEmotionIconFeedbackIfPresent() {
+        if(await webActions.isElementVisible(BuildPageObjects.EMOTION_ICON_FEEDBACK_CLOSE)) {
+            await webActions.clickElement(BuildPageObjects.EMOTION_ICON_FEEDBACK_CLOSE);
+        }
     }
 
     async clickColorPageNextBtn(): Promise<void> {
