@@ -60,7 +60,7 @@ for (const locale of testConfig.domesticLocales.ind) {
             await pages.build.modals.clickPurposePromptNewVehicle();
             await pages.build.waitForPcLoaded();
         });
-        await orvBuildLoadTestSteps(pages, testInfo);
+        await indBuildLoadTestSteps(pages, testInfo);
     })
 }
 
