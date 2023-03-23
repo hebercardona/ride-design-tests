@@ -7,4 +7,5 @@ export class BuildSummaryObjects {
     protected static SUMMARY_ACCESSORY_INFO = 'div.summary-accessory-info-text';
     protected static SUMMARY_PRODUCT_PRICE = 'span.special-discount-price';
     protected static SUMMARY_DIALOG = '#build-summary-dialog';
+    protected static SUMMARY_VEHICLE = 'div.summary-vehicle';
 }

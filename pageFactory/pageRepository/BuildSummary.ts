@@ -20,6 +20,10 @@ export class BuildSummary extends BuildSummaryObjects{
         return webActions.getElement(BuildSummaryObjects.SUMMARY_DIALOG);
     }
 
+    async getSummaryVehicleSectionElement(): Promise<Locator> {
+        return webActions.getElement(BuildSummaryObjects.SUMMARY_VEHICLE);
+    }
+
     async closeBuildSummary(): Promise<void> {
         await webActions.clickElement(BuildSummaryObjects.ICON_CLOSE);
     }
@@ -57,5 +61,12 @@ export class BuildSummary extends BuildSummaryObjects{
         const productSummaryPriceText = await productSummaryPrice.innerText(); 
         expect(Common.getPriceString(productSummaryPriceText), 
         `Summary price for product ${product.title} does not match carousel price`).toEqual(productCarouselDiscountPrice);
+    }
+
+    async verifyBuildItemsPresentOnSummary(itemTitles: string[]): Promise<void> {
+        const summaryItemsTitles = await webActions.getInnerTextFromElements(BuildSummaryObjects.SUMMARY_ITEM_DESCRIPTION);
+        const diff = itemTitles.filter(item => !summaryItemsTitles.includes(item));
+        expect(itemTitles.length === summaryItemsTitles.length, 'Number of items do not match on build summary upon build load').toBeTruthy();
+        expect(diff.length, `Found different items on build summary after build load: ${diff}`).toBeFalsy();
     }
 }

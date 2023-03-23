@@ -1,9 +1,9 @@
 {
   "results": [
     {
-      "title": "Verify godfrey build load works as expected for domestic debug @buildLoad",
-      "status": "failed",
-      "message": "expect(received).toBeNull()\n\nReceived: {\"diff\": [Object], \"errorMessage\": \"2110 pixels (ratio 0.01 of all image pixels) are different.\"}"
+      "title": "Verify godfrey build load works as expected for domestic debug test@buildLoad",
+      "status": "passed",
+      "message": "Automated Test Passed"
     }
   ]
 }

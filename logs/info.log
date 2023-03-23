@@ -1,4 +1,4 @@
-{"level":"info","message":"Test Case Started : Verify godfrey build load works as expected for domestic debug @buildLoad"}
+{"level":"info","message":"Test Case Started : Verify godfrey build load works as expected for domestic debug test@buildLoad"}
 {"level":"info","message":"Executing Step : Navigate to gdy start build page"}
 {"level":"info","message":"Executing Step : Select any available layout item"}
 {"level":"info","message":"Executing Step : Click footer next button"}
@@ -8,4 +8,4 @@
 {"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
 {"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
 {"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Test Case Completed : Verify godfrey build load works as expected for domestic debug @buildLoad Status : failed"}
+{"level":"info","message":"Test Case Completed : Verify godfrey build load works as expected for domestic debug test@buildLoad Status : passed"}
