@@ -114,6 +114,75 @@ export class BuildPage extends BuildPageObjects{
         await this.waitForPcLoaded();
     }
 
+    async selectBenCategoryWithLayoutAvailable(): Promise<void> {
+        const series = await webActions.getElements(BuildPageObjects.SEAT_CATEGORIES);
+        for (let i = 0; i < series.length; i++) {
+            await webActions.clickElement(series[i])
+            await webActions.waitForElementVisible(BuildPageObjects.MODEL_CATEGORIES);
+            const modelCategories = await webActions.getElements(BuildPageObjects.MODEL_CATEGORIES);
+            for (let j = 0; j < modelCategories.length; j++) {
+                await webActions.clickElement(modelCategories[j]);
+                await this.waitForPcLoaded();
+                const furnitureLayoutAvailable = await webActions.getElements(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
+                if (!(furnitureLayoutAvailable.length > 0)) {
+                    await this.page.goBack();
+                    continue;
+                }
+                if(furnitureLayoutAvailable.length > 0) {
+                    await this.clickAvailableLayoutItem();
+                    return;
+                }
+            }
+            this.page.goBack();
+            continue;
+        }
+    }
+
+    async selectHurricaneCategoryWithLayoutAvailable(): Promise<void> {
+        await webActions.waitForElementVisible(BuildPageObjects.SEAT_CATEGORIES);
+        const series = await webActions.getElements(BuildPageObjects.SEAT_CATEGORIES);
+        for (let i = 0; i < series.length; i++) {
+            await webActions.clickElement(series[i])
+            await webActions.waitForElementVisible(BuildPageObjects.MODEL_CATEGORIES);
+            const modelCategories = await webActions.getElements(BuildPageObjects.MODEL_CATEGORIES);
+            for (let j = 0; j < modelCategories.length; j++) {
+                await webActions.clickElement(modelCategories[j]);
+                await this.waitForGdyHurricaneCanvas();
+                const furnitureLayoutAvailable = await webActions.getElements(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
+                if (!(furnitureLayoutAvailable.length > 0)) {
+                    await this.page.goBack();
+                    continue;
+                }
+                if(furnitureLayoutAvailable.length > 0) {
+                    await this.clickAvailableLayoutItem();
+                    return;
+                }
+            }
+            this.page.goBack();
+            continue;
+        }
+    }
+
+    async selectGodfreyCategoryWithLayoutAvailable(): Promise<void> {
+        const gdystartUrl = this.page.url();
+        await webActions.waitForElementVisible(BuildPageObjects.CATEGORIES);
+        const series = await webActions.getElements(BuildPageObjects.CATEGORIES);
+        for (let i = 0; i < series.length; i++) {
+            await webActions.clickElement(series[i])
+            await this.performFeatureDefaultSelections();
+            await this.waitForGdyHurricaneCanvas();
+            const furnitureLayoutAvailable = await webActions.getElements(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
+            if (!(furnitureLayoutAvailable.length > 0)) {
+                await this.page.goto(gdystartUrl);
+                continue;
+            }
+            if(furnitureLayoutAvailable.length > 0) {
+                await this.clickAvailableLayoutItem();
+                return;
+            }
+        }
+    }
+
     async clickGdyHurAvailableLayoutItem(): Promise<void> {
         await this.page.locator(BuildPageObjects.CANVAS_RENDER_CONTAINER);
         await webActions.clickElement(BuildPageObjects.CANVAS_RENDER_CONTAINER);
@@ -154,8 +223,6 @@ export class BuildPage extends BuildPageObjects{
     async clickFooterNextBtn(): Promise<void> {
         if(this.page.url().includes('layout') || this.page.url().includes('color')) {
             Promise.all([
-                await webActions.waitForNetworkIdle(),
-                await this.waitForPcLoaded(),
                 await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS),
                 await this.waitForNextFooterBtnInitialized(),
                 await this.closeEmotionIconFeedbackIfPresent(),

@@ -1,9 +1,9 @@
 {
   "results": [
     {
-      "title": "Verify mil build load works as expected for domestic test @buildLoadBen",
+      "title": "Verify godfrey build load works as expected for domestic debug @buildLoad",
       "status": "failed",
-      "message": "Error: No model dialog should not be present\n\nReceived: true"
+      "message": "expect(received).toBeNull()\n\nReceived: {\"diff\": [Object], \"errorMessage\": \"2110 pixels (ratio 0.01 of all image pixels) are different.\"}"
     }
   ]
 }
