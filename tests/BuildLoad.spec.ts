@@ -3,7 +3,7 @@ import { test, expect } from "@framework/BaseTest";
 import { Common } from "@framework/Common";
 import SqlHelper from "@framework/SqlClient";
 import { pages } from "@pages/BasePage";
-import { TestInfo } from "@playwright/test";
+import { Page, TestInfo } from "@playwright/test";
 import { testConfig } from "@testConfig";
 import { getComparator } from 'playwright-core/lib/utils';
 const comparator = getComparator('image/png');
@@ -13,6 +13,18 @@ for (const locale of testConfig.domesticLocales.rzr) {
         await test.step('Navigate to any rzr build url', async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'rzr');
             await pages.navigation.navigateToUrl(url);
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    })
+}
+
+for (const locale of testConfig.domesticLocales.rzr) {
+    test(`Verify rzr build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+        await test.step('Navigate to any rzr build url', async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'rzr');
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
             await pages.build.waitForPcLoaded();
         });
         await buildLoadTestSteps(pages, testInfo);
@@ -30,6 +42,18 @@ for (const locale of testConfig.domesticLocales.rgr) {
     })
 }
 
+for (const locale of testConfig.domesticLocales.rgr) {
+    test(`Verify rgr build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+        await test.step('Navigate to any rgr build url', async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'rgr');
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    })
+}
+
 for (const locale of testConfig.domesticLocales.atv) {
     test(`Verify atv build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         await test.step('Navigate to any atv build url', async() => {
@@ -41,11 +65,35 @@ for (const locale of testConfig.domesticLocales.atv) {
     })
 }
 
+for (const locale of testConfig.domesticLocales.atv) {
+    test(`Verify atv build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+        await test.step('Navigate to any atv build url', async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'atv');
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    })
+}
+
 for (const locale of testConfig.domesticLocales.grl) {
     test(`Verify grl build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         await test.step('Navigate to any grl build url', async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'grl');
             await pages.navigation.navigateToUrl(url);
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    })
+}
+
+for (const locale of testConfig.domesticLocales.grl) {
+    test(`Verify grl build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+        await test.step('Navigate to any grl build url', async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'grl');
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
             await pages.build.waitForPcLoaded();
         });
         await buildLoadTestSteps(pages, testInfo);
@@ -64,6 +112,18 @@ for (const locale of testConfig.domesticLocales.ind) {
     })
 }
 
+for (const locale of testConfig.domesticLocales.ind) {
+    test(`Verify ind build load works as expected for previous year domestic ${locale} @buildLoadInd`, async( {pages}, testInfo ) => {
+        await test.step('Navigate to any ind build url', async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    })
+}
+
 for (const locale of testConfig.domesticLocales.mil) {
     test(`Verify mil build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         await test.step('Navigate to any military build url', async() => {
@@ -74,6 +134,52 @@ for (const locale of testConfig.domesticLocales.mil) {
         await buildLoadTestSteps(pages, testInfo);
     })
 }
+
+for (const locale of testConfig.domesticLocales.cmv) {
+    test(`Verify commercial build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+        await test.step(`Navigate to commercial start build page`, async () => {
+            await pages.navigation.navigateToStartingBuildUrl('cmv', locale);
+          });
+          await test.step(`Click seat category`, async () => {
+            await pages.build.clickAnySeatCategory();
+            await Common.delay(2000);
+          });
+          await test.step(`Click model category`, async () => {
+            await pages.build.clickAnyModelCategory();
+            await Common.delay(2000);
+          });
+          await test.step(`Click trim`, async () => {
+            await pages.build.clickAnyTrim();
+            await Common.delay(2000);
+            await pages.build.waitForPcLoaded();
+          });
+          await test.step(`Click any color item if present`, async () => {
+            await pages.build.clickCmvAnyColorItem();
+          });
+          await test.step(`Perform option selection substeps`, async () => {
+            await pages.build.performOptionSelectionSubsteps();
+            await pages.build.waitForPcLoaded();
+          });
+          await buildLoadTestStepsSummaryOptions(pages, testInfo);
+    });
+}
+
+test.only(`Verify snow build load works as expected for domestic test @buildLoad`, async( {pages}, testInfo ) => {
+    await test.step('Navigate to any military build url', async() => {
+        const url = await ApiData.getApiBuildUrl('en-us', 'sno');
+        await pages.navigation.navigateToUrl(url);
+        await pages.build.waitForPcLoaded();
+    });
+    await test.step(`Click footer next`, async () => {
+        await pages.build.clickFooterNextBtn();
+      });
+    await test.step(`Perform option selection subteps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+    await buildLoadTestStepsSummaryOptions(pages, testInfo);
+})
+
 
 for (const locale of testConfig.domesticLocales.ben) {
     test(`Verify bennington build load works as expected for domestic ${locale} @buildLoad`, async ( { pages }, testInfo ) => {
@@ -211,7 +317,6 @@ const buildLoadTestSteps = async (pages: pages, testInfo: TestInfo) => {
     let beforeImg;
     let afterImg;
     let loadUrl;
-
     await test.step('Open build summary and take snapshot for further validation', async() => {
         await pages.build.openSummary();
         beforeImg = await  (await pages.build.summary.getBuildsummaryDialogElement()).screenshot({path: `screenshots/${testInfo.title}_before.png`});
@@ -233,7 +338,40 @@ const buildLoadTestSteps = async (pages: pages, testInfo: TestInfo) => {
         await pages.build.openSummary();
         afterImg = await  (await pages.build.summary.getBuildsummaryDialogElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
     });
-    await test.step('Compare build summary snapshots', async() => {
+    await test.step('Compare build summary snapshots', async() => {pages.page
+        expect(comparator(beforeImg, afterImg)).toBeNull();
+    });
+}
+
+const buildLoadTestStepsSummaryOptions = async (pages: pages, testInfo: TestInfo) => {
+    let beforeImg;
+    let afterImg;
+    let loadUrl;
+    let summaryItems;
+    await test.step('Open build summary and take snapshot for further validation', async() => {
+        await pages.build.openSummary();
+        summaryItems = await pages.build.summary.getBuildSummaryItemDescriptions();
+        beforeImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_before.png`});
+    });
+    await test.step('Click I am Finished to get to build quote page', async() => {
+        await pages.build.clickIamFinishedBtn();
+    });
+    await test.step('Get submissionID from url and get load url from database', async() => {
+        const buildId = Common.getBuildIdFromQuoteUrl(pages.page.url());
+        const loadUrlQuery = await SqlHelper.executeQuery(`select LoadUrl from ConfiguredWholegoods where BuildID = '${buildId}'`);
+        loadUrl = loadUrlQuery.recordset[0].LoadUrl;
+    });
+    await test.step('Navigate to load url and verify response is successful', async() => {
+        await pages.navigation.navigateToUrl(loadUrl);
+        await pages.build.modals.clickPurposePromptNewVehicle();
+        await pages.build.waitForPcLoaded();
+    });
+    await test.step('Open build summary and take snapshot after load url loaded', async() => {
+        await pages.build.openSummary();
+        await pages.build.summary.verifyBuildItemsPresentOnSummary(await summaryItems);
+        afterImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
+    });
+    await test.step('Compare build summary snapshots', async() => {pages.page
         expect(comparator(beforeImg, afterImg)).toBeNull();
     });
 }

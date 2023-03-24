@@ -9,6 +9,10 @@ type cookie = {
     domain: string
 }
 
+const EMERGENT_ELEMENTS = {
+    MINIMIZED_WIDGET_MESSAGE: `button[class*='MinimizedWidgetMessage__close']`
+}
+
 const cpqConsoleErrors = ['bannerEnabled', 'app-bundle', 'cpq'];
 
 export const test = baseTest.extend<
@@ -24,6 +28,17 @@ BasePage
                 });
             }
         });
+        await pageObjects.page.addInitScript(() => {
+            // Make sure body has loaded.
+             window.addEventListener('DOMContentLoaded', () => {
+               new MutationObserver(async () => {
+                 const element = await pageObjects.page.$(EMERGENT_ELEMENTS.MINIMIZED_WIDGET_MESSAGE);
+                 if(element != null) {
+                    await element.click();
+                 }
+               }).observe(document.body, { attributes: true });
+             });
+           });
         pageObjects.page.on('console', msg => {
             if(msg.type() == 'error' && cpqConsoleErrors.some(e => msg.text().includes(e))) {
                 expect(cpqConsoleErrors.some(e => msg.text().includes(e)), 

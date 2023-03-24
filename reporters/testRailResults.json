@@ -1,7 +1,7 @@
 {
   "results": [
     {
-      "title": "Verify godfrey build load works as expected for domestic debug test@buildLoad",
+      "title": "Verify snow build load works as expected for domestic test @buildLoad",
       "status": "passed",
       "message": "Automated Test Passed"
     }

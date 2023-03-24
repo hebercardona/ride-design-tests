@@ -138,7 +138,7 @@ export const testConfig = {
         atv: '2023',
         ind: '2023',
         slg: '2023',
-        sno: '2023',
+        sno: '2024',
         cmv: '2023',
         mil: '2023',
         ben: '2023',
@@ -152,7 +152,7 @@ export const testConfig = {
         atv: '2022',
         ind: '2022',
         slg: '2022',
-        sno: '2022'
+        sno: '2023'
     },
     domesticLocales: {
         rzr: ['en-us', 'en-ca', 'fr-ca', 'es-us'],

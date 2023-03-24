@@ -225,7 +225,7 @@ export class BuildPage extends BuildPageObjects{
             Promise.all([
                 await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS),
                 await this.waitForNextFooterBtnInitialized(),
-                await this.closeEmotionIconFeedbackIfPresent(),
+                //await this.closeEmotionIconFeedbackIfPresent(),
                 await webActions.clickElement(BuildPageObjects.FOOTER_NEXT)
             ]);
             return;
@@ -246,11 +246,6 @@ export class BuildPage extends BuildPageObjects{
     }
 
     async clickColorPageNextBtn(): Promise<void> {
-        /* await webActions.waitForNetworkIdle();
-        await this.waitForPcLoaded();
-        await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS);
-        await this.waitForNextFooterBtnInitialized();
-        await webActions.clickElement(BuildPageObjects.FOOTER_NEXT); */
         Promise.all([
             await webActions.waitForNetworkIdle(),
             await this.waitForPcLoaded(),
