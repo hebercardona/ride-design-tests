@@ -10,7 +10,7 @@ const comparator = getComparator('image/png');
 
 for (const locale of testConfig.domesticLocales.rzr) {
     test(`Verify rzr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rzr build url', async() => {
+        await test.step(`Navigate to any rzr ${locale} build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'rzr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -21,7 +21,7 @@ for (const locale of testConfig.domesticLocales.rzr) {
 
 for (const locale of testConfig.domesticLocales.rzr) {
     test(`Verify rzr build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rzr build url', async() => {
+        await test.step(`Navigate to any rzr ${locale} previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'rzr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -33,7 +33,7 @@ for (const locale of testConfig.domesticLocales.rzr) {
 
 for (const locale of testConfig.internationalLocales.rzr) {
     test(`Verify rzr build load works as expected for international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rzr international build url', async() => {
+        await test.step(`Navigate to any rzr ${locale} international build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'rzr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -44,7 +44,7 @@ for (const locale of testConfig.internationalLocales.rzr) {
 
 for (const locale of testConfig.previousYearInternationalLocales.rzr) {
     test(`Verify rzr build load works as expected for previous year international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rzr international previous year build url', async() => {
+        await test.step(`Navigate to any rzr ${locale} international previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'rzr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -55,7 +55,7 @@ for (const locale of testConfig.previousYearInternationalLocales.rzr) {
 
 for (const locale of testConfig.domesticLocales.rgr) {
     test(`Verify rgr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rgr build url', async() => {
+        await test.step(`Navigate to any rgr ${locale} build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'rgr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -66,7 +66,7 @@ for (const locale of testConfig.domesticLocales.rgr) {
 
 for (const locale of testConfig.domesticLocales.rgr) {
     test(`Verify rgr build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rgr build url', async() => {
+        await test.step(`Navigate to any previous year rgr ${locale} build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'rgr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -78,7 +78,7 @@ for (const locale of testConfig.domesticLocales.rgr) {
 
 for (const locale of testConfig.internationalLocales.rgr) {
     test(`Verify rgr build load works as expected for international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rgr international build url', async() => {
+        await test.step(`Navigate to any rgr ${locale} international build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'rgr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -89,7 +89,7 @@ for (const locale of testConfig.internationalLocales.rgr) {
 
 for (const locale of testConfig.previousYearInternationalLocales.rgr) {
     test(`Verify rgr build load works as expected for previous year international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any rgr international previous year build url', async() => {
+        await test.step(`Navigate to any rgr ${locale} international previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'rgr');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -100,7 +100,7 @@ for (const locale of testConfig.previousYearInternationalLocales.rgr) {
 
 for (const locale of testConfig.domesticLocales.atv) {
     test(`Verify atv build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any atv build url', async() => {
+        await test.step(`Navigate to any atv ${locale} build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'atv');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -111,7 +111,7 @@ for (const locale of testConfig.domesticLocales.atv) {
 
 for (const locale of testConfig.domesticLocales.atv) {
     test(`Verify atv build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any atv build url', async() => {
+        await test.step(`Navigate to any atv previous year ${locale} build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'atv');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -123,7 +123,7 @@ for (const locale of testConfig.domesticLocales.atv) {
 
 for (const locale of testConfig.internationalLocales.atv) {
     test(`Verify atv build load works as expected for international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any atv international build url', async() => {
+        await test.step(`Navigate to any atv ${locale} international build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'atv');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -134,7 +134,7 @@ for (const locale of testConfig.internationalLocales.atv) {
 
 for (const locale of testConfig.previousYearInternationalLocales.atv) {
     test(`Verify atv build load works as expected for previous year international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any atv international previous year build url', async() => {
+        await test.step(`Navigate to any atv ${locale} international previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'atv');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -146,7 +146,7 @@ for (const locale of testConfig.previousYearInternationalLocales.atv) {
 
 for (const locale of testConfig.domesticLocales.grl) {
     test(`Verify grl build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any grl build url', async() => {
+        await test.step(`Navigate to any grl ${locale} build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'grl');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -157,7 +157,7 @@ for (const locale of testConfig.domesticLocales.grl) {
 
 for (const locale of testConfig.domesticLocales.grl) {
     test(`Verify grl build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any grl build url', async() => {
+        await test.step(`Navigate to any grl ${locale} previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'grl');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -169,7 +169,7 @@ for (const locale of testConfig.domesticLocales.grl) {
 
 for (const locale of testConfig.internationalLocales.grl) {
     test(`Verify grl build load works as expected for international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any grl international build url', async() => {
+        await test.step(`Navigate to any grl ${locale} international build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'grl');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -180,7 +180,7 @@ for (const locale of testConfig.internationalLocales.grl) {
 
 for (const locale of testConfig.previousYearInternationalLocales.grl) {
     test(`Verify grl build load works as expected for previous year international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any grl previous year international build url', async() => {
+        await test.step(`Navigate to any grl ${locale} previous year international build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'grl');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -192,7 +192,7 @@ for (const locale of testConfig.previousYearInternationalLocales.grl) {
 
 for (const locale of testConfig.domesticLocales.ind) {
     test(`Verify ind build load works as expected for domestic ${locale} @buildLoadInd`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any ind build url', async() => {
+        await test.step(`Navigate to any ind ${locale} build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'ind');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -204,7 +204,7 @@ for (const locale of testConfig.domesticLocales.ind) {
 
 for (const locale of testConfig.domesticLocales.ind) {
     test(`Verify ind build load works as expected for previous year domestic ${locale} @buildLoadInd`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any ind build url', async() => {
+        await test.step(`Navigate to any ind ${locale} previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -216,7 +216,7 @@ for (const locale of testConfig.domesticLocales.ind) {
 
 for (const locale of testConfig.internationalLocales.ind) {
     test(`Verify ind build load works as expected for international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any ind international build url', async() => {
+        await test.step(`Navigate to any ind ${locale} international build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'ind');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -228,7 +228,7 @@ for (const locale of testConfig.internationalLocales.ind) {
 
 for (const locale of testConfig.previousYearInternationalLocales.ind) {
     test(`Verify ind build load works as expected for previous year international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any ind international build url', async() => {
+        await test.step(`Navigate to any ind ${locale} international previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
             await pages.navigation.navigateToUrl(url);
             await pages.build.modals.clickPurposePromptNewVehicle();
@@ -240,7 +240,7 @@ for (const locale of testConfig.previousYearInternationalLocales.ind) {
 
 for (const locale of testConfig.domesticLocales.mil) {
     test(`Verify mil build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step('Navigate to any military build url', async() => {
+        await test.step(`Navigate to any ${locale} military build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'mil');
             await pages.navigation.navigateToUrl(url);
             await pages.build.waitForPcLoaded();
@@ -251,7 +251,7 @@ for (const locale of testConfig.domesticLocales.mil) {
 
 for (const locale of testConfig.domesticLocales.cmv) {
     test(`Verify commercial build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step(`Navigate to commercial start build page`, async () => {
+        await test.step(`Navigate to ${locale} commercial start build page`, async () => {
             await pages.navigation.navigateToStartingBuildUrl('cmv', locale);
           });
           await test.step(`Click seat category`, async () => {
@@ -295,7 +295,7 @@ for (const locale of testConfig.domesticLocales.sno) {
 
 for (const locale of testConfig.domesticLocales.sno) {
     test(`Verify snow build load works as expected for previous year domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
-        await test.step(`Navigate to ${locale} sno build url`, async() => {
+        await test.step(`Navigate to ${locale} sno previous year build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'sno');
             await pages.navigation.navigateToUrl(url);
         });
@@ -355,7 +355,7 @@ for (const locale of testConfig.domesticLocales.ben) {
         let beforeImg;
         let afterImg;
         let summaryItems;
-        await test.step(`Navigate to ben start build page`, async () => {
+        await test.step(`Navigate to ben ${locale} start build page`, async () => {
             await pages.navigation.navigateToStartingBuildUrl('ben', locale);
         });
         await test.step(`Select any available layout item`, async () => {
@@ -399,7 +399,7 @@ for (const locale of testConfig.domesticLocales.hur) {
         let beforeImg;
         let afterImg;
         let summaryItems;
-        await test.step(`Navigate to ben start build page`, async () => {
+        await test.step(`Navigate to hurricane ${locale} start build page`, async () => {
           await pages.navigation.navigateToStartingBuildUrl('hur', locale);
         });
         await test.step(`Select any available layout item`, async () => {
@@ -443,7 +443,7 @@ for (const locale of testConfig.domesticLocales.gdy) {
         let beforeImg;
         let afterImg;
         let summaryItems;
-        await test.step(`Navigate to gdy start build page`, async () => {
+        await test.step(`Navigate to godfrey ${locale} start build page`, async () => {
           await pages.navigation.navigateToStartingBuildUrl('gdy', locale);
         });
         await test.step(`Select any available layout item`, async () => {
