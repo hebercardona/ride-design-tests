@@ -1,44 +1,36 @@
-{"level":"info","message":"Test Case Started : Verify snow build load works as expected for international fi-fi @buildLoadSno"}
-{"level":"info","message":"Test Case Started : Verify snow build load works as expected for international nb-no @buildLoadSno"}
-{"level":"info","message":"Test Case Started : Verify snow build load works as expected for international sv-se @buildLoadSno"}
-{"level":"info","message":"Executing Step : Navigate to fi-fi sno build url"}
-{"level":"info","message":"Executing Step : Navigate to sv-se sno build url"}
-{"level":"info","message":"Executing Step : Navigate to nb-no sno build url"}
-{"level":"info","message":"Executing Step : Click footer next"}
-{"level":"info","message":"Executing Step : Click footer next"}
-{"level":"info","message":"Executing Step : Click footer next"}
-{"level":"info","message":"Executing Step : Perform option selection subteps"}
-{"level":"info","message":"Executing Step : Perform option selection subteps"}
-{"level":"info","message":"Executing Step : Perform option selection subteps"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
-{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
-{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
-{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
-{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
-{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
-{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
-{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
-{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
-{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
-{"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for international nb-no @buildLoadSno Status : passed"}
-{"level":"info","message":"Test Case Started : Verify snow build load works as expected for previous year international nb-no @buildLoadSno"}
-{"level":"info","message":"Executing Step : Navigate to previous year nb-no sno build url"}
-{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for international fi-fi @buildLoadSno Status : passed"}
-{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for international sv-se @buildLoadSno Status : passed"}
-{"level":"info","message":"Executing Step : Click footer next"}
-{"level":"info","message":"Executing Step : Perform option selection subteps"}
+{"level":"info","message":"Test Case Started : Verify rzr build load works as expected for any domestic locale @regression"}
+{"level":"info","message":"Test Case Started : Verify rgr build load works as expected for any domestic locale @regression"}
+{"level":"info","message":"Test Case Started : Verify grl build load works as expected for any domestic locale @regression"}
+{"level":"info","message":"Executing Step : Navigate to any rzr es-us build url"}
+{"level":"info","message":"Executing Step : Navigate to any rgr fr-ca build url"}
+{"level":"info","message":"Executing Step : Navigate to any grl fr-ca build url"}
 {"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
 {"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
 {"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
 {"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
+{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
+{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
+{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
 {"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
+{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
 {"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for previous year international nb-no @buildLoadSno Status : passed"}
+{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
+{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
+{"level":"info","message":"Test Case Completed : Verify grl build load works as expected for any domestic locale @regression Status : passed"}
+{"level":"info","message":"Test Case Started : Verify atv build load works as expected for any domestic locale @regression"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
+{"level":"info","message":"Executing Step : Navigate to any atv en-ca build url"}
+{"level":"info","message":"Executing Step : Compare build summary snapshots"}
+{"level":"info","message":"Test Case Completed : Verify rzr build load works as expected for any domestic locale @regression Status : passed"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
+{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
+{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
+{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
+{"level":"info","message":"Executing Step : Compare build summary snapshots"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
+{"level":"info","message":"Test Case Completed : Verify rgr build load works as expected for any domestic locale @regression Status : passed"}
+{"level":"info","message":"Executing Step : Compare build summary snapshots"}
+{"level":"info","message":"Test Case Completed : Verify atv build load works as expected for any domestic locale @regression Status : passed"}

@@ -1,5 +1,6 @@
 import ApiData from "@framework/ApiData";
 import { test, expect } from "@framework/BaseTest";
+import { Brands } from "@framework/Brands";
 import { Common } from "@framework/Common";
 import SqlHelper from "@framework/SqlClient";
 import { pages } from "@pages/BasePage";
@@ -7,6 +8,20 @@ import { Page, TestInfo } from "@playwright/test";
 import { testConfig } from "@testConfig";
 import { getComparator } from 'playwright-core/lib/utils';
 const comparator = getComparator('image/png');
+
+
+for (const brand of Brands.orv) {
+    test(`Verify ${brand} build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+        const locale = Common.getAnyValueFromArray(testConfig.domesticLocales[brand]);
+        await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
+            const url = await ApiData.getApiBuildUrl(locale, brand);
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    });   
+}
+
 
 for (const locale of testConfig.domesticLocales.rzr) {
     test(`Verify rzr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
@@ -313,7 +328,7 @@ for (const locale of testConfig.domesticLocales.sno) {
 
 
 for (const locale of testConfig.internationalLocales.sno) {
-    test.only(`Verify snow build load works as expected for international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+    test(`Verify snow build load works as expected for international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         await test.step(`Navigate to ${locale} sno build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, 'sno');
             await pages.navigation.navigateToUrl(url);
@@ -331,7 +346,7 @@ for (const locale of testConfig.internationalLocales.sno) {
 }
 
 for (const locale of testConfig.previousYearInternationalLocales.sno) {
-    test.only(`Verify snow build load works as expected for previous year international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+    test(`Verify snow build load works as expected for previous year international ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         await test.step(`Navigate to previous year ${locale} sno build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'sno');
             await pages.navigation.navigateToUrl(url);

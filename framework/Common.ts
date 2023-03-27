@@ -37,68 +37,11 @@ export class Common {
     return buildId;
   }
 
-  static async waitForMutationToStop(elem, noMutationDuration = 3000, timeout = 60000, waitForFirstMutation = true) {
-    return elem.evaluate(async (elem, [noMutationDuration, timeout, waitForFirstMutation]) => {
-      //Resolve when a mutation occurs on elem.
-      const waitForMutation = async (elem) => {
-        let html = elem.innerHTML;
-        
-        return new Promise<void>((resolve, reject) => {
-          new MutationObserver((mutationRecords, observer) => {
-            if(elem.innerHTML != html) {
-              console.log("Mutation detected.");
-              resolve();
-              observer.disconnect();
-            }
-          })
-          .observe(document.documentElement, {
-            childList: true,
-            attributes: true,
-            characterData: true,
-            subtree: true,
-          });
-        })
-      };
-      
-      let timeoutId, noMutationTimeoutId;
-      return Promise.race([
-        //Reject when `timeout` ms have passed
-        new Promise((resolve, reject) => timeoutId = setTimeout(reject, timeout, `Reached timeout of ${timeout} ms while waiting for mutation to stop.`)),
-        //Resolve when `noMutationDuration` ms have passed since the last mutation.
-        new Promise(async (resolve, reject) => {
-          //If requested, wait for the first mutation to occur. This allows the function to wait longer than `noMutationDuration` ms for the first mutation to occur. Once the first mutation occurs, the function will resume "normal" behavior - that is, it will wait until no mutations occur for `noMutationDuration` ms before resolving.
-          if(waitForFirstMutation) {
-            console.log("Waiting for first mutation.");
-            await waitForMutation(elem);
-          }
-          while(true) {
-            noMutationTimeoutId = setTimeout(resolve, noMutationDuration) //We reset this timer every time a mutation occurs. So, when it finally "executes", we know that `noMutationDuration` has passed since the last mutation.
-            console.log(`Waiting ${noMutationDuration} ms for mutation.`);
-            await waitForMutation(elem);
-            if(!noMutationTimeoutId) {
-              break;
-            }
-            clearTimeout(noMutationTimeoutId);
-          }
-        }),
-      ])
-        .then(
-          (value) => {
-            console.log(`${noMutationDuration} ms have elapsed since this function was called or the last mutation was detected. Fulfilling.`);
-          }, (reason) => {
-            console.log(`${timeout} ms have elapsed without a ${noMutationDuration} ms period devoid of mutation. Rejecting.`);
-            throw new Error(reason);
-          }
-        )
-        //Clear timeouts - if we don't, Node will refuse to exit until active timeouts expire
-        .finally(() => {
-          clearTimeout(timeoutId);
-          clearTimeout(noMutationTimeoutId);
-          noMutationTimeoutId = null;
-        })
-    },
-    [noMutationDuration, timeout, waitForFirstMutation]);
+  static getAnyValueFromArray(array: any): any{
+    const item = array[Math.floor(Math.random()*array.length)];
+    return item;
   }
+
 }
 
   

@@ -1,22 +1,22 @@
 {
   "results": [
     {
-      "title": "Verify snow build load works as expected for international nb-no @buildLoadSno",
+      "title": "Verify grl build load works as expected for any domestic locale @regression",
       "status": "passed",
       "message": "Automated Test Passed"
     },
     {
-      "title": "Verify snow build load works as expected for international fi-fi @buildLoadSno",
+      "title": "Verify rzr build load works as expected for any domestic locale @regression",
       "status": "passed",
       "message": "Automated Test Passed"
     },
     {
-      "title": "Verify snow build load works as expected for international sv-se @buildLoadSno",
+      "title": "Verify rgr build load works as expected for any domestic locale @regression",
       "status": "passed",
       "message": "Automated Test Passed"
     },
     {
-      "title": "Verify snow build load works as expected for previous year international nb-no @buildLoadSno",
+      "title": "Verify atv build load works as expected for any domestic locale @regression",
       "status": "passed",
       "message": "Automated Test Passed"
     }
