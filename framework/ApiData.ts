@@ -74,6 +74,7 @@ class ApiData {
                     }
                 }
             }));
+            expect.soft(urls.length, `No urls returned for endpoint ${endpoint}`).toBeGreaterThan(0);
             return urls;
     }
 
@@ -106,6 +107,7 @@ class ApiData {
                     }
                 }
             }));
+            expect.soft(urls.length, `No urls returned for endpoint ${endpoint}`).toBeGreaterThan(0);
             return urls;
     }
 

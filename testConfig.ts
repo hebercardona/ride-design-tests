@@ -174,7 +174,7 @@ export const testConfig = {
         atv: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'en-001', 'sv-se', 'es-es', 'pt-pt', 'de-de', 'de-at', 'fr-fr'],
         grl: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'en-001', 'sv-se', 'es-es', 'pt-pt', 'de-de', 'de-at', 'fr-fr'],
         ind: [ 'en-001', 'es-mx', 'de-de', 'de-at', 'en-nz', 'en-au', 'en-gb', 'en-ie', 'pt-pt', 'en-za', 'sv-se', 'nb-no', 'fi-fi', 'nl-be', 'nl-nl', 'fr-be', 'es-es', 'fr-fr', 'fr-ch', 'de-ch', 'en-in', 'ar-sa' ],
-        sno: [ 'nb-no' ]
+        sno: [ 'nb-no', 'fi-fi', 'sv-se' ]
     },
     previousYearInternationalLocales : {
         rzr: [ 'es-mx', 'en-gb', 'en-ie', 'nb-no', 'fi-fi', 'es-es', 'en-001', 'sv-se', 'pt-pt', 'de-de', 'de-at', 'fr-fr', 'pt-br', 'en-nz', 'en-au' ],

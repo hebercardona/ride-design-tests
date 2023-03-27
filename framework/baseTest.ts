@@ -10,7 +10,8 @@ type cookie = {
 }
 
 const EMERGENT_ELEMENTS = {
-    MINIMIZED_WIDGET_MESSAGE: `button[class*='MinimizedWidgetMessage__close']`
+    MINIMIZED_WIDGET_MESSAGE: `button[class*='MinimizedWidgetMessage__close']`,
+    NO_MODEL_DIALOG: `#noModel a`
 }
 
 const cpqConsoleErrors = ['bannerEnabled', 'app-bundle', 'cpq'];
@@ -32,9 +33,11 @@ BasePage
             // Make sure body has loaded.
              window.addEventListener('DOMContentLoaded', () => {
                new MutationObserver(async () => {
-                 const element = await pageObjects.page.$(EMERGENT_ELEMENTS.MINIMIZED_WIDGET_MESSAGE);
-                 if(element != null) {
-                    await element.click();
+                 const widgetMessageClose = await pageObjects.page.$(EMERGENT_ELEMENTS.MINIMIZED_WIDGET_MESSAGE);
+                 const nodeModelDialog = await pageObjects.page.$(EMERGENT_ELEMENTS.NO_MODEL_DIALOG);
+                 expect.soft(nodeModelDialog.isVisible(), `No model dialog present on page ${pageObjects.page.url()}`).toBeFalsy();
+                 if(widgetMessageClose != null) {
+                    await widgetMessageClose.click();
                  }
                }).observe(document.body, { attributes: true });
              });

@@ -1,14 +1,44 @@
-{"level":"info","message":"Test Case Started : Verify commercial build load works as expected for domestic test @buildLoad"}
-{"level":"info","message":"Executing Step : Navigate to commercial start build page"}
-{"level":"info","message":"Executing Step : Click seat category"}
-{"level":"info","message":"Executing Step : Click model category"}
-{"level":"info","message":"Executing Step : Click trim"}
-{"level":"info","message":"Executing Step : Click any color item if present"}
-{"level":"info","message":"Executing Step : Perform option selection substeps"}
+{"level":"info","message":"Test Case Started : Verify snow build load works as expected for international fi-fi @buildLoadSno"}
+{"level":"info","message":"Test Case Started : Verify snow build load works as expected for international nb-no @buildLoadSno"}
+{"level":"info","message":"Test Case Started : Verify snow build load works as expected for international sv-se @buildLoadSno"}
+{"level":"info","message":"Executing Step : Navigate to fi-fi sno build url"}
+{"level":"info","message":"Executing Step : Navigate to sv-se sno build url"}
+{"level":"info","message":"Executing Step : Navigate to nb-no sno build url"}
+{"level":"info","message":"Executing Step : Click footer next"}
+{"level":"info","message":"Executing Step : Click footer next"}
+{"level":"info","message":"Executing Step : Click footer next"}
+{"level":"info","message":"Executing Step : Perform option selection subteps"}
+{"level":"info","message":"Executing Step : Perform option selection subteps"}
+{"level":"info","message":"Executing Step : Perform option selection subteps"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
+{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
+{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
+{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
+{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
+{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
+{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
+{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
+{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
+{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
+{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
+{"level":"info","message":"Executing Step : Compare build summary snapshots"}
+{"level":"info","message":"Executing Step : Compare build summary snapshots"}
+{"level":"info","message":"Executing Step : Compare build summary snapshots"}
+{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for international nb-no @buildLoadSno Status : passed"}
+{"level":"info","message":"Test Case Started : Verify snow build load works as expected for previous year international nb-no @buildLoadSno"}
+{"level":"info","message":"Executing Step : Navigate to previous year nb-no sno build url"}
+{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for international fi-fi @buildLoadSno Status : passed"}
+{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for international sv-se @buildLoadSno Status : passed"}
+{"level":"info","message":"Executing Step : Click footer next"}
+{"level":"info","message":"Executing Step : Perform option selection subteps"}
 {"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
 {"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
 {"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
 {"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
 {"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
 {"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Test Case Completed : Verify commercial build load works as expected for domestic test @buildLoad Status : passed"}
+{"level":"info","message":"Test Case Completed : Verify snow build load works as expected for previous year international nb-no @buildLoadSno Status : passed"}
