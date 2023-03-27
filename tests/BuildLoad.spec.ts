@@ -142,15 +142,12 @@ for (const locale of testConfig.domesticLocales.cmv) {
           });
           await test.step(`Click seat category`, async () => {
             await pages.build.clickAnySeatCategory();
-            await Common.delay(2000);
           });
           await test.step(`Click model category`, async () => {
             await pages.build.clickAnyModelCategory();
-            await Common.delay(2000);
           });
           await test.step(`Click trim`, async () => {
             await pages.build.clickAnyTrim();
-            await Common.delay(2000);
             await pages.build.waitForPcLoaded();
           });
           await test.step(`Click any color item if present`, async () => {
@@ -164,13 +161,14 @@ for (const locale of testConfig.domesticLocales.cmv) {
     });
 }
 
-test.only(`Verify snow build load works as expected for domestic test @buildLoad`, async( {pages}, testInfo ) => {
+
+test(`Verify snow build load works as expected for domestic test @buildLoad`, async( {pages}, testInfo ) => {
     await test.step('Navigate to any military build url', async() => {
         const url = await ApiData.getApiBuildUrl('en-us', 'sno');
         await pages.navigation.navigateToUrl(url);
-        await pages.build.waitForPcLoaded();
     });
     await test.step(`Click footer next`, async () => {
+        await pages.build.waitForPcLoaded();
         await pages.build.clickFooterNextBtn();
       });
     await test.step(`Perform option selection subteps`, async () => {

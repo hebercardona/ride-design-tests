@@ -217,6 +217,7 @@ export class BuildPage extends BuildPageObjects{
 
     async clickAnyTrim(): Promise<void> {
         await webActions.waitForElementVisible(BuildPageObjects.TRIMS);
+        expect(await this.page.locator(BuildPageObjects.TRIMS).count(), `No trim elements were displayed`).toBeGreaterThan(0);
         await webActions.clickAnyElement(BuildPageObjects.TRIMS);
     }
 
@@ -394,7 +395,8 @@ export class BuildPage extends BuildPageObjects{
 
     async performOptionSelectionSubsteps(): Promise<void> {
         let substep = await this.page.locator(BuildPageObjects.SUBSTEP_TITLE, {has: this.page.locator(BuildPageObjects.SUBSTEP_ITEMS)});
-        
+        // Wait for at leats one substep choice to be displayed in the UI
+        await webActions.waitForElementVisible(BuildPageObjects.SUBSTEP_ITEMS);
         while (await substep.count() > 0) {
             await this.waitForSubstepOptionsToLoad();
             await new Promise(f => setTimeout(f, 4000));
