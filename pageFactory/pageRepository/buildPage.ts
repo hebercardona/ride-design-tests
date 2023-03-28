@@ -117,19 +117,27 @@ export class BuildPage extends BuildPageObjects{
     async selectBenCategoryWithLayoutAvailable(): Promise<void> {
         const series = await webActions.getElements(BuildPageObjects.SEAT_CATEGORIES);
         for (let i = 0; i < series.length; i++) {
-            await webActions.clickElement(series[i])
+            await webActions.clickElement(series[i]);
             await webActions.waitForElementVisible(BuildPageObjects.MODEL_CATEGORIES);
             const modelCategories = await webActions.getElements(BuildPageObjects.MODEL_CATEGORIES);
             for (let j = 0; j < modelCategories.length; j++) {
-                await webActions.clickElement(modelCategories[j]);
-                await this.waitForPcLoaded();
+                await webActions.clickAndWaitForNetworkIdle(modelCategories[j]);
+                await this.waitForNextFooterBtnInitialized();
+                if(await this.modals.isRenderUnavailableDialogDisplayed()) {
+                    await this.modals.closeRenderUnavailableDialog();
+                } else {
+                    await this.waitForPcLoaded();
+                }
                 const furnitureLayoutAvailable = await webActions.getElements(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
                 if (!(furnitureLayoutAvailable.length > 0)) {
+                    await this.modals.closeRenderUnavailableDialog();
                     await this.page.goBack();
                     continue;
                 }
                 if(furnitureLayoutAvailable.length > 0) {
+                    await this.waitForPcLoaded();
                     await this.clickAvailableLayoutItem();
+                    await this.waitForPcLoaded();
                     return;
                 }
             }
@@ -146,8 +154,13 @@ export class BuildPage extends BuildPageObjects{
             await webActions.waitForElementVisible(BuildPageObjects.MODEL_CATEGORIES);
             const modelCategories = await webActions.getElements(BuildPageObjects.MODEL_CATEGORIES);
             for (let j = 0; j < modelCategories.length; j++) {
-                await webActions.clickElement(modelCategories[j]);
-                await this.waitForGdyHurricaneCanvas();
+                await webActions.clickAndWaitForNetworkIdle(modelCategories[j]);
+                await this.waitForNextFooterBtnInitialized();
+                if(await this.modals.isRenderUnavailableDialogDisplayed()) {
+                    await this.modals.closeRenderUnavailableDialog();
+                } else {
+                    await this.waitForPcLoaded();
+                }
                 const furnitureLayoutAvailable = await webActions.getElements(BuildPageObjects.AVAILABLE_LAYOUT_ITEM);
                 if (!(furnitureLayoutAvailable.length > 0)) {
                     await this.page.goBack();
@@ -226,7 +239,7 @@ export class BuildPage extends BuildPageObjects{
             Promise.all([
                 await webActions.waitForElementHidden(BuildPageObjects.RADIAL_PROGRESS),
                 await this.waitForNextFooterBtnInitialized(),
-                //await this.closeEmotionIconFeedbackIfPresent(),
+                await this.closeEmotionIconFeedbackIfPresent(),
                 await webActions.clickElement(BuildPageObjects.FOOTER_NEXT)
             ]);
             return;

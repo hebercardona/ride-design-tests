@@ -1,6 +1,6 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
-process.env.ENV = `prod`
+process.env.ENV = `qa`
 const ENV = process.env.ENV;
 console.log('ENV is: ' + process.env.ENV);
 
@@ -26,13 +26,13 @@ const config: PlaywrightTestConfig = {
   globalTeardown: `./global-teardown.ts`,
   testDir: './tests',
   /* Maximum time one test can run for. */
-  timeout: 60 * 6000,
+  timeout: 60 * 5000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 60 * 3000,
+    timeout: 60 * 2000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -53,8 +53,8 @@ const config: PlaywrightTestConfig = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 60 * 5000,
-    navigationTimeout:60 * 3000,
+    actionTimeout: 60 * 1000,
+    navigationTimeout:60 * 2000,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 

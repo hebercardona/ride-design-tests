@@ -31,6 +31,7 @@ export class BuildPageObjects {
     protected static SNO_COLORS_WATCHES = 'button:not([disabled])';
     protected static SNO_STOCK_LABEL = `div.model-family-info:has(translate:has-text('Stock'))`;
     protected static AVAILABLE_LAYOUT_ITEM = 'li.wholegood-layout-items-item:not(:has(div.wholegood-layout-items-item-render-unavailable)) div.wholegood-layout-items-item-content-title';
+    protected static LAYOUT_ITEMS = 'li.wholegood-layout-items-item';
     protected static RENDER_UNAVAILABLE = 'div.wholegood-layout-items-item-render-unavailable';
     protected static EMOTION_ICON_FEEDBACK_CLOSE = `button[class*='MinimizedWidgetMessage__close']`;
     protected static RENDER_UNAVAILABLE_DIALOG = '#render-unavailable-dialog-content';

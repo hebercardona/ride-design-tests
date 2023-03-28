@@ -10,8 +10,8 @@ export class PageNav {
     }
 
     async navigateToUrl(url: string): Promise<void> {
-        await this.page.goto(url);
-        expect((await this.page.request.get(url)).status(), `Url ${url} response successfull`).toBe(200);
+        await this.page.goto(url, {waitUntil: 'networkidle'});
+        expect((await this.page.request.get(url)).status(), `Url ${url} Validate response status`).toBe(200);
     }
 
     async navigateToStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
@@ -19,7 +19,8 @@ export class PageNav {
         if(brand === Brands.ind && !(testConfig.domesticLocales.ind.includes(locale))) {
             url = url.replace('category','model');
         }
-        await this.page.goto(url);
+        await this.page.goto(url, {waitUntil: 'networkidle'});
+        expect((await this.page.request.get(url)).status(), `Url ${url} Validate response status`).toBe(200);
     }
 
     async navigateToPreviousYearStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
@@ -28,5 +29,7 @@ export class PageNav {
             url = url.replace('category','model');
         }
         await this.page.goto(url);
+        await this.page.goto(url, {waitUntil: 'networkidle'});
+        expect((await this.page.request.get(url)).status(), `Url ${url} Validate response status`).toBe(200);
     }
 }

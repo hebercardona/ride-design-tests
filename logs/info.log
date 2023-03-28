@@ -1,36 +1,9 @@
-{"level":"info","message":"Test Case Started : Verify ind build load works as expected for any domestic locale @regressiontest"}
-{"level":"info","message":"Test Case Started : Verify ind build load works as expected for any international locale @regressiontest"}
-{"level":"info","message":"Test Case Started : Verify ind build load works as expected for any domestic previous year locale @regressiontest"}
-{"level":"info","message":"Executing Step : Navigate to any ind es-us build url"}
-{"level":"info","message":"Executing Step : Navigate to any ind en-in build url"}
-{"level":"info","message":"Executing Step : Navigate to any ind fr-ca build url"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
-{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
-{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
-{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
-{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
-{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
-{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
-{"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
-{"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
-{"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
-{"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
-{"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Test Case Completed : Verify ind build load works as expected for any international locale @regressiontest Status : passed"}
-{"level":"info","message":"Test Case Started : Verify ind build load works as expected for any international previous year locale @regressiontest"}
-{"level":"info","message":"Executing Step : Navigate to any ind pt-pt build url"}
-{"level":"info","message":"Test Case Completed : Verify ind build load works as expected for any domestic locale @regressiontest Status : passed"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
-{"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Test Case Completed : Verify ind build load works as expected for any domestic previous year locale @regressiontest Status : passed"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot for further validation"}
+{"level":"info","message":"Test Case Started : Verify bennington build load works as expected for domestic fix @buildLoad @fix"}
+{"level":"info","message":"Executing Step : Navigate to ben fix start build page"}
+{"level":"info","message":"Executing Step : Select any available layout item"}
+{"level":"info","message":"Executing Step : Click footer next button"}
+{"level":"info","message":"Executing Step : Open build summary and get summary items and model id"}
 {"level":"info","message":"Executing Step : Click I am Finished to get to build quote page"}
 {"level":"info","message":"Executing Step : Get submissionID from url and get load url from database"}
 {"level":"info","message":"Executing Step : Navigate to load url and verify response is successful"}
-{"level":"info","message":"Executing Step : Open build summary and take snapshot after load url loaded"}
-{"level":"info","message":"Executing Step : Compare build summary snapshots"}
-{"level":"info","message":"Test Case Completed : Verify ind build load works as expected for any international previous year locale @regressiontest Status : passed"}
+{"level":"info","message":"Test Case Completed : Verify bennington build load works as expected for domestic fix @buildLoad @fix Status : failed"}

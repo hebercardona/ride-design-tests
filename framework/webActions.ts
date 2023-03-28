@@ -14,11 +14,25 @@ export class WebActions {
 
     async clickElement(locator: string | Locator): Promise<void> {
         if(typeof locator === 'string') {
-            await this.page.click(locator);
+            await this.page.locator(locator).waitFor({state: "visible"});
+            await this.page.click(locator, {delay: 2000});
         } else {
-            await locator.click();
+            await locator.waitFor({state: "visible"});
+            await locator.click({delay: 2000});
         }
         await this.page.waitForLoadState('domcontentloaded');
+    }
+
+    async clickAndWaitForNetworkIdle(locator: string | Locator): Promise<void> {
+        if(typeof locator === 'string') {
+            await this.page.locator(locator).waitFor({state: "visible"});
+            await this.page.click(locator, {delay: 2000});
+            await this.page.waitForLoadState('networkidle');
+        } else {
+            await locator.waitFor({state: "visible"});
+            await locator.click({delay: 2000});
+            await this.page.waitForLoadState('networkidle');
+        }
     }
 
     async clickAnyElement(locator: string): Promise<void> {
@@ -129,7 +143,9 @@ export class WebActions {
    }
 
    async waitForElementHidden(locator: string): Promise<void> {
-    await this.page.locator(locator).waitFor({state: 'hidden'});
+    if(await this.isElementVisible(locator)) {
+        await this.page.locator(locator).waitFor({state: 'hidden'});
+    }   
    }
 
    async isElementVisible(locator: string): Promise<boolean> {
@@ -145,7 +161,9 @@ export class WebActions {
    }
 
    async waitForElementDetached(locator: string): Promise<void> {
-    await this.page.waitForSelector(locator, {state: 'detached'});
+    if(await this.page.locator(locator).count() > 0) {
+        await this.page.waitForSelector(locator, {state: 'detached'});
+    }
    }
 
    async waitForDomContentLoaded(): Promise<void> {

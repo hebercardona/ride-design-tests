@@ -32,14 +32,12 @@ BasePage
         await pageObjects.page.addInitScript(() => {
             // Make sure body has loaded.
              window.addEventListener('DOMContentLoaded', () => {
-               new MutationObserver(async () => {
-                 const widgetMessageClose = await pageObjects.page.$(EMERGENT_ELEMENTS.MINIMIZED_WIDGET_MESSAGE);
-                 const nodeModelDialog = await pageObjects.page.$(EMERGENT_ELEMENTS.NO_MODEL_DIALOG);
-                 expect.soft(nodeModelDialog.isVisible(), `No model dialog present on page ${pageObjects.page.url()}`).toBeFalsy();
-                 if(widgetMessageClose != null) {
-                    await widgetMessageClose.click();
-                 }
-               }).observe(document.body, { attributes: true });
+               new MutationObserver(() => {
+                // Whenever "zoom-out" is added, remove it.
+                if (document.body.classList.contains('zoom-out'))
+                    document.body.classList.remove('zoom-out');
+               //}).observe(document.body, { attributes: true });
+            }).observe(document.body, { childList: true, subtree: true });
              });
            });
         pageObjects.page.on('console', msg => {

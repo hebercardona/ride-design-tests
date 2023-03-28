@@ -60,7 +60,7 @@ for (const brand of Brands.orv) {
     });   
 }
 
-test(`Verify ind build load works as expected for any domestic locale @regressiontest`, async( {pages}, testInfo ) => {
+test(`Verify ind build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiBuildUrl(locale, 'ind');
@@ -71,7 +71,7 @@ test(`Verify ind build load works as expected for any domestic locale @regressio
     await buildLoadTestSteps(pages, testInfo);
 });
 
-test(`Verify ind build load works as expected for any international locale @regressiontest`, async( {pages}, testInfo ) => {
+test(`Verify ind build load works as expected for any international locale @regression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.internationalLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiBuildUrl(locale, 'ind');
@@ -82,7 +82,7 @@ test(`Verify ind build load works as expected for any international locale @regr
     await buildLoadTestSteps(pages, testInfo);
 });
 
-test(`Verify ind build load works as expected for any domestic previous year locale @regressiontest`, async( {pages}, testInfo ) => {
+test(`Verify ind build load works as expected for any domestic previous year locale @regression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
@@ -93,7 +93,7 @@ test(`Verify ind build load works as expected for any domestic previous year loc
     await buildLoadTestSteps(pages, testInfo);
 });
 
-test(`Verify ind build load works as expected for any international previous year locale @regressiontest`, async( {pages}, testInfo ) => {
+test(`Verify ind build load works as expected for any international previous year locale @regression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.previousYearInternationalLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
@@ -105,7 +105,225 @@ test(`Verify ind build load works as expected for any international previous yea
 });
 
 
+test(`Verify slingshot build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.slg);
+    await test.step(`Navigate to ${locale} slingshot build url`, async() => {
+        const url = await ApiData.getApiBuildUrl(locale, 'slg');
+        await pages.navigation.navigateToUrl(url);
+    });
+    await test.step(`Click footer next`, async () => {
+        await pages.build.waitForPcLoaded();
+        await pages.build.clickFooterNextBtn();
+      });
+    await test.step(`Perform option selection subteps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+    await buildLoadTestStepsSummaryOptions(pages, testInfo);
+});
 
+test(`Verify snow build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.sno);
+    await test.step(`Navigate to ${locale} sno build url`, async() => {
+        const url = await ApiData.getApiBuildUrl(locale, 'sno');
+        await pages.navigation.navigateToUrl(url);
+    });
+    await test.step(`Click footer next`, async () => {
+        await pages.build.waitForPcLoaded();
+        await pages.build.clickFooterNextBtn();
+      });
+    await test.step(`Perform option selection subteps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+    await buildLoadTestStepsSummaryOptions(pages, testInfo);
+});
+
+test(`Verify snow build load works as expected for any domestic locale previous year @regression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.sno);
+    await test.step(`Navigate to ${locale} sno build url`, async() => {
+        const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'sno');
+        await pages.navigation.navigateToUrl(url);
+    });
+    await test.step(`Click footer next`, async () => {
+        await pages.build.waitForPcLoaded();
+        await pages.build.clickFooterNextBtn();
+      });
+    await test.step(`Perform option selection subteps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+    await buildLoadTestStepsSummaryOptions(pages, testInfo);
+});
+
+
+test(`Verify commercial build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.cmv);
+    await test.step(`Navigate to ${locale} commercial start build page`, async () => {
+        await pages.navigation.navigateToStartingBuildUrl('cmv', locale);
+      });
+      await test.step(`Click seat category`, async () => {
+        await pages.build.clickAnySeatCategory();
+      });
+      await test.step(`Click model category`, async () => {
+        await pages.build.clickAnyModelCategory();
+      });
+      await test.step(`Click trim`, async () => {
+        await pages.build.clickAnyTrim();
+        await pages.build.waitForPcLoaded();
+      });
+      await test.step(`Click any color item if present`, async () => {
+        await pages.build.clickCmvAnyColorItem();
+        await pages.build.waitForPcLoaded();
+      });
+      await test.step(`Perform option selection substeps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+      await buildLoadTestStepsSummaryOptions(pages, testInfo);
+});
+
+test(`Verify mil build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.mil);
+    await test.step(`Navigate to any ${locale} military build url`, async() => {
+        const url = await ApiData.getApiBuildUrl(locale, 'mil');
+        await pages.navigation.navigateToUrl(url);
+        await pages.build.waitForPcLoaded();
+    });
+    await buildLoadTestSteps(pages, testInfo);
+});
+
+
+test(`Verify bennington build load works as expected for any domestic locale @regression`, async ( { pages }, testInfo ) => {
+    let loadUrl;
+    let beforeImg;
+    let afterImg;
+    let summaryItems;
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.ben);
+    await test.step(`Navigate to ben ${locale} start build page`, async () => {
+        await pages.navigation.navigateToStartingBuildUrl('ben', locale);
+    });
+    await test.step(`Select any available layout item`, async () => {
+        await pages.build.selectBenCategoryWithLayoutAvailable();
+      });
+    await test.step(`Click footer next button`, async () => {
+        await pages.build.clickFooterNextBtn();
+    });
+    await test.step(`Open build summary and get summary items`, async () => {
+        await pages.build.openSummary();
+        summaryItems = await pages.build.summary.getBuildSummaryItemDescriptions();
+        beforeImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_before.png`});
+    });
+    await test.step(`Click I am Finished to get to build quote page`, async () => {
+        await pages.build.clickIamFinishedBtn();
+    });    
+    await test.step('Get submissionID from url and get load url from database', async() => {
+        const buildId = Common.getBuildIdFromQuoteUrl(pages.page.url());
+        const loadUrlQuery = await SqlHelper.executeQuery(`select LoadUrl from ConfiguredWholegoods where BuildID = '${buildId}'`);
+        loadUrl = loadUrlQuery.recordset[0].LoadUrl;
+    });
+    await test.step('Navigate to load url and verify response is successful', async() => {
+        await pages.navigation.navigateToUrl(loadUrl);
+        await pages.build.waitForPcLoaded();
+    });
+    await test.step('Open build summary and take snapshot after load url loaded', async() => {
+        expect(await pages.build.modals.isNoModelDialogPresent(), 'No model dialog should not be present').toBeFalsy();
+        await pages.build.openSummary();
+        await pages.build.summary.verifyBuildItemsPresentOnSummary(await summaryItems);
+        afterImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
+    });
+    await test.step('Compare build summary snapshots', async() => {
+        expect(comparator(beforeImg, afterImg)).toBeNull();
+    });
+  });
+
+
+test.only(`Verify hurricane build load works as expected for any domestic locale @regression`, async ( { pages }, testInfo ) => {
+    let loadUrl;
+    let beforeImg;
+    let afterImg;
+    let summaryItems;
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.hur);
+    await test.step(`Navigate to hurricane ${locale} start build page`, async () => {
+      await pages.navigation.navigateToStartingBuildUrl('hur', locale);
+    });
+    await test.step(`Select any available layout item`, async () => {
+        await pages.build.selectHurricaneCategoryWithLayoutAvailable();
+      });
+    await test.step(`Click footer next button`, async () => {
+      await pages.build.clickFooterNextBtn();
+    });
+    await test.step(`Open build summary and get summary items and model id`, async () => {
+        await pages.build.openSummary();
+        summaryItems = await pages.build.summary.getBuildSummaryItemDescriptions();
+        beforeImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_before.png`});
+    });
+    await test.step(`Click I am Finished to get to build quote page`, async () => {
+      await pages.build.clickIamFinishedBtn();
+    });    
+    await test.step('Get submissionID from url and get load url from database', async() => {
+        const buildId = Common.getBuildIdFromQuoteUrl(pages.page.url());
+        const loadUrlQuery = await SqlHelper.executeQuery(`select LoadUrl from ConfiguredWholegoods where BuildID = '${buildId}'`);
+        loadUrl = loadUrlQuery.recordset[0].LoadUrl;
+    });
+    await test.step('Navigate to load url and verify response is successful', async() => {
+        await pages.navigation.navigateToUrl(loadUrl);
+        await pages.build.waitForGdyHurricaneCanvas();
+    });
+    await test.step('Open build summary and take snapshot after load url loaded', async() => {
+        expect(await pages.build.modals.isNoModelDialogPresent(), 'No model dialog should not be present').toBeFalsy();
+        await pages.build.openSummary();
+        await pages.build.summary.verifyBuildItemsPresentOnSummary(await summaryItems);
+        afterImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
+    });
+    await test.step('Compare build summary snapshots', async() => {
+        expect(comparator(beforeImg, afterImg)).toBeNull();
+    });
+  });
+
+
+test(`Verify godfrey build load works as expected for any domestic locale @regression`, async ( { pages }, testInfo ) => {
+    let loadUrl;
+    let beforeImg;
+    let afterImg;
+    let summaryItems;
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.gdy);
+    await test.step(`Navigate to godfrey ${locale} start build page`, async () => {
+      await pages.navigation.navigateToStartingBuildUrl('gdy', locale);
+    });
+    await test.step(`Select any available layout item`, async () => {
+        await pages.build.selectGodfreyCategoryWithLayoutAvailable();
+      });
+      await test.step(`Click footer next button`, async () => {
+          await pages.build.clickFooterNextBtn();
+        });
+      await test.step(`Open build summary and get summary items and model id`, async () => {
+          await pages.build.openSummaryGdy();
+          summaryItems = await pages.build.summary.getBuildSummaryItemDescriptions();
+          beforeImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_before.png`});
+      });
+      await test.step(`Click I am Finished to get to build quote page`, async () => {
+          await pages.build.clickIamFinishedBtn();
+      });    
+      await test.step('Get submissionID from url and get load url from database', async() => {
+          const buildId = Common.getBuildIdFromQuoteUrl(pages.page.url());
+          const loadUrlQuery = await SqlHelper.executeQuery(`select LoadUrl from ConfiguredWholegoods where BuildID = '${buildId}'`);
+          loadUrl = loadUrlQuery.recordset[0].LoadUrl;
+      });
+      await test.step('Navigate to load url and verify response is successful', async() => {
+          await pages.navigation.navigateToUrl(loadUrl);
+          await pages.build.waitForGdyHurricaneCanvas();
+      });
+      await test.step('Open build summary and take snapshot after load url loaded', async() => {
+          expect(await pages.build.modals.isNoModelDialogPresent(), 'No model dialog should not be present').toBeFalsy();
+          await pages.build.openSummaryGdy();
+          await pages.build.summary.verifyBuildItemsPresentOnSummary(await summaryItems);
+          afterImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
+      });
+      await test.step('Compare build summary snapshots', async() => {
+          expect(comparator(beforeImg, afterImg)).toBeNull();
+      });
+  });
 
 /**
  * Below section contains build load tests for all brand/locales combination 
@@ -342,6 +560,42 @@ for (const locale of testConfig.previousYearInternationalLocales.ind) {
     })
 }
 
+for (const locale of testConfig.domesticLocales.slg) {
+    test(`Verify slingshot build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
+        await test.step(`Navigate to ${locale} slingshot build url`, async() => {
+            const url = await ApiData.getApiBuildUrl(locale, 'slg');
+            await pages.navigation.navigateToUrl(url);
+        });
+        await test.step(`Click footer next`, async () => {
+            await pages.build.waitForPcLoaded();
+            await pages.build.clickFooterNextBtn();
+          });
+        await test.step(`Perform option selection subteps`, async () => {
+            await pages.build.performOptionSelectionSubsteps();
+            await pages.build.waitForPcLoaded();
+          });
+        await buildLoadTestStepsSummaryOptions(pages, testInfo);
+    });
+}
+
+for (const locale of testConfig.domesticLocales.slg) {
+    test(`Verify slingshot build load works as expected for previous year domestic ${locale} @buildLoadSlg`, async( {pages}, testInfo ) => {
+        await test.step(`Navigate to ${locale} slingshot build url`, async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'slg');
+            await pages.navigation.navigateToUrl(url);
+        });
+        await test.step(`Click footer next`, async () => {
+            await pages.build.waitForPcLoaded();
+            await pages.build.clickFooterNextBtn();
+          });
+        await test.step(`Perform option selection subteps`, async () => {
+            await pages.build.performOptionSelectionSubsteps();
+            await pages.build.waitForPcLoaded();
+          });
+        await buildLoadTestStepsSummaryOptions(pages, testInfo);
+    });
+}
+
 for (const locale of testConfig.domesticLocales.mil) {
     test(`Verify mil build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
         await test.step(`Navigate to any ${locale} military build url`, async() => {
@@ -370,6 +624,7 @@ for (const locale of testConfig.domesticLocales.cmv) {
           });
           await test.step(`Click any color item if present`, async () => {
             await pages.build.clickCmvAnyColorItem();
+            await pages.build.waitForPcLoaded();
           });
           await test.step(`Perform option selection substeps`, async () => {
             await pages.build.performOptionSelectionSubsteps();
@@ -496,6 +751,7 @@ for (const locale of testConfig.domesticLocales.ben) {
         });
       });
 }
+
 
 for (const locale of testConfig.domesticLocales.hur) {
     test(`Verify hurricane build load works as expected for domestic ${locale} @buildLoad`, async ( { pages }, testInfo ) => {

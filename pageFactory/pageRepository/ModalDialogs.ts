@@ -40,4 +40,12 @@ export class ModalDialogs extends ModalDialogObjects {
     async isNoModelDialogPresent(): Promise<boolean> {
         return await webActions.isElementVisible(ModalDialogObjects.NO_MODEL_DIALOG);
     }
+
+    async closeRenderUnavailableDialog(): Promise<void> {
+        await webActions.clickElement(ModalDialogObjects.RENDER_UNAVAILABLE_CLOSE);
+    }
+
+    async isRenderUnavailableDialogDisplayed(): Promise<boolean> {
+        return await webActions.isElementVisible(ModalDialogObjects.RENDER_UNAVAILABLE_CLOSE);
+    }
 }
