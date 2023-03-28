@@ -1,22 +1,22 @@
 {
   "results": [
     {
-      "title": "Verify grl build load works as expected for any domestic locale @regression",
+      "title": "Verify ind build load works as expected for any international locale @regressiontest",
       "status": "passed",
       "message": "Automated Test Passed"
     },
     {
-      "title": "Verify rzr build load works as expected for any domestic locale @regression",
+      "title": "Verify ind build load works as expected for any domestic locale @regressiontest",
       "status": "passed",
       "message": "Automated Test Passed"
     },
     {
-      "title": "Verify rgr build load works as expected for any domestic locale @regression",
+      "title": "Verify ind build load works as expected for any domestic previous year locale @regressiontest",
       "status": "passed",
       "message": "Automated Test Passed"
     },
     {
-      "title": "Verify atv build load works as expected for any domestic locale @regression",
+      "title": "Verify ind build load works as expected for any international previous year locale @regressiontest",
       "status": "passed",
       "message": "Automated Test Passed"
     }

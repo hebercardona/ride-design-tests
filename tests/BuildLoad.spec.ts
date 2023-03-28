@@ -22,6 +22,95 @@ for (const brand of Brands.orv) {
     });   
 }
 
+for (const brand of Brands.orv) {
+    test(`Verify ${brand} build load works as expected for any international locale @regression`, async( {pages}, testInfo ) => {
+        const locale = Common.getAnyValueFromArray(testConfig.internationalLocales[brand]);
+        await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
+            const url = await ApiData.getApiBuildUrl(locale, brand);
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    });   
+}
+
+for (const brand of Brands.orv) {
+    test(`Verify ${brand} build load works as expected for any previous year domestic locale @regression`, async( {pages}, testInfo ) => {
+        const locale = Common.getAnyValueFromArray(testConfig.domesticLocales[brand]);
+        await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, brand);
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    });   
+}
+
+for (const brand of Brands.orv) {
+    test(`Verify ${brand} build load works as expected for any previous year international locale @regression`, async( {pages}, testInfo ) => {
+        const locale = Common.getAnyValueFromArray(testConfig.previousYearInternationalLocales[brand]);
+        await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
+            const url = await ApiData.getApiPreviousYearBuildUrl(locale, brand);
+            await pages.navigation.navigateToUrl(url);
+            await pages.build.modals.clickPurposePromptNewVehicle();
+            await pages.build.waitForPcLoaded();
+        });
+        await buildLoadTestSteps(pages, testInfo);
+    });   
+}
+
+test(`Verify ind build load works as expected for any domestic locale @regressiontest`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.ind);
+    await test.step(`Navigate to any ind ${locale} build url`, async() => {
+        const url = await ApiData.getApiBuildUrl(locale, 'ind');
+        await pages.navigation.navigateToUrl(url);
+        await pages.build.modals.clickPurposePromptNewVehicle();
+        await pages.build.waitForPcLoaded();
+    });
+    await buildLoadTestSteps(pages, testInfo);
+});
+
+test(`Verify ind build load works as expected for any international locale @regressiontest`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.internationalLocales.ind);
+    await test.step(`Navigate to any ind ${locale} build url`, async() => {
+        const url = await ApiData.getApiBuildUrl(locale, 'ind');
+        await pages.navigation.navigateToUrl(url);
+        await pages.build.modals.clickPurposePromptNewVehicle();
+        await pages.build.waitForPcLoaded();
+    });
+    await buildLoadTestSteps(pages, testInfo);
+});
+
+test(`Verify ind build load works as expected for any domestic previous year locale @regressiontest`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.ind);
+    await test.step(`Navigate to any ind ${locale} build url`, async() => {
+        const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
+        await pages.navigation.navigateToUrl(url);
+        await pages.build.modals.clickPurposePromptNewVehicle();
+        await pages.build.waitForPcLoaded();
+    });
+    await buildLoadTestSteps(pages, testInfo);
+});
+
+test(`Verify ind build load works as expected for any international previous year locale @regressiontest`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.previousYearInternationalLocales.ind);
+    await test.step(`Navigate to any ind ${locale} build url`, async() => {
+        const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
+        await pages.navigation.navigateToUrl(url);
+        await pages.build.modals.clickPurposePromptNewVehicle();
+        await pages.build.waitForPcLoaded();
+    });
+    await buildLoadTestSteps(pages, testInfo);
+});
+
+
+
+
+/**
+ * Below section contains build load tests for all brand/locales combination 
+ */
+
 
 for (const locale of testConfig.domesticLocales.rzr) {
     test(`Verify rzr build load works as expected for domestic ${locale} @buildLoad`, async( {pages}, testInfo ) => {
