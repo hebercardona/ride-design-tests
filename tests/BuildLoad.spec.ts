@@ -9,9 +9,52 @@ import { testConfig } from "@testConfig";
 import { getComparator } from 'playwright-core/lib/utils';
 const comparator = getComparator('image/png');
 
+const BUILD_LOAD_REGRESSION_TEST_RAIL_IDS = {
+    DOMESTIC: {
+        rzr: 'C18404213',
+        rgr: 'C18404217',
+        grl: 'C18404221',
+        atv: 'C18404225',
+        mil: 'C18404229',
+        sno: 'C18404230',
+        slg: 'C18404234',
+        ind: 'C18404238',
+        cmv: 'C18404242',
+        ben: 'C18404243',
+        hur: 'C18404245',
+        gdy: 'C18404246'
+    },
+    INTERNATIONAL: {
+        rzr: 'C18404214',
+        rgr: 'C18404218',
+        grl: 'C18404222',
+        atv: 'C18404226',
+        sno: 'C18404231',
+        ind: 'C18404239',
+        ben: 'C18404244'
+    },
+    DOMESTIC_PREV_YEAR: {
+        rzr: 'C18404215',
+        rgr: 'C18404219',
+        grl: 'C18404223',
+        atv: 'C18404227',
+        sno: 'C18404232',
+        ind: 'C18404240',
+        slg: 'C18404236'
+    },
+    INTERNATIONAL_PREV_YEAR: {
+        rzr: 'C18404216',
+        rgr: 'C18404220',
+        grl: 'C18404224',
+        atv: 'C18404228',
+        sno: 'C18404233',
+        ind: 'C18404241'
+    }
+}
 
 for (const brand of Brands.orv) {
-    test(`Verify ${brand} build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+    const testRailCaseId = BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC[brand];
+    test(`${testRailCaseId} Verify ${brand} build load works as expected for any domestic locale @regression @loadregression`, async( {pages}, testInfo ) => {
         const locale = Common.getAnyValueFromArray(testConfig.domesticLocales[brand]);
         await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, brand);
@@ -23,7 +66,8 @@ for (const brand of Brands.orv) {
 }
 
 for (const brand of Brands.orv) {
-    test(`Verify ${brand} build load works as expected for any international locale @regression`, async( {pages}, testInfo ) => {
+    const testRailCaseId = BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.INTERNATIONAL[brand];
+    test(`${testRailCaseId} Verify ${brand} build load works as expected for any international locale @regression @loadregression`, async( {pages}, testInfo ) => {
         const locale = Common.getAnyValueFromArray(testConfig.internationalLocales[brand]);
         await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
             const url = await ApiData.getApiBuildUrl(locale, brand);
@@ -35,7 +79,8 @@ for (const brand of Brands.orv) {
 }
 
 for (const brand of Brands.orv) {
-    test(`Verify ${brand} build load works as expected for any previous year domestic locale @regression`, async( {pages}, testInfo ) => {
+    const testRailCaseId = BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC_PREV_YEAR[brand];
+    test(`${testRailCaseId} Verify ${brand} build load works as expected for any previous year domestic locale @regression @loadregression`, async( {pages}, testInfo ) => {
         const locale = Common.getAnyValueFromArray(testConfig.domesticLocales[brand]);
         await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, brand);
@@ -48,7 +93,8 @@ for (const brand of Brands.orv) {
 }
 
 for (const brand of Brands.orv) {
-    test(`Verify ${brand} build load works as expected for any previous year international locale @regression`, async( {pages}, testInfo ) => {
+    const testRailCaseId = BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.INTERNATIONAL_PREV_YEAR[brand];
+    test(`${testRailCaseId} Verify ${brand} build load works as expected for any previous year international locale @regression @loadregression`, async( {pages}, testInfo ) => {
         const locale = Common.getAnyValueFromArray(testConfig.previousYearInternationalLocales[brand]);
         await test.step(`Navigate to any ${brand} ${locale} build url`, async() => {
             const url = await ApiData.getApiPreviousYearBuildUrl(locale, brand);
@@ -60,7 +106,7 @@ for (const brand of Brands.orv) {
     });   
 }
 
-test(`Verify ind build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.ind} Verify ind build load works as expected for any domestic locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiBuildUrl(locale, 'ind');
@@ -71,7 +117,7 @@ test(`Verify ind build load works as expected for any domestic locale @regressio
     await buildLoadTestSteps(pages, testInfo);
 });
 
-test(`Verify ind build load works as expected for any international locale @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.INTERNATIONAL.ind}Verify ind build load works as expected for any international locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.internationalLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiBuildUrl(locale, 'ind');
@@ -82,7 +128,7 @@ test(`Verify ind build load works as expected for any international locale @regr
     await buildLoadTestSteps(pages, testInfo);
 });
 
-test(`Verify ind build load works as expected for any domestic previous year locale @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC_PREV_YEAR.ind} Verify ind build load works as expected for any domestic previous year locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
@@ -93,7 +139,7 @@ test(`Verify ind build load works as expected for any domestic previous year loc
     await buildLoadTestSteps(pages, testInfo);
 });
 
-test(`Verify ind build load works as expected for any international previous year locale @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.INTERNATIONAL_PREV_YEAR.ind} Verify ind build load works as expected for any international previous year locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.previousYearInternationalLocales.ind);
     await test.step(`Navigate to any ind ${locale} build url`, async() => {
         const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'ind');
@@ -105,7 +151,7 @@ test(`Verify ind build load works as expected for any international previous yea
 });
 
 
-test(`Verify slingshot build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.slg} Verify slingshot build load works as expected for any domestic locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.slg);
     await test.step(`Navigate to ${locale} slingshot build url`, async() => {
         const url = await ApiData.getApiBuildUrl(locale, 'slg');
@@ -122,7 +168,24 @@ test(`Verify slingshot build load works as expected for any domestic locale @reg
     await buildLoadTestStepsSummaryOptions(pages, testInfo);
 });
 
-test(`Verify snow build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC_PREV_YEAR.slg} Verify slingshot build load works as expected for any domestic locale previous year @regression @loadregression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.slg);
+    await test.step(`Navigate to ${locale} slingshot build url`, async() => {
+        const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'slg');
+        await pages.navigation.navigateToUrl(url);
+    });
+    await test.step(`Click footer next`, async () => {
+        await pages.build.waitForPcLoaded();
+        await pages.build.clickFooterNextBtn();
+      });
+    await test.step(`Perform option selection subteps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+    await buildLoadTestStepsSummaryOptions(pages, testInfo);
+});
+
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.sno} Verify snow build load works as expected for any domestic locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.sno);
     await test.step(`Navigate to ${locale} sno build url`, async() => {
         const url = await ApiData.getApiBuildUrl(locale, 'sno');
@@ -139,7 +202,24 @@ test(`Verify snow build load works as expected for any domestic locale @regressi
     await buildLoadTestStepsSummaryOptions(pages, testInfo);
 });
 
-test(`Verify snow build load works as expected for any domestic locale previous year @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.INTERNATIONAL.sno} Verify snow build load works as expected for any international locale @regression @loadregression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.internationalLocales.sno);
+    await test.step(`Navigate to ${locale} sno build url`, async() => {
+        const url = await ApiData.getApiBuildUrl(locale, 'sno');
+        await pages.navigation.navigateToUrl(url);
+    });
+    await test.step(`Click footer next`, async () => {
+        await pages.build.waitForPcLoaded();
+        await pages.build.clickFooterNextBtn();
+      });
+    await test.step(`Perform option selection subteps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+    await buildLoadTestStepsSummaryOptions(pages, testInfo);
+});
+
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC_PREV_YEAR.sno} Verify snow build load works as expected for any domestic locale previous year @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.sno);
     await test.step(`Navigate to ${locale} sno build url`, async() => {
         const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'sno');
@@ -156,8 +236,25 @@ test(`Verify snow build load works as expected for any domestic locale previous 
     await buildLoadTestStepsSummaryOptions(pages, testInfo);
 });
 
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.INTERNATIONAL_PREV_YEAR.sno} Verify snow build load works as expected for any international locale previous year @regression @loadregression`, async( {pages}, testInfo ) => {
+    const locale = Common.getAnyValueFromArray(testConfig.previousYearInternationalLocales.sno);
+    await test.step(`Navigate to ${locale} sno build url`, async() => {
+        const url = await ApiData.getApiPreviousYearBuildUrl(locale, 'sno');
+        await pages.navigation.navigateToUrl(url);
+    });
+    await test.step(`Click footer next`, async () => {
+        await pages.build.waitForPcLoaded();
+        await pages.build.clickFooterNextBtn();
+      });
+    await test.step(`Perform option selection subteps`, async () => {
+        await pages.build.performOptionSelectionSubsteps();
+        await pages.build.waitForPcLoaded();
+      });
+    await buildLoadTestStepsSummaryOptions(pages, testInfo);
+});
 
-test(`Verify commercial build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.cmv} Verify commercial build load works as expected for any domestic locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.cmv);
     await test.step(`Navigate to ${locale} commercial start build page`, async () => {
         await pages.navigation.navigateToStartingBuildUrl('cmv', locale);
@@ -183,7 +280,7 @@ test(`Verify commercial build load works as expected for any domestic locale @re
       await buildLoadTestStepsSummaryOptions(pages, testInfo);
 });
 
-test(`Verify mil build load works as expected for any domestic locale @regression`, async( {pages}, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.mil} Verify mil build load works as expected for any domestic locale @regression @loadregression`, async( {pages}, testInfo ) => {
     const locale = Common.getAnyValueFromArray(testConfig.domesticLocales.mil);
     await test.step(`Navigate to any ${locale} military build url`, async() => {
         const url = await ApiData.getApiBuildUrl(locale, 'mil');
@@ -194,7 +291,7 @@ test(`Verify mil build load works as expected for any domestic locale @regressio
 });
 
 
-test(`Verify bennington build load works as expected for any domestic locale @regression`, async ( { pages }, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.ben} Verify bennington build load works as expected for any domestic locale @regression @loadregression`, async ( { pages }, testInfo ) => {
     let loadUrl;
     let beforeImg;
     let afterImg;
@@ -237,8 +334,51 @@ test(`Verify bennington build load works as expected for any domestic locale @re
     });
   });
 
+  test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.INTERNATIONAL.ben} Verify bennington build load works as expected for any international locale @regression @loadregression`, async ( { pages }, testInfo ) => {
+    let loadUrl;
+    let beforeImg;
+    let afterImg;
+    let summaryItems;
+    const locale = Common.getAnyValueFromArray(testConfig.internationalLocales.ben);
+    await test.step(`Navigate to ben ${locale} start build page`, async () => {
+        await pages.navigation.navigateToStartingBuildUrl('ben', locale);
+    });
+    await test.step(`Select any available layout item`, async () => {
+        await pages.build.selectBenCategoryWithLayoutAvailable();
+      });
+    await test.step(`Click footer next button`, async () => {
+        await pages.build.clickFooterNextBtn();
+    });
+    await test.step(`Open build summary and get summary items`, async () => {
+        await pages.build.openSummary();
+        summaryItems = await pages.build.summary.getBuildSummaryItemDescriptions();
+        beforeImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_before.png`});
+    });
+    await test.step(`Click I am Finished to get to build quote page`, async () => {
+        await pages.build.clickIamFinishedBtn();
+    });    
+    await test.step('Get submissionID from url and get load url from database', async() => {
+        const buildId = Common.getBuildIdFromQuoteUrl(pages.page.url());
+        const loadUrlQuery = await SqlHelper.executeQuery(`select LoadUrl from ConfiguredWholegoods where BuildID = '${buildId}'`);
+        loadUrl = loadUrlQuery.recordset[0].LoadUrl;
+    });
+    await test.step('Navigate to load url and verify response is successful', async() => {
+        await pages.navigation.navigateToUrl(loadUrl);
+        await pages.build.waitForPcLoaded();
+    });
+    await test.step('Open build summary and take snapshot after load url loaded', async() => {
+        expect(await pages.build.modals.isNoModelDialogPresent(), 'No model dialog should not be present').toBeFalsy();
+        await pages.build.openSummary();
+        await pages.build.summary.verifyBuildItemsPresentOnSummary(await summaryItems);
+        afterImg = await  (await pages.build.summary.getSummaryVehicleSectionElement()).screenshot({path: `screenshots/${testInfo.title}_after.png`})
+    });
+    await test.step('Compare build summary snapshots', async() => {
+        expect(comparator(beforeImg, afterImg)).toBeNull();
+    });
+  });
 
-test.only(`Verify hurricane build load works as expected for any domestic locale @regression`, async ( { pages }, testInfo ) => {
+
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.hur} Verify hurricane build load works as expected for any domestic locale @regression @loadregression`, async ( { pages }, testInfo ) => {
     let loadUrl;
     let beforeImg;
     let afterImg;
@@ -282,7 +422,7 @@ test.only(`Verify hurricane build load works as expected for any domestic locale
   });
 
 
-test(`Verify godfrey build load works as expected for any domestic locale @regression`, async ( { pages }, testInfo ) => {
+test(`${BUILD_LOAD_REGRESSION_TEST_RAIL_IDS.DOMESTIC.gdy} Verify godfrey build load works as expected for any domestic locale @regression @loadregression`, async ( { pages }, testInfo ) => {
     let loadUrl;
     let beforeImg;
     let afterImg;
