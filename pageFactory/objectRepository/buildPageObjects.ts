@@ -1,5 +1,5 @@
 export class BuildPageObjects {
-    protected static SEAT_CATEGORIES = 'button.wholegood-models-card';
+    protected static SEAT_CATEGORIES = 'button.wholegood-models-card:not(.redirectCard)';
     protected static MODEL_CATEGORIES = 'div.wholegood-models-card:not(.node-disabled)';
     protected static TRIMS = 'div.trim-models-card i.shapes-arrow';
     protected static PC_LOADED = '.grab';
