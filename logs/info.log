@@ -1,8 +1,3 @@
-{"level":"info","message":"Test Case Started : Verify ben build submission for test @regression"}
-{"level":"info","message":"Executing Step : Navigate to ben start build page"}
-{"level":"info","message":"Executing Step : Select any available layout item"}
-{"level":"info","message":"Executing Step : Click footer next button"}
-{"level":"info","message":"Executing Step : Open build summary and get summary items and model id"}
+{"level":"info","message":"Test Case Started : Verify ben build submission for fr-ca @regression"}
 {"level":"info","message":"Executing Step : Click I am Finished and fill quote form"}
-{"level":"info","message":"Executing Step : Verify confirmation page details"}
-{"level":"info","message":"Test Case Completed : Verify ben build submission for test @regression Status : passed"}
+{"level":"info","message":"Test Case Completed : Verify ben build submission for fr-ca @regression Status : interrupted"}

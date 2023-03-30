@@ -66,7 +66,8 @@ export class QuotePage extends QuotePageObjects {
     await webActions.enterElementText(QuotePageObjects.EMAIL, TestData.getTestEmail(this.page.url()));
     await webActions.enterElementText(QuotePageObjects.PHONE, '2067243787');
     await this.enterPostalCodeAndWaitForDealer();
-    if(Common.getUrlLocale(this.page.url()) === ('en-ca' || 'fr-ca')) {
+    const locale = Common.getUrlLocale(this.page.url());
+    if(locale ==='en-ca' || locale === 'fr-ca') {
         await this.page.locator(QuotePageObjects.BEN_CANADA_PURCHASE_DATE).selectOption({ index: 1 });
     } else {
         await this.page.locator(QuotePageObjects.MIL_MKT_DROPDOWN).selectOption({ index: 1 });

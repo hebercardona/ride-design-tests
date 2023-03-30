@@ -30,7 +30,7 @@ const qaConfig = {
         sno: 'snowmobiles-qa.polarisindcms.com',
         cmv: 'commercial-qa.polarisindcms.com',
         mil: 'military-qa.polarisindcms.com',
-        ben: 'www-qa.benningtonmarinecms.com',
+        ben: '.benningtonmarinecms.com',
         hur: 'www-qa.hurricaneboatscms.com',
         gdy: 'www-qa.godfreypontoonboatscms.com'
     },
@@ -83,7 +83,7 @@ const prodConfig = {
         sno: 'snowmobiles.polaris.com',
         cmv: 'commercial.polaris.com',
         mil: 'military.polaris.com',
-        ben: 'www.benningtonmarine.com',
+        ben: '.benningtonmarine.com',
         hur: 'www.hurricaneboats.com',
         gdy: 'www.godfreypontoonboats.com'
     },

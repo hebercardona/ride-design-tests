@@ -29,17 +29,6 @@ BasePage
                 });
             }
         });
-        await pageObjects.page.addInitScript(() => {
-            // Make sure body has loaded.
-             window.addEventListener('DOMContentLoaded', () => {
-               new MutationObserver(() => {
-                // Whenever "zoom-out" is added, remove it.
-                if (document.body.classList.contains('zoom-out'))
-                    document.body.classList.remove('zoom-out');
-               //}).observe(document.body, { attributes: true });
-            }).observe(document.body, { childList: true, subtree: true });
-             });
-           });
         pageObjects.page.on('console', msg => {
             if(msg.type() == 'error' && cpqConsoleErrors.some(e => msg.text().includes(e))) {
                 expect(cpqConsoleErrors.some(e => msg.text().includes(e)), 
