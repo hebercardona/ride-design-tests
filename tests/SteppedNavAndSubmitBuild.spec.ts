@@ -257,16 +257,6 @@ const TEST_RAIL_IDS = {
     }); 
   }
 
-  test.only(`Verify ben build submission for fr-ca @regression`, async ( { pages } ) => {
-
-    let modelId;
-    let items;
-    await pages.navigation.navigateToUrl('https://www.benningtonmarine.com/fr-ca/build-quote/?submissionID=9d8f52c0-d0a2-49ea-8956-34d1854a6f49&wholegood=673255__CatalogContent');
-    await test.step(`Click I am Finished and fill quote form`, async () => {
-      await pages.quote.enterBenFormDetailsAndSubmit();
-    });    
-  }); 
-
   for (const locale of testConfig.domesticLocales.gdy) {
     test(`${TEST_RAIL_IDS.gdy[locale]} Verify gdy build submission for ${locale} @regression`, async ( { pages } ) => {
       let modelId;
