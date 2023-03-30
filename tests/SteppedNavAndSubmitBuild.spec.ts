@@ -151,7 +151,7 @@ const TEST_RAIL_IDS = {
   }
 
   for (const locale of testConfig.domesticLocales.cmv) {
-    test.only(`${TEST_RAIL_IDS.cmv[locale]} Verify cmv build submission for ${locale} @regression`, async ( { pages } ) => {
+    test(`${TEST_RAIL_IDS.cmv[locale]} Verify cmv build submission for ${locale} @regression`, async ( { pages } ) => {
       let accessoryAdded;
       await test.step(`Navigate to commercial start build page`, async () => {
         await pages.navigation.navigateToStartingBuildUrl(Brands.cmv, locale);
