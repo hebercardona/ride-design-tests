@@ -1,6 +1,6 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
-process.env.ENV = `qa`
+process.env.ENV ??= 'qa';
 const ENV = process.env.ENV;
 console.log('ENV is: ' + process.env.ENV);
 
