@@ -1,17 +1,7 @@
 {
   "results": [
     {
-      "title": "C17826795 Verify cmv build submission for en-ca @regression",
-      "status": "passed",
-      "message": "Automated Test Passed"
-    },
-    {
-      "title": "C17826794 Verify cmv build submission for en-us @regression",
-      "status": "passed",
-      "message": "Automated Test Passed"
-    },
-    {
-      "title": "C17826796 Verify cmv build submission for fr-ca @regression",
+      "title": "Verify ben build submission for test @regression",
       "status": "passed",
       "message": "Automated Test Passed"
     }

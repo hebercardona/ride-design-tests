@@ -2,6 +2,7 @@ import { QuotePageObjects } from '../objectRepository/QuotePageObjects';
 import { Page, expect } from '@playwright/test';
 import { WebActions } from '../../framework/WebActions';
 import { TestData } from '@framework/TestData';
+import { Common } from '@framework/Common';
 
 let webActions: WebActions;
 
@@ -65,7 +66,11 @@ export class QuotePage extends QuotePageObjects {
     await webActions.enterElementText(QuotePageObjects.EMAIL, TestData.getTestEmail(this.page.url()));
     await webActions.enterElementText(QuotePageObjects.PHONE, '2067243787');
     await this.enterPostalCodeAndWaitForDealer();
-    await this.page.locator(QuotePageObjects.MIL_MKT_DROPDOWN).selectOption({ index: 1 });
+    if(Common.getUrlLocale(this.page.url()) === ('en-ca' || 'fr-ca')) {
+        await this.page.locator(QuotePageObjects.BEN_CANADA_PURCHASE_DATE).selectOption({ index: 1 });
+    } else {
+        await this.page.locator(QuotePageObjects.MIL_MKT_DROPDOWN).selectOption({ index: 1 });
+    }
     await webActions.clickElement(QuotePageObjects.AGE_CHK);
     await webActions.clickElement(QuotePageObjects.SUBMIT);
     await this.waitForFormSubmitted();

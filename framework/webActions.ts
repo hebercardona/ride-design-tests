@@ -15,10 +15,10 @@ export class WebActions {
     async clickElement(locator: string | Locator): Promise<void> {
         if(typeof locator === 'string') {
             await this.page.locator(locator).waitFor({state: "visible"});
-            await this.page.click(locator, {delay: 2000});
+            await this.page.click(locator, {delay: 3000});
         } else {
             await locator.waitFor({state: "visible"});
-            await locator.click({delay: 2000});
+            await locator.click({delay: 3000});
         }
         await this.page.waitForLoadState('domcontentloaded');
     }

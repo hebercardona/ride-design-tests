@@ -1,33 +1,8 @@
-{"level":"info","message":"Test Case Started : C17826794 Verify cmv build submission for en-us @regression"}
-{"level":"info","message":"Test Case Started : C17826795 Verify cmv build submission for en-ca @regression"}
-{"level":"info","message":"Test Case Started : C17826796 Verify cmv build submission for fr-ca @regression"}
-{"level":"info","message":"Executing Step : Navigate to commercial start build page"}
-{"level":"info","message":"Executing Step : Navigate to commercial start build page"}
-{"level":"info","message":"Executing Step : Navigate to commercial start build page"}
-{"level":"info","message":"Executing Step : Click seat category"}
-{"level":"info","message":"Executing Step : Click seat category"}
-{"level":"info","message":"Executing Step : Click seat category"}
-{"level":"info","message":"Executing Step : Click model category"}
-{"level":"info","message":"Executing Step : Click model category"}
-{"level":"info","message":"Executing Step : Click model category"}
-{"level":"info","message":"Executing Step : Click trim"}
-{"level":"info","message":"Executing Step : Click trim"}
-{"level":"info","message":"Executing Step : Click trim"}
-{"level":"info","message":"Executing Step : Click any color item if present"}
-{"level":"info","message":"Executing Step : Perform option selection substeps"}
-{"level":"info","message":"Executing Step : Click any color item if present"}
-{"level":"info","message":"Executing Step : Click any color item if present"}
-{"level":"info","message":"Executing Step : Perform option selection substeps"}
-{"level":"info","message":"Executing Step : Perform option selection substeps"}
-{"level":"info","message":"Executing Step : Add accessory"}
-{"level":"info","message":"Executing Step : Add accessory"}
-{"level":"info","message":"Executing Step : Add accessory"}
-{"level":"info","message":"Executing Step : Navigate to build quote and submit form"}
-{"level":"info","message":"Executing Step : Navigate to build quote and submit form"}
-{"level":"info","message":"Executing Step : Navigate to build quote and submit form"}
+{"level":"info","message":"Test Case Started : Verify ben build submission for test @regression"}
+{"level":"info","message":"Executing Step : Navigate to ben start build page"}
+{"level":"info","message":"Executing Step : Select any available layout item"}
+{"level":"info","message":"Executing Step : Click footer next button"}
+{"level":"info","message":"Executing Step : Open build summary and get summary items and model id"}
+{"level":"info","message":"Executing Step : Click I am Finished and fill quote form"}
 {"level":"info","message":"Executing Step : Verify confirmation page details"}
-{"level":"info","message":"Executing Step : Verify confirmation page details"}
-{"level":"info","message":"Executing Step : Verify confirmation page details"}
-{"level":"info","message":"Test Case Completed : C17826795 Verify cmv build submission for en-ca @regression Status : passed"}
-{"level":"info","message":"Test Case Completed : C17826794 Verify cmv build submission for en-us @regression Status : passed"}
-{"level":"info","message":"Test Case Completed : C17826796 Verify cmv build submission for fr-ca @regression Status : passed"}
+{"level":"info","message":"Test Case Completed : Verify ben build submission for test @regression Status : passed"}
