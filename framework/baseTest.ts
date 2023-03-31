@@ -1,6 +1,7 @@
 import { test as baseTest, expect } from '@playwright/test';
 import { BasePage } from '../pageFactory/pageRepository/BasePage';
 import { testConfig } from '@testConfig';
+import { CookieObjects } from './CookieObjects';
 
 type cookie = {
     name: string,
@@ -40,7 +41,7 @@ BasePage
         });
         //Add notice preference cookies
         await context.addCookies(
-            setNoticePreferenceCookie()
+            CookieObjects.getNoticePreferenceAcknowledeCookie()
         );
         //Catch error pages
         if(pageObjects.page.url().includes('http')) {
@@ -51,20 +52,5 @@ BasePage
         await use(pageObjects)
     },
 });
-
-function setNoticePreferenceCookie(): cookie[] {
-    let cookies: cookie[] = [];
-    Object.values(testConfig.brandDomains).forEach(value => {
-        cookies.push(
-            {
-                name: 'notice_preferences',
-                value: '2:',
-                path: '/',
-                domain: value as string
-            }
-        );
-    });
-    return cookies;
-}
 
 export { expect } from '@playwright/test';

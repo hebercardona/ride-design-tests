@@ -1,4 +1,26 @@
-{"level":"info","message":"Test Case Started : Verify accessory employee discount price is less than regular price"}
-{"level":"info","message":"Executing Step : Navigate to any model build url"}
-{"level":"info","message":"Executing Step : Login with employee account and verify discount price is less than regular for any product"}
-{"level":"info","message":"Test Case Completed : Verify accessory employee discount price is less than regular price Status : passed"}
+{"level":"info","message":"Test Case Started : C17826783 Verify ind build submission for en-us @regression "}
+{"level":"info","message":"Test Case Started : C17826785 Verify ind build submission for en-ca @regression "}
+{"level":"info","message":"Test Case Started : C17826786 Verify ind build submission for fr-ca @regression "}
+{"level":"info","message":"Executing Step : Navigate to indian start build page"}
+{"level":"info","message":"Executing Step : Navigate to indian start build page"}
+{"level":"info","message":"Executing Step : Navigate to indian start build page"}
+{"level":"info","message":"Executing Step : Navigate to accessories page with any selection"}
+{"level":"info","message":"Executing Step : Navigate to accessories page with any selection"}
+{"level":"info","message":"Executing Step : Navigate to accessories page with any selection"}
+{"level":"info","message":"Executing Step : Add accessory"}
+{"level":"info","message":"Executing Step : Navigate to build quote and submit form"}
+{"level":"info","message":"Executing Step : Add accessory"}
+{"level":"info","message":"Executing Step : Add accessory"}
+{"level":"info","message":"Executing Step : Navigate to build quote and submit form"}
+{"level":"info","message":"Executing Step : Navigate to build quote and submit form"}
+{"level":"info","message":"Executing Step : Verify confirmation page details"}
+{"level":"info","message":"Test Case Completed : C17826785 Verify ind build submission for en-ca @regression  Status : passed"}
+{"level":"info","message":"Test Case Started : C17826784 Verify ind build submission for es-us @regression "}
+{"level":"info","message":"Executing Step : Navigate to indian start build page"}
+{"level":"info","message":"Executing Step : Navigate to accessories page with any selection"}
+{"level":"info","message":"Executing Step : Add accessory"}
+{"level":"info","message":"Executing Step : Navigate to build quote and submit form"}
+{"level":"info","message":"Test Case Completed : C17826786 Verify ind build submission for fr-ca @regression  Status : failed"}
+{"level":"info","message":"Test Case Completed : C17826783 Verify ind build submission for en-us @regression  Status : failed"}
+{"level":"info","message":"Executing Step : Verify confirmation page details"}
+{"level":"info","message":"Test Case Completed : C17826784 Verify ind build submission for es-us @regression  Status : passed"}
