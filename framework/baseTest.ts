@@ -37,7 +37,7 @@ BasePage
                 error: ${msg.text()}`)
                 .toBeFalsy();
             }
-        })
+        });
         //Add notice preference cookies
         await context.addCookies(
             setNoticePreferenceCookie()

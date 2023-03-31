@@ -74,6 +74,7 @@ export class Carousel extends CarouselObjects {
     async addAccessory(): Promise<CarouselProduct> {
         let added: boolean;
         let product: CarouselProduct;
+        await webActions.waitForElementVisible(CarouselObjects.CATEGORY_ITEMS_VISIBLE);
         const categories = this.page.locator(CarouselObjects.CATEGORY_ITEMS_VISIBLE)
         .filter({has: this.page.locator(CarouselObjects.PRODUCT_ITEMS)});
 

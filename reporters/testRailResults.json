@@ -1,9 +1,9 @@
 {
   "results": [
     {
-      "title": "Verify ben build submission for fr-ca @regression",
-      "status": "interrupted",
-      "message": "page.click: Target closed\n=========================== logs ===========================\nwaiting for locator('button.dealer-selector-element__search-button')\n  locator resolved to <button type=\"button\" class=\"dealer-selector-element__se…>↵                        Recherche↵              …</button>\nattempting click action\n  waiting for element to be visible, enabled and stable\n  element is visible, enabled and stable\n  scrolling into view if needed\n============================================================"
+      "title": "Verify slg build submission for en-us @regression",
+      "status": "failed",
+      "message": "locator.waitFor: Target closed\n=========================== logs ===========================\nwaiting for locator('#configurator-app') to be visible\n============================================================"
     }
   ]
 }

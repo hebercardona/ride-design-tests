@@ -11,7 +11,7 @@ export class PageNav {
 
     async navigateToUrl(url: string): Promise<void> {
         expect((await this.page.request.get(url)).status(), `Url ${url} Validate response status`).toBe(200);
-        await this.page.goto(url, {waitUntil: 'networkidle'});
+        await this.page.goto(url);
     }
 
     async navigateToStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
@@ -20,7 +20,7 @@ export class PageNav {
             url = url.replace('category','model');
         }
         expect((await this.page.request.get(url)).status(), `Url ${url} Validate response status`).toBe(200);
-        await this.page.goto(url, {waitUntil: 'networkidle'});
+        await this.page.goto(url);
     }
 
     async navigateToPreviousYearStartingBuildUrl(brand: string, locale: string = `en-us`): Promise<void> {
@@ -29,6 +29,6 @@ export class PageNav {
             url = url.replace('category','model');
         }
         expect((await this.page.request.get(url)).status(), `Url ${url} Validate response status`).toBe(200);
-        await this.page.goto(url, {waitUntil: 'networkidle'});
+        await this.page.goto(url);
     }
 }
