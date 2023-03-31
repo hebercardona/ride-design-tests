@@ -190,6 +190,14 @@ export class Carousel extends CarouselObjects {
         return regularPrice > discountPrice;
     }
 
+    async verifyDiscountPriceLessThanRegularAnyProduct(): Promise<void> {
+        const product = await this.getProductWithEmployeeDiscountDisplayed();
+        expect(product).toBeTruthy();
+        const regularPrice = parseFloat(product.price.replace(/,/g, '').split('$')[1].trim()).toFixed(2);
+        const discountPrice = parseFloat(product.discountLabel.replace(/,/g, '').split('$')[1].trim()).toFixed(2);
+        expect(regularPrice > discountPrice, `Discount Price is not less than regular price for ${product.title}`).toBeTruthy();
+    }
+
     async addProductItem(product: CarouselProduct): Promise<void> {
         await webActions.clickElement(product.cta);
         await this.modals.clickPrpRequiredPartAddIfNeeded();

@@ -25,7 +25,7 @@ test('C15432125 Verify discount price shown for employee login @pricing @regress
   });
 });
 
-test('Verify accessory employee discount price is less than regular price', async( {pages} ) => {
+test('Verify accessory employee discount price is less than regular price @pricing @regression', async( {pages} ) => {
   await test.step(`Navigate to any model build url`, async() => {
     const url = await ApiData.getApiBuildUrl('en-us', 'rzr');
     await pages.navigation.navigateToUrl(url);
@@ -39,7 +39,7 @@ test('Verify accessory employee discount price is less than regular price', asyn
   });
 });
 
-test('Verify discount price is shown on build summary', async( {pages} ) => {
+test('Verify discount price is shown on build summary @pricing @regression', async( {pages} ) => {
   let product: CarouselProduct;
   await test.step(`Navigate to any model build url`, async() => {
     const url = await ApiData.getApiBuildUrl('en-us', 'rzr');

@@ -1,9 +1,9 @@
 {
   "results": [
     {
-      "title": "Verify slg build submission for en-us @regression",
-      "status": "failed",
-      "message": "locator.waitFor: Target closed\n=========================== logs ===========================\nwaiting for locator('#configurator-app') to be visible\n============================================================"
+      "title": "Verify accessory employee discount price is less than regular price",
+      "status": "passed",
+      "message": "Automated Test Passed"
     }
   ]
 }

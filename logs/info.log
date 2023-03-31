@@ -1,0 +1,4 @@
+{"level":"info","message":"Test Case Started : Verify accessory employee discount price is less than regular price"}
+{"level":"info","message":"Executing Step : Navigate to any model build url"}
+{"level":"info","message":"Executing Step : Login with employee account and verify discount price is less than regular for any product"}
+{"level":"info","message":"Test Case Completed : Verify accessory employee discount price is less than regular price Status : passed"}
