@@ -3,12 +3,6 @@ import { BasePage } from '../pageFactory/pageRepository/BasePage';
 import { testConfig } from '@testConfig';
 import { CookieObjects } from './CookieObjects';
 
-type cookie = {
-    name: string,
-    value: string,
-    path: string,
-    domain: string
-}
 
 const EMERGENT_ELEMENTS = {
     MINIMIZED_WIDGET_MESSAGE: `button[class*='MinimizedWidgetMessage__close']`,

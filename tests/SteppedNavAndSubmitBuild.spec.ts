@@ -48,7 +48,7 @@ const TEST_RAIL_IDS = {
   }
 
   for (const locale of testConfig.domesticLocales.ind) {
-    test(`${TEST_RAIL_IDS.ind[locale]} Verify ind build submission for ${locale} @regression `, async ( { pages } ) => {
+    test.only(`${TEST_RAIL_IDS.ind[locale]} Verify ind build submission for ${locale} @regression `, async ( { pages } ) => {
       let accessoryAdded;
       await test.step(`Navigate to indian start build page`, async () => {
         await pages.navigation.navigateToStartingBuildUrl(Brands.ind, locale);
